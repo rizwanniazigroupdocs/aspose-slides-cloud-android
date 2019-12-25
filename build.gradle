@@ -1,0 +1,44 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    compile 'io.swagger:swagger-annotations:1.5.15'
+    compile 'org.threeten:threetenbp:1.3.5'
+    implementation 'org.reflections:reflections:0.9.11'
+    testImplementation 'junit:junit:4.12'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+jar {
+    baseName 'aspose-slides-cloud-android-19.12.0'
+}
