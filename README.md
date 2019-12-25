@@ -59,7 +59,7 @@ The example code below converts a PowerPoint document to PDF format using aspose
         File response = api.postSlidesConvert(request);
         System.out.println("My PDF was saved to " + response.getPath());
 ```
-You can check more [Examples](Examples) of using the SDK.
+You can also check [android-demo-app](Demo Application).
 
 ## Contact Us
 
