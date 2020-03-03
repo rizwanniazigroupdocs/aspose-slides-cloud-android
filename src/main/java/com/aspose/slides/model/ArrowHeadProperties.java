@@ -227,7 +227,7 @@ public class ArrowHeadProperties {
    * Length.
    * @return length
   **/
-  @ApiModelProperty(required = true, value = "Length.")
+  @ApiModelProperty(value = "Length.")
   public LengthEnum getLength() {
     return length;
   }
@@ -245,7 +245,7 @@ public class ArrowHeadProperties {
    * Style.
    * @return style
   **/
-  @ApiModelProperty(required = true, value = "Style.")
+  @ApiModelProperty(value = "Style.")
   public StyleEnum getStyle() {
     return style;
   }
@@ -263,7 +263,7 @@ public class ArrowHeadProperties {
    * Width.
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Width.")
+  @ApiModelProperty(value = "Width.")
   public WidthEnum getWidth() {
     return width;
   }

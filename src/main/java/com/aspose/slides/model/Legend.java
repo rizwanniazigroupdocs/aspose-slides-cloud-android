@@ -142,7 +142,7 @@ public class Legend {
    * position
    * @return position
   **/
-  @ApiModelProperty(required = true, value = "position")
+  @ApiModelProperty(value = "position")
   public PositionEnum getPosition() {
     return position;
   }
@@ -160,7 +160,7 @@ public class Legend {
    * the X location
    * @return x
   **/
-  @ApiModelProperty(required = true, value = "the X location")
+  @ApiModelProperty(value = "the X location")
   public Double getX() {
     return x;
   }
@@ -178,7 +178,7 @@ public class Legend {
    * the Y location
    * @return y
   **/
-  @ApiModelProperty(required = true, value = "the Y location")
+  @ApiModelProperty(value = "the Y location")
   public Double getY() {
     return y;
   }
@@ -196,7 +196,7 @@ public class Legend {
    * Width
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Width")
+  @ApiModelProperty(value = "Width")
   public Double getWidth() {
     return width;
   }
@@ -214,7 +214,7 @@ public class Legend {
    * Height
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "Height")
+  @ApiModelProperty(value = "Height")
   public Double getHeight() {
     return height;
   }
@@ -232,7 +232,7 @@ public class Legend {
    * true if other elements are allowed to overlay the legend
    * @return overlay
   **/
-  @ApiModelProperty(required = true, value = "true if other elements are allowed to overlay the legend")
+  @ApiModelProperty(value = "true if other elements are allowed to overlay the legend")
   public Boolean isOverlay() {
     return overlay;
   }

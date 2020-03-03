@@ -241,7 +241,7 @@ public class TableCell {
    * The number of rows spanned by a merged cell.
    * @return rowSpan
   **/
-  @ApiModelProperty(required = true, value = "The number of rows spanned by a merged cell.")
+  @ApiModelProperty(value = "The number of rows spanned by a merged cell.")
   public Integer getRowSpan() {
     return rowSpan;
   }
@@ -259,7 +259,7 @@ public class TableCell {
    * The number of columns spanned by a merged cell.
    * @return colSpan
   **/
-  @ApiModelProperty(required = true, value = "The number of columns spanned by a merged cell.")
+  @ApiModelProperty(value = "The number of columns spanned by a merged cell.")
   public Integer getColSpan() {
     return colSpan;
   }
@@ -277,7 +277,7 @@ public class TableCell {
    * The top margin of the cell.
    * @return marginTop
   **/
-  @ApiModelProperty(required = true, value = "The top margin of the cell.")
+  @ApiModelProperty(value = "The top margin of the cell.")
   public Double getMarginTop() {
     return marginTop;
   }
@@ -295,7 +295,7 @@ public class TableCell {
    * The right margin of the cell.
    * @return marginRight
   **/
-  @ApiModelProperty(required = true, value = "The right margin of the cell.")
+  @ApiModelProperty(value = "The right margin of the cell.")
   public Double getMarginRight() {
     return marginRight;
   }
@@ -313,7 +313,7 @@ public class TableCell {
    * The left margin of the cell.
    * @return marginLeft
   **/
-  @ApiModelProperty(required = true, value = "The left margin of the cell.")
+  @ApiModelProperty(value = "The left margin of the cell.")
   public Double getMarginLeft() {
     return marginLeft;
   }
@@ -331,7 +331,7 @@ public class TableCell {
    * The bottom margin of the cell.
    * @return marginBottom
   **/
-  @ApiModelProperty(required = true, value = "The bottom margin of the cell.")
+  @ApiModelProperty(value = "The bottom margin of the cell.")
   public Double getMarginBottom() {
     return marginBottom;
   }
@@ -349,7 +349,7 @@ public class TableCell {
    * Text anchor type.
    * @return textAnchorType
   **/
-  @ApiModelProperty(required = true, value = "Text anchor type.")
+  @ApiModelProperty(value = "Text anchor type.")
   public TextAnchorTypeEnum getTextAnchorType() {
     return textAnchorType;
   }
@@ -367,7 +367,7 @@ public class TableCell {
    * The type of vertical text.
    * @return textVerticalType
   **/
-  @ApiModelProperty(required = true, value = "The type of vertical text.")
+  @ApiModelProperty(value = "The type of vertical text.")
   public TextVerticalTypeEnum getTextVerticalType() {
     return textVerticalType;
   }

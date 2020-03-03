@@ -144,7 +144,7 @@ public class SeriesMarker {
    * size
    * @return size
   **/
-  @ApiModelProperty(required = true, value = "size")
+  @ApiModelProperty(value = "size")
   public Integer getSize() {
     return size;
   }
@@ -162,7 +162,7 @@ public class SeriesMarker {
    * symbol
    * @return symbol
   **/
-  @ApiModelProperty(required = true, value = "symbol")
+  @ApiModelProperty(value = "symbol")
   public SymbolEnum getSymbol() {
     return symbol;
   }

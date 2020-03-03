@@ -182,7 +182,7 @@ public class ChartWall {
    * Get or sets wall thickness as a percentage of the largest dimension of the plot volume.
    * @return thickness
   **/
-  @ApiModelProperty(required = true, value = "Get or sets wall thickness as a percentage of the largest dimension of the plot volume.")
+  @ApiModelProperty(value = "Get or sets wall thickness as a percentage of the largest dimension of the plot volume.")
   public Integer getThickness() {
     return thickness;
   }
@@ -200,7 +200,7 @@ public class ChartWall {
    * Get or sets mode of bar picture filling.
    * @return pictureType
   **/
-  @ApiModelProperty(required = true, value = "Get or sets mode of bar picture filling.")
+  @ApiModelProperty(value = "Get or sets mode of bar picture filling.")
   public PictureTypeEnum getPictureType() {
     return pictureType;
   }

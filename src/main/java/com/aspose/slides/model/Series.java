@@ -305,7 +305,7 @@ public class Series {
    * Series type.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Series type.")
+  @ApiModelProperty(value = "Series type.")
   public TypeEnum getType() {
     return type;
   }
@@ -341,7 +341,7 @@ public class Series {
    * True if each data marker in the series has a different color.
    * @return isColorVaried
   **/
-  @ApiModelProperty(required = true, value = "True if each data marker in the series has a different color.")
+  @ApiModelProperty(value = "True if each data marker in the series has a different color.")
   public Boolean isIsColorVaried() {
     return isColorVaried;
   }
@@ -377,7 +377,7 @@ public class Series {
    * True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
    * @return smooth
   **/
-  @ApiModelProperty(required = true, value = "True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.")
+  @ApiModelProperty(value = "True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.")
   public Boolean isSmooth() {
     return smooth;
   }
@@ -395,7 +395,7 @@ public class Series {
    * True if the series is plotted on second value axis.
    * @return plotOnSecondAxis
   **/
-  @ApiModelProperty(required = true, value = "True if the series is plotted on second value axis.")
+  @ApiModelProperty(value = "True if the series is plotted on second value axis.")
   public Boolean isPlotOnSecondAxis() {
     return plotOnSecondAxis;
   }
@@ -413,7 +413,7 @@ public class Series {
    * Series order.
    * @return order
   **/
-  @ApiModelProperty(required = true, value = "Series order.")
+  @ApiModelProperty(value = "Series order.")
   public Integer getOrder() {
     return order;
   }
@@ -503,7 +503,7 @@ public class Series {
    * True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
    * @return invertIfNegative
   **/
-  @ApiModelProperty(required = true, value = "True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.")
+  @ApiModelProperty(value = "True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.")
   public Boolean isInvertIfNegative() {
     return invertIfNegative;
   }
@@ -521,7 +521,7 @@ public class Series {
    * The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
    * @return explosion
   **/
-  @ApiModelProperty(required = true, value = "The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.")
+  @ApiModelProperty(value = "The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.")
   public Integer getExplosion() {
     return explosion;
   }

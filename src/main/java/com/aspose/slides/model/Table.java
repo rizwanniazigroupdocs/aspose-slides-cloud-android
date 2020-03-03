@@ -299,7 +299,7 @@ public class Table extends ShapeBase {
    * Builtin table style.
    * @return style
   **/
-  @ApiModelProperty(required = true, value = "Builtin table style.")
+  @ApiModelProperty(value = "Builtin table style.")
   public StyleEnum getStyle() {
     return style;
   }
@@ -369,7 +369,7 @@ public class Table extends ShapeBase {
    * Determines whether the first column of a table has to be drawn with a special formatting.
    * @return firstCol
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the first column of a table has to be drawn with a special formatting.")
+  @ApiModelProperty(value = "Determines whether the first column of a table has to be drawn with a special formatting.")
   public Boolean isFirstCol() {
     return firstCol;
   }
@@ -387,7 +387,7 @@ public class Table extends ShapeBase {
    * Determines whether the first row of a table has to be drawn with a special formatting.
    * @return firstRow
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the first row of a table has to be drawn with a special formatting.")
+  @ApiModelProperty(value = "Determines whether the first row of a table has to be drawn with a special formatting.")
   public Boolean isFirstRow() {
     return firstRow;
   }
@@ -405,7 +405,7 @@ public class Table extends ShapeBase {
    * Determines whether the even rows has to be drawn with a different formatting.
    * @return horizontalBanding
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the even rows has to be drawn with a different formatting.")
+  @ApiModelProperty(value = "Determines whether the even rows has to be drawn with a different formatting.")
   public Boolean isHorizontalBanding() {
     return horizontalBanding;
   }
@@ -423,7 +423,7 @@ public class Table extends ShapeBase {
    * Determines whether the last column of a table has to be drawn with a special formatting.
    * @return lastCol
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the last column of a table has to be drawn with a special formatting.")
+  @ApiModelProperty(value = "Determines whether the last column of a table has to be drawn with a special formatting.")
   public Boolean isLastCol() {
     return lastCol;
   }
@@ -441,7 +441,7 @@ public class Table extends ShapeBase {
    * Determines whether the last row of a table has to be drawn with a special formatting.
    * @return lastRow
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the last row of a table has to be drawn with a special formatting.")
+  @ApiModelProperty(value = "Determines whether the last row of a table has to be drawn with a special formatting.")
   public Boolean isLastRow() {
     return lastRow;
   }
@@ -459,7 +459,7 @@ public class Table extends ShapeBase {
    * Determines whether the table has right to left reading order.
    * @return rightToLeft
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the table has right to left reading order.")
+  @ApiModelProperty(value = "Determines whether the table has right to left reading order.")
   public Boolean isRightToLeft() {
     return rightToLeft;
   }
@@ -477,7 +477,7 @@ public class Table extends ShapeBase {
    * Determines whether the even columns has to be drawn with a different formatting.
    * @return verticalBanding
   **/
-  @ApiModelProperty(required = true, value = "Determines whether the even columns has to be drawn with a different formatting.")
+  @ApiModelProperty(value = "Determines whether the even columns has to be drawn with a different formatting.")
   public Boolean isVerticalBanding() {
     return verticalBanding;
   }

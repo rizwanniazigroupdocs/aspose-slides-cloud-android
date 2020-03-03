@@ -259,7 +259,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/file/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString());
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.objectToString(request.getSrcPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "destPath", request.getDestPath());
@@ -381,7 +381,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/folder/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString());
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.objectToString(request.getSrcPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "destPath", request.getDestPath());
@@ -488,16 +488,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling createFolder(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -602,16 +597,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteFile(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -717,16 +707,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteFolder(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -846,7 +831,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -967,11 +952,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlideParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlideParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteNotesSlideParagraph(Async)");
@@ -986,7 +966,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -1107,11 +1087,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlideParagraphs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlideParagraphs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteNotesSlideParagraphs(Async)");
@@ -1121,7 +1096,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "paragraphs", request.getParagraphs());
@@ -1243,11 +1218,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlidePortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlidePortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteNotesSlidePortion(Async)");
@@ -1267,7 +1237,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -1388,11 +1358,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlidePortions(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlidePortions(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteNotesSlidePortions(Async)");
@@ -1407,7 +1372,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "portions", request.getPortions());
@@ -1529,11 +1494,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlideShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlideShape(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteNotesSlideShape(Async)");
@@ -1543,7 +1503,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -1664,16 +1624,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteNotesSlideShapes(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteNotesSlideShapes(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "shapes", request.getShapes());
@@ -1795,11 +1750,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteParagraph(Async)");
@@ -1814,7 +1764,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -1935,11 +1885,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteParagraphs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteParagraphs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteParagraphs(Async)");
@@ -1949,7 +1894,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "paragraphs", request.getParagraphs());
@@ -2071,11 +2016,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deletePortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deletePortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deletePortion(Async)");
@@ -2095,7 +2035,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -2216,11 +2156,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deletePortions(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deletePortions(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deletePortions(Async)");
@@ -2235,7 +2170,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "portions", request.getPortions());
@@ -2361,7 +2296,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -2491,7 +2426,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "effectIndex" + "\\}", request.getEffectIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "effectIndex" + "\\}", apiClient.objectToString(request.getEffectIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -2621,7 +2556,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "sequenceIndex" + "\\}", request.getSequenceIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "sequenceIndex" + "\\}", apiClient.objectToString(request.getSequenceIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -2756,7 +2691,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "sequenceIndex" + "\\}", request.getSequenceIndex().toString()).replaceAll("\\{" + "effectIndex" + "\\}", request.getEffectIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "sequenceIndex" + "\\}", apiClient.objectToString(request.getSequenceIndex())).replaceAll("\\{" + "effectIndex" + "\\}", apiClient.objectToString(request.getEffectIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -2881,7 +2816,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3006,7 +2941,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/mainSequence"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3131,7 +3066,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3252,11 +3187,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteSlideShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteSlideShape(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteSlideShape(Async)");
@@ -3266,7 +3196,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3387,16 +3317,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteSlideShapes(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling deleteSlideShapes(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "shapes", request.getShapes());
@@ -3517,7 +3442,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "slides", request.getSlides());
@@ -3638,7 +3563,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3763,7 +3688,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "propertyName" + "\\}", apiClient.objectToString(request.getPropertyName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3888,7 +3813,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/background"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -3999,16 +3924,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling downloadFile(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -4231,16 +4151,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call getFileVersionsCall(GetFileVersionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getFileVersions(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/version/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -4349,16 +4264,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getFilesList(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -4481,7 +4391,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/layoutSlides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -4601,7 +4511,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/layoutSlides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -4726,7 +4636,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/masterSlides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -4846,7 +4756,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/masterSlides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -4971,7 +4881,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5092,11 +5002,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShape(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getNotesSlideShape(Async)");
@@ -5106,7 +5011,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5227,11 +5132,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShapeParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShapeParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getNotesSlideShapeParagraph(Async)");
@@ -5246,7 +5146,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5367,11 +5267,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShapeParagraphs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShapeParagraphs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getNotesSlideShapeParagraphs(Async)");
@@ -5381,7 +5276,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5502,11 +5397,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShapePortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShapePortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getNotesSlideShapePortion(Async)");
@@ -5526,7 +5416,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5647,11 +5537,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShapePortions(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShapePortions(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getNotesSlideShapePortions(Async)");
@@ -5666,7 +5551,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5787,16 +5672,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideShapes(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getNotesSlideShapes(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -5926,7 +5806,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "width", request.getWidth());
@@ -6050,11 +5930,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getParagraphPortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getParagraphPortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getParagraphPortion(Async)");
@@ -6074,7 +5949,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -6195,11 +6070,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getParagraphPortions(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getParagraphPortions(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getParagraphPortions(Async)");
@@ -6214,7 +6084,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -6344,7 +6214,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "shapeIndex", request.getShapeIndex());
@@ -6466,11 +6336,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getSlideShape(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getSlideShape(Async)");
@@ -6480,7 +6345,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -6601,11 +6466,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideShapeParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getSlideShapeParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getSlideShapeParagraph(Async)");
@@ -6620,7 +6480,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -6741,11 +6601,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideShapeParagraphs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getSlideShapeParagraphs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling getSlideShapeParagraphs(Async)");
@@ -6755,7 +6610,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -6876,16 +6731,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideShapes(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getSlideShapes(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7117,7 +6967,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7237,7 +7087,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7362,7 +7212,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "propertyName" + "\\}", apiClient.objectToString(request.getPropertyName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7487,7 +7337,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/images/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "index" + "\\}", request.getIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "index" + "\\}", apiClient.objectToString(request.getIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7617,7 +7467,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/images/{index}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "index" + "\\}", apiClient.objectToString(request.getIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7737,7 +7587,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/images"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7867,7 +7717,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/placeholders/{placeholderIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "placeholderIndex" + "\\}", request.getPlaceholderIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "placeholderIndex" + "\\}", apiClient.objectToString(request.getPlaceholderIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -7992,7 +7842,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/placeholders"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8112,7 +7962,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/textItems"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "withEmpty", request.getWithEmpty());
@@ -8238,7 +8088,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8363,7 +8213,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/background"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8488,7 +8338,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/comments"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8613,7 +8463,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/images"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8738,7 +8588,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/textItems"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "withEmpty", request.getWithEmpty());
@@ -8859,7 +8709,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -8984,7 +8834,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/theme"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -9109,7 +8959,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/theme/colorScheme"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -9234,7 +9084,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/theme/fontScheme"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -9359,7 +9209,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/theme/formatScheme"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -9484,7 +9334,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/file/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString());
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.objectToString(request.getSrcPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "destPath", request.getDestPath());
@@ -9606,7 +9456,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/folder/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString());
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.objectToString(request.getSrcPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "destPath", request.getDestPath());
@@ -9713,16 +9563,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call objectExistsCall(ObjectExistsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling objectExists(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
         String path = "/slides/storage/exist/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());
@@ -9842,11 +9687,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postAddNewParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postAddNewParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postAddNewParagraph(Async)");
@@ -9856,7 +9696,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -9978,11 +9818,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postAddNewPortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postAddNewPortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postAddNewPortion(Async)");
@@ -9997,7 +9832,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -10119,16 +9954,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postAddNewShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postAddNewShape(Async)");
-        }
-        
         Object postBody = request.getDto();
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -10255,7 +10085,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -10385,7 +10215,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/layoutSlides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "cloneFrom", request.getCloneFrom());
@@ -10519,7 +10349,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/masterSlides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "cloneFrom", request.getCloneFrom());
@@ -10645,11 +10475,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postNotesSlideAddNewParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postNotesSlideAddNewParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postNotesSlideAddNewParagraph(Async)");
@@ -10659,7 +10484,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -10781,11 +10606,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postNotesSlideAddNewPortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postNotesSlideAddNewPortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postNotesSlideAddNewPortion(Async)");
@@ -10800,7 +10620,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -10922,16 +10742,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postNotesSlideAddNewShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postNotesSlideAddNewShape(Async)");
-        }
-        
         Object postBody = request.getDto();
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11054,11 +10869,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postNotesSlideShapeSaveAs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postNotesSlideShapeSaveAs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postNotesSlideShapeSaveAs(Async)");
@@ -11073,7 +10883,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11197,7 +11007,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/merge"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11318,11 +11128,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postShapeSaveAs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling postShapeSaveAs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postShapeSaveAs(Async)");
@@ -11337,7 +11142,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11466,7 +11271,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/mainSequence"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11591,7 +11396,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11721,7 +11526,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "sequenceIndex" + "\\}", request.getSequenceIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "sequenceIndex" + "\\}", apiClient.objectToString(request.getSequenceIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -11851,7 +11656,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "width", request.getWidth());
@@ -11974,7 +11779,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "position", request.getPosition());
@@ -12096,7 +11901,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/convert/{format}"
-            .replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -12220,7 +12025,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/copy"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "slideToCopy", request.getSlideToCopy());
@@ -12345,7 +12150,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "inputPassword", request.getInputPassword());
@@ -12466,7 +12271,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/fromHtml"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -12586,7 +12391,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/fromSource"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "sourcePath", request.getSourcePath());
@@ -12714,7 +12519,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/fromTemplate"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "templatePath", request.getTemplatePath());
@@ -12964,7 +12769,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "oldValue", request.getOldValue());
@@ -13097,7 +12902,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/move"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "newPosition", request.getNewPosition());
@@ -13218,7 +13023,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/reorder"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "oldPositions", request.getOldPositions());
@@ -13345,7 +13150,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -13466,7 +13271,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -13601,7 +13406,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "oldValue", request.getOldValue());
@@ -13724,7 +13529,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/split"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "format", request.getFormat());
@@ -13856,7 +13661,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/layoutSlides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -13977,11 +13782,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putNotesSlideShapeSaveAs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putNotesSlideShapeSaveAs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putNotesSlideShapeSaveAs(Async)");
@@ -14001,7 +13801,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "outPath", request.getOutPath());
@@ -14122,7 +13922,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/merge"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -14243,11 +14043,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSetParagraphPortionProperties(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putSetParagraphPortionProperties(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putSetParagraphPortionProperties(Async)");
@@ -14267,7 +14062,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -14388,11 +14183,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSetParagraphProperties(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putSetParagraphProperties(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putSetParagraphProperties(Async)");
@@ -14407,7 +14197,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -14528,11 +14318,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putShapeSaveAs(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putShapeSaveAs(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putShapeSaveAs(Async)");
@@ -14552,7 +14337,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "outPath", request.getOutPath());
@@ -14678,7 +14463,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -14808,7 +14593,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "effectIndex" + "\\}", request.getEffectIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "effectIndex" + "\\}", apiClient.objectToString(request.getEffectIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -14943,7 +14728,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "sequenceIndex" + "\\}", request.getSequenceIndex().toString()).replaceAll("\\{" + "effectIndex" + "\\}", request.getEffectIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "sequenceIndex" + "\\}", apiClient.objectToString(request.getSequenceIndex())).replaceAll("\\{" + "effectIndex" + "\\}", apiClient.objectToString(request.getEffectIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -15078,7 +14863,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "outPath", request.getOutPath());
@@ -15199,11 +14984,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSlideShapeInfo(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putSlideShapeInfo(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putSlideShapeInfo(Async)");
@@ -15213,7 +14993,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -15338,7 +15118,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/convert/{format}"
-            .replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "outPath", request.getOutPath());
@@ -15454,7 +15234,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/fromHtml"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -15584,7 +15364,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/{format}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "format" + "\\}", request.getFormat().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "outPath", request.getOutPath());
@@ -15707,7 +15487,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/documentproperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "propertyName" + "\\}", apiClient.objectToString(request.getPropertyName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -15832,7 +15612,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -15957,7 +15737,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/background"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
@@ -16087,7 +15867,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/backgroundColor"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "color", request.getColor());
@@ -16208,7 +15988,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slideSize"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -16337,7 +16117,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -16458,11 +16238,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putUpdateNotesSlideShape(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putUpdateNotesSlideShape(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putUpdateNotesSlideShape(Async)");
@@ -16472,7 +16247,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -16593,11 +16368,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putUpdateNotesSlideShapeParagraph(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putUpdateNotesSlideShapeParagraph(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putUpdateNotesSlideShapeParagraph(Async)");
@@ -16612,7 +16382,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -16733,11 +16503,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putUpdateNotesSlideShapePortion(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling putUpdateNotesSlideShapePortion(Async)");
-        }
-        
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putUpdateNotesSlideShapePortion(Async)");
@@ -16757,7 +16522,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("\\{" + "slideIndex" + "\\}", request.getSlideIndex().toString()).replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("\\{" + "shapeIndex" + "\\}", request.getShapeIndex().toString()).replaceAll("\\{" + "paragraphIndex" + "\\}", request.getParagraphIndex().toString()).replaceAll("\\{" + "portionIndex" + "\\}", request.getPortionIndex().toString());
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "paragraphIndex" + "\\}", apiClient.objectToString(request.getParagraphIndex())).replaceAll("\\{" + "portionIndex" + "\\}", apiClient.objectToString(request.getPortionIndex()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "password", request.getPassword());
@@ -16877,7 +16642,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/{storageName}/exist"
-            .replaceAll("\\{" + "storageName" + "\\}", request.getStorageName().toString());
+            .replaceAll("\\{" + "storageName" + "\\}", apiClient.objectToString(request.getStorageName()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
 
@@ -16985,11 +16750,6 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'path' is set
-        if (request.getPath() == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling uploadFile(Async)");
-        }
-        
         // verify the required parameter 'file' is set
         if (request.getFile() == null) {
             throw new ApiException("Missing the required parameter 'file' when calling uploadFile(Async)");
@@ -16999,7 +16759,7 @@ public class SlidesApi {
 
         // create path and map variables
         String path = "/slides/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString());
+            .replaceAll("\\{" + "path" + "\\}", apiClient.objectToString(request.getPath()));
 
         List<Pair> queryParams = new ArrayList<Pair>();
         apiClient.addQueryParameter(queryParams, "storageName", request.getStorageName());

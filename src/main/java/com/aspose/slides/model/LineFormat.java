@@ -370,7 +370,7 @@ public class LineFormat {
    * Alignment.
    * @return alignment
   **/
-  @ApiModelProperty(required = true, value = "Alignment.")
+  @ApiModelProperty(value = "Alignment.")
   public AlignmentEnum getAlignment() {
     return alignment;
   }
@@ -388,7 +388,7 @@ public class LineFormat {
    * Cap style.
    * @return capStyle
   **/
-  @ApiModelProperty(required = true, value = "Cap style.")
+  @ApiModelProperty(value = "Cap style.")
   public CapStyleEnum getCapStyle() {
     return capStyle;
   }
@@ -406,7 +406,7 @@ public class LineFormat {
    * Dash style.
    * @return dashStyle
   **/
-  @ApiModelProperty(required = true, value = "Dash style.")
+  @ApiModelProperty(value = "Dash style.")
   public DashStyleEnum getDashStyle() {
     return dashStyle;
   }
@@ -424,7 +424,7 @@ public class LineFormat {
    * Join style.
    * @return joinStyle
   **/
-  @ApiModelProperty(required = true, value = "Join style.")
+  @ApiModelProperty(value = "Join style.")
   public JoinStyleEnum getJoinStyle() {
     return joinStyle;
   }
@@ -442,7 +442,7 @@ public class LineFormat {
    * Style.
    * @return style
   **/
-  @ApiModelProperty(required = true, value = "Style.")
+  @ApiModelProperty(value = "Style.")
   public StyleEnum getStyle() {
     return style;
   }
@@ -532,7 +532,7 @@ public class LineFormat {
    * Miter limit.
    * @return miterLimit
   **/
-  @ApiModelProperty(required = true, value = "Miter limit.")
+  @ApiModelProperty(value = "Miter limit.")
   public Double getMiterLimit() {
     return miterLimit;
   }
@@ -550,7 +550,7 @@ public class LineFormat {
    * Width.
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Width.")
+  @ApiModelProperty(value = "Width.")
   public Double getWidth() {
     return width;
   }

@@ -682,7 +682,7 @@ public class Axis {
    * True if the axis is visible
    * @return isVisible
   **/
-  @ApiModelProperty(required = true, value = "True if the axis is visible")
+  @ApiModelProperty(value = "True if the axis is visible")
   public Boolean isIsVisible() {
     return isVisible;
   }
@@ -700,7 +700,7 @@ public class Axis {
    * True if the axis has a visible title
    * @return hasTitle
   **/
-  @ApiModelProperty(required = true, value = "True if the axis has a visible title")
+  @ApiModelProperty(value = "True if the axis has a visible title")
   public Boolean isHasTitle() {
     return hasTitle;
   }
@@ -718,7 +718,7 @@ public class Axis {
    * Axis position
    * @return position
   **/
-  @ApiModelProperty(required = true, value = "Axis position")
+  @ApiModelProperty(value = "Axis position")
   public PositionEnum getPosition() {
     return position;
   }
@@ -736,7 +736,7 @@ public class Axis {
    * The scaling value of the display units for the value axis
    * @return displayUnit
   **/
-  @ApiModelProperty(required = true, value = "The scaling value of the display units for the value axis")
+  @ApiModelProperty(value = "The scaling value of the display units for the value axis")
   public DisplayUnitEnum getDisplayUnit() {
     return displayUnit;
   }
@@ -754,7 +754,7 @@ public class Axis {
    * The smallest time unit that is represented on the date axis
    * @return baseUnitScale
   **/
-  @ApiModelProperty(required = true, value = "The smallest time unit that is represented on the date axis")
+  @ApiModelProperty(value = "The smallest time unit that is represented on the date axis")
   public BaseUnitScaleEnum getBaseUnitScale() {
     return baseUnitScale;
   }
@@ -772,7 +772,7 @@ public class Axis {
    * True the major unit of the axis is automatically assigned
    * @return isAutomaticMajorUnit
   **/
-  @ApiModelProperty(required = true, value = "True the major unit of the axis is automatically assigned")
+  @ApiModelProperty(value = "True the major unit of the axis is automatically assigned")
   public Boolean isIsAutomaticMajorUnit() {
     return isAutomaticMajorUnit;
   }
@@ -790,7 +790,7 @@ public class Axis {
    * The major units for the date or value axis
    * @return majorUnit
   **/
-  @ApiModelProperty(required = true, value = "The major units for the date or value axis")
+  @ApiModelProperty(value = "The major units for the date or value axis")
   public Double getMajorUnit() {
     return majorUnit;
   }
@@ -808,7 +808,7 @@ public class Axis {
    * The major unit scale for the date axis
    * @return majorUnitScale
   **/
-  @ApiModelProperty(required = true, value = "The major unit scale for the date axis")
+  @ApiModelProperty(value = "The major unit scale for the date axis")
   public MajorUnitScaleEnum getMajorUnitScale() {
     return majorUnitScale;
   }
@@ -826,7 +826,7 @@ public class Axis {
    * The type of major tick mark for the specified axis
    * @return majorTickMark
   **/
-  @ApiModelProperty(required = true, value = "The type of major tick mark for the specified axis")
+  @ApiModelProperty(value = "The type of major tick mark for the specified axis")
   public MajorTickMarkEnum getMajorTickMark() {
     return majorTickMark;
   }
@@ -844,7 +844,7 @@ public class Axis {
    * True the minor unit of the axis is automatically assigned
    * @return isAutomaticMinorUnit
   **/
-  @ApiModelProperty(required = true, value = "True the minor unit of the axis is automatically assigned")
+  @ApiModelProperty(value = "True the minor unit of the axis is automatically assigned")
   public Boolean isIsAutomaticMinorUnit() {
     return isAutomaticMinorUnit;
   }
@@ -862,7 +862,7 @@ public class Axis {
    * The minor units for the date or value axis
    * @return minorUnit
   **/
-  @ApiModelProperty(required = true, value = "The minor units for the date or value axis")
+  @ApiModelProperty(value = "The minor units for the date or value axis")
   public Double getMinorUnit() {
     return minorUnit;
   }
@@ -880,7 +880,7 @@ public class Axis {
    * The minor unit scale for the date axis
    * @return minorUnitScale
   **/
-  @ApiModelProperty(required = true, value = "The minor unit scale for the date axis")
+  @ApiModelProperty(value = "The minor unit scale for the date axis")
   public MinorUnitScaleEnum getMinorUnitScale() {
     return minorUnitScale;
   }
@@ -898,7 +898,7 @@ public class Axis {
    * The type of minor tick mark for the specified axis
    * @return minorTickMark
   **/
-  @ApiModelProperty(required = true, value = "The type of minor tick mark for the specified axis")
+  @ApiModelProperty(value = "The type of minor tick mark for the specified axis")
   public MinorTickMarkEnum getMinorTickMark() {
     return minorTickMark;
   }
@@ -916,7 +916,7 @@ public class Axis {
    * True if the max value is automatically assigned
    * @return isAutomaticMaxValue
   **/
-  @ApiModelProperty(required = true, value = "True if the max value is automatically assigned")
+  @ApiModelProperty(value = "True if the max value is automatically assigned")
   public Boolean isIsAutomaticMaxValue() {
     return isAutomaticMaxValue;
   }
@@ -934,7 +934,7 @@ public class Axis {
    * The maximum value on the value axis
    * @return maxValue
   **/
-  @ApiModelProperty(required = true, value = "The maximum value on the value axis")
+  @ApiModelProperty(value = "The maximum value on the value axis")
   public Double getMaxValue() {
     return maxValue;
   }
@@ -952,7 +952,7 @@ public class Axis {
    * True if the min value is automatically assigned
    * @return isAutomaticMinValue
   **/
-  @ApiModelProperty(required = true, value = "True if the min value is automatically assigned")
+  @ApiModelProperty(value = "True if the min value is automatically assigned")
   public Boolean isIsAutomaticMinValue() {
     return isAutomaticMinValue;
   }
@@ -970,7 +970,7 @@ public class Axis {
    * The minimum value on the value axis
    * @return minValue
   **/
-  @ApiModelProperty(required = true, value = "The minimum value on the value axis")
+  @ApiModelProperty(value = "The minimum value on the value axis")
   public Double getMinValue() {
     return minValue;
   }
@@ -988,7 +988,7 @@ public class Axis {
    * True if the value axis scale type is logarithmic
    * @return isLogarithmic
   **/
-  @ApiModelProperty(required = true, value = "True if the value axis scale type is logarithmic")
+  @ApiModelProperty(value = "True if the value axis scale type is logarithmic")
   public Boolean isIsLogarithmic() {
     return isLogarithmic;
   }
@@ -1006,7 +1006,7 @@ public class Axis {
    * The logarithmic base. Default value is 10
    * @return logBase
   **/
-  @ApiModelProperty(required = true, value = "The logarithmic base. Default value is 10")
+  @ApiModelProperty(value = "The logarithmic base. Default value is 10")
   public Double getLogBase() {
     return logBase;
   }
@@ -1024,7 +1024,7 @@ public class Axis {
    * The type of the category axis
    * @return categoryAxisType
   **/
-  @ApiModelProperty(required = true, value = "The type of the category axis")
+  @ApiModelProperty(value = "The type of the category axis")
   public CategoryAxisTypeEnum getCategoryAxisType() {
     return categoryAxisType;
   }
@@ -1042,7 +1042,7 @@ public class Axis {
    * True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn&#39;t apply to 3-D charts
    * @return axisBetweenCategories
   **/
-  @ApiModelProperty(required = true, value = "True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts")
+  @ApiModelProperty(value = "True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts")
   public Boolean isAxisBetweenCategories() {
     return axisBetweenCategories;
   }
@@ -1060,7 +1060,7 @@ public class Axis {
    * The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             
    * @return labelOffset
   **/
-  @ApiModelProperty(required = true, value = "The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             ")
+  @ApiModelProperty(value = "The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             ")
   public Integer getLabelOffset() {
     return labelOffset;
   }
@@ -1078,7 +1078,7 @@ public class Axis {
    * True if MS PowerPoint plots data points from last to first
    * @return isPlotOrderReversed
   **/
-  @ApiModelProperty(required = true, value = "True if MS PowerPoint plots data points from last to first")
+  @ApiModelProperty(value = "True if MS PowerPoint plots data points from last to first")
   public Boolean isIsPlotOrderReversed() {
     return isPlotOrderReversed;
   }
@@ -1096,7 +1096,7 @@ public class Axis {
    * True if the format is linked to source data
    * @return isNumberFormatLinkedToSource
   **/
-  @ApiModelProperty(required = true, value = "True if the format is linked to source data")
+  @ApiModelProperty(value = "True if the format is linked to source data")
   public Boolean isIsNumberFormatLinkedToSource() {
     return isNumberFormatLinkedToSource;
   }
@@ -1132,7 +1132,7 @@ public class Axis {
    * The CrossType on the specified axis where the other axis crosses
    * @return crossType
   **/
-  @ApiModelProperty(required = true, value = "The CrossType on the specified axis where the other axis crosses")
+  @ApiModelProperty(value = "The CrossType on the specified axis where the other axis crosses")
   public CrossTypeEnum getCrossType() {
     return crossType;
   }
@@ -1150,7 +1150,7 @@ public class Axis {
    * The point on the axis where the perpendicular axis crosses it
    * @return crossAt
   **/
-  @ApiModelProperty(required = true, value = "The point on the axis where the perpendicular axis crosses it")
+  @ApiModelProperty(value = "The point on the axis where the perpendicular axis crosses it")
   public Double getCrossAt() {
     return crossAt;
   }
@@ -1168,7 +1168,7 @@ public class Axis {
    * True for automatic tick marks spacing value
    * @return isAutomaticTickMarksSpacing
   **/
-  @ApiModelProperty(required = true, value = "True for automatic tick marks spacing value")
+  @ApiModelProperty(value = "True for automatic tick marks spacing value")
   public Boolean isIsAutomaticTickMarksSpacing() {
     return isAutomaticTickMarksSpacing;
   }
@@ -1186,7 +1186,7 @@ public class Axis {
    * Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
    * @return tickMarksSpacing
   **/
-  @ApiModelProperty(required = true, value = "Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.")
+  @ApiModelProperty(value = "Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.")
   public Integer getTickMarksSpacing() {
     return tickMarksSpacing;
   }
@@ -1204,7 +1204,7 @@ public class Axis {
    * True for automatic tick label spacing value
    * @return isAutomaticTickLabelSpacing
   **/
-  @ApiModelProperty(required = true, value = "True for automatic tick label spacing value")
+  @ApiModelProperty(value = "True for automatic tick label spacing value")
   public Boolean isIsAutomaticTickLabelSpacing() {
     return isAutomaticTickLabelSpacing;
   }
@@ -1222,7 +1222,7 @@ public class Axis {
    * Specifies how many tick labels to skip between label that is drawn.
    * @return tickLabelSpacing
   **/
-  @ApiModelProperty(required = true, value = "Specifies how many tick labels to skip between label that is drawn.")
+  @ApiModelProperty(value = "Specifies how many tick labels to skip between label that is drawn.")
   public Integer getTickLabelSpacing() {
     return tickLabelSpacing;
   }
@@ -1240,7 +1240,7 @@ public class Axis {
    * The position of tick-mark labels on the specified axis.
    * @return tickLabelPosition
   **/
-  @ApiModelProperty(required = true, value = "The position of tick-mark labels on the specified axis.")
+  @ApiModelProperty(value = "The position of tick-mark labels on the specified axis.")
   public TickLabelPositionEnum getTickLabelPosition() {
     return tickLabelPosition;
   }
@@ -1258,7 +1258,7 @@ public class Axis {
    * Represents the rotation angle of tick labels.
    * @return tickLabelRotationAngle
   **/
-  @ApiModelProperty(required = true, value = "Represents the rotation angle of tick labels.")
+  @ApiModelProperty(value = "Represents the rotation angle of tick labels.")
   public Double getTickLabelRotationAngle() {
     return tickLabelRotationAngle;
   }
