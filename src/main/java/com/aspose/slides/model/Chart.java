@@ -29,6 +29,7 @@ package com.aspose.slides.model;
 
 import java.util.Objects;
 import com.aspose.slides.model.Axes;
+import com.aspose.slides.model.ChartCategory;
 import com.aspose.slides.model.ChartTitle;
 import com.aspose.slides.model.ChartWall;
 import com.aspose.slides.model.EffectFormat;
@@ -210,7 +211,21 @@ public class Chart extends ShapeBase {
     
     FILLEDRADAR("FilledRadar"),
     
-    SERIESOFMIXEDTYPES("SeriesOfMixedTypes");
+    SERIESOFMIXEDTYPES("SeriesOfMixedTypes"),
+    
+    TREEMAP("Treemap"),
+    
+    SUNBURST("Sunburst"),
+    
+    HISTOGRAM("Histogram"),
+    
+    PARETOLINE("ParetoLine"),
+    
+    BOXANDWHISKER("BoxAndWhisker"),
+    
+    WATERFALL("Waterfall"),
+    
+    FUNNEL("Funnel");
 
     private String value;
 
@@ -260,7 +275,7 @@ public class Chart extends ShapeBase {
   private List<Series> series = null;
 
   @SerializedName(value = "categories", alternate = { "Categories" })
-  private List<String> categories = null;
+  private List<ChartCategory> categories = null;
 
   @SerializedName(value = "title", alternate = { "Title" })
   private ChartTitle title;
@@ -290,7 +305,7 @@ public class Chart extends ShapeBase {
     setType(TypeEnum.CHART);
     setShapeType(ShapeTypeEnum.CHART);
     setSeries(new ArrayList<Series>());
-    setCategories(new ArrayList<String>());
+    setCategories(new ArrayList<ChartCategory>());
   }
 
   public Chart chartType(ChartTypeEnum chartType) {
@@ -355,14 +370,14 @@ public class Chart extends ShapeBase {
     this.series = series;
   }
 
-  public Chart categories(List<String> categories) {
+  public Chart categories(List<ChartCategory> categories) {
     this.categories = categories;
     return this;
   }
 
-  public Chart addCategoriesItem(String categoriesItem) {
+  public Chart addCategoriesItem(ChartCategory categoriesItem) {
     if (this.categories == null) {
-      this.categories = new ArrayList<String>();
+      this.categories = new ArrayList<ChartCategory>();
     }
     this.categories.add(categoriesItem);
     return this;
@@ -373,11 +388,11 @@ public class Chart extends ShapeBase {
    * @return categories
   **/
   @ApiModelProperty(value = "Gets or sets the categories for chart data")
-  public List<String> getCategories() {
+  public List<ChartCategory> getCategories() {
     return categories;
   }
 
-  public void setCategories(List<String> categories) {
+  public void setCategories(List<ChartCategory> categories) {
     this.categories = categories;
   }
 

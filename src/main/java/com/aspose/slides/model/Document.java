@@ -52,6 +52,9 @@ public class Document extends ResourceBase {
   @SerializedName(value = "documentProperties", alternate = { "DocumentProperties" })
   private ResourceUriElement documentProperties;
 
+  @SerializedName(value = "viewProperties", alternate = { "ViewProperties" })
+  private ResourceUriElement viewProperties;
+
   @SerializedName(value = "slides", alternate = { "Slides" })
   private ResourceUriElement slides;
 
@@ -86,6 +89,24 @@ public class Document extends ResourceBase {
 
   public void setDocumentProperties(ResourceUriElement documentProperties) {
     this.documentProperties = documentProperties;
+  }
+
+  public Document viewProperties(ResourceUriElement viewProperties) {
+    this.viewProperties = viewProperties;
+    return this;
+  }
+
+   /**
+   * Link to Document properties.
+   * @return viewProperties
+  **/
+  @ApiModelProperty(value = "Link to Document properties.")
+  public ResourceUriElement getViewProperties() {
+    return viewProperties;
+  }
+
+  public void setViewProperties(ResourceUriElement viewProperties) {
+    this.viewProperties = viewProperties;
   }
 
   public Document slides(ResourceUriElement slides) {
@@ -170,12 +191,12 @@ public class Document extends ResourceBase {
       return false;
     }
     Document document = (Document) o;
-    return true && Objects.equals(this.documentProperties, document.documentProperties) && Objects.equals(this.slides, document.slides) && Objects.equals(this.images, document.images) && Objects.equals(this.layoutSlides, document.layoutSlides) && Objects.equals(this.masterSlides, document.masterSlides) && super.equals(o);
+    return true && Objects.equals(this.documentProperties, document.documentProperties) && Objects.equals(this.viewProperties, document.viewProperties) && Objects.equals(this.slides, document.slides) && Objects.equals(this.images, document.images) && Objects.equals(this.layoutSlides, document.layoutSlides) && Objects.equals(this.masterSlides, document.masterSlides) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentProperties, slides, images, layoutSlides, masterSlides, super.hashCode());
+    return Objects.hash(documentProperties, viewProperties, slides, images, layoutSlides, masterSlides, super.hashCode());
   }
 
 
@@ -185,6 +206,7 @@ public class Document extends ResourceBase {
     sb.append("class Document {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    documentProperties: ").append(toIndentedString(documentProperties)).append("\n");
+    sb.append("    viewProperties: ").append(toIndentedString(viewProperties)).append("\n");
     sb.append("    slides: ").append(toIndentedString(slides)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    layoutSlides: ").append(toIndentedString(layoutSlides)).append("\n");

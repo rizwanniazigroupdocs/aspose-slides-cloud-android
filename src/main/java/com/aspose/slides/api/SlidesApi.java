@@ -88,6 +88,7 @@ import com.aspose.slides.model.SplitDocumentResult;
 import com.aspose.slides.model.StorageExist;
 import com.aspose.slides.model.TextItems;
 import com.aspose.slides.model.Theme;
+import com.aspose.slides.model.ViewProperties;
 import com.aspose.slides.model.request.CopyFileRequest;
 import com.aspose.slides.model.request.CopyFolderRequest;
 import com.aspose.slides.model.request.CreateFolderRequest;
@@ -160,6 +161,7 @@ import com.aspose.slides.model.request.GetSlidesThemeRequest;
 import com.aspose.slides.model.request.GetSlidesThemeColorSchemeRequest;
 import com.aspose.slides.model.request.GetSlidesThemeFontSchemeRequest;
 import com.aspose.slides.model.request.GetSlidesThemeFormatSchemeRequest;
+import com.aspose.slides.model.request.GetSlidesViewPropertiesRequest;
 import com.aspose.slides.model.request.MoveFileRequest;
 import com.aspose.slides.model.request.MoveFolderRequest;
 import com.aspose.slides.model.request.ObjectExistsRequest;
@@ -213,6 +215,7 @@ import com.aspose.slides.model.request.PutSlidesSlideRequest;
 import com.aspose.slides.model.request.PutSlidesSlideBackgroundRequest;
 import com.aspose.slides.model.request.PutSlidesSlideBackgroundColorRequest;
 import com.aspose.slides.model.request.PutSlidesSlideSizeRequest;
+import com.aspose.slides.model.request.PutSlidesViewPropertiesRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideShapeRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideShapeParagraphRequest;
@@ -9311,6 +9314,126 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for getSlidesViewProperties
+     * @param request Request for getSlidesViewProperties. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSlidesViewPropertiesCall(GetSlidesViewPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling getSlidesViewProperties(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/viewProperties"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "GET", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Read presentation document properties.
+     * 
+     * @param request Request for getSlidesViewProperties. (required)
+     * @return ViewProperties
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ViewProperties getSlidesViewProperties(GetSlidesViewPropertiesRequest request) throws ApiException {
+        try {
+            ApiResponse<ViewProperties> resp = getSlidesViewPropertiesWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<ViewProperties> resp = getSlidesViewPropertiesWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Read presentation document properties.
+     * 
+     * @param request Request for getSlidesViewProperties. (required)
+     * @return ApiResponse&lt;ViewProperties&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ViewProperties> getSlidesViewPropertiesWithHttpInfo(GetSlidesViewPropertiesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getSlidesViewPropertiesCall(request, null, null);
+        Type returnType = new TypeToken<ViewProperties>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Read presentation document properties. (asynchronously)
+     * 
+     * @param request Request for getSlidesViewProperties. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSlidesViewPropertiesAsync(GetSlidesViewPropertiesRequest request, final ApiCallback<ViewProperties> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSlidesViewPropertiesCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<ViewProperties>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for moveFile
      * @param request Request for moveFile. (required)
      * @param progressListener Progress listener
@@ -16090,6 +16213,126 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = putSlidesSlideSizeCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<Document>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putSlidesViewProperties
+     * @param request Request for putSlidesViewProperties. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putSlidesViewPropertiesCall(PutSlidesViewPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putSlidesViewProperties(Async)");
+        }
+        
+        Object postBody = request.getDto();
+
+        // create path and map variables
+        String path = "/slides/{name}/viewProperties"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Update presentation document properties.
+     * 
+     * @param request Request for putSlidesViewProperties. (required)
+     * @return DocumentProperty
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentProperty putSlidesViewProperties(PutSlidesViewPropertiesRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentProperty> resp = putSlidesViewPropertiesWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<DocumentProperty> resp = putSlidesViewPropertiesWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Update presentation document properties.
+     * 
+     * @param request Request for putSlidesViewProperties. (required)
+     * @return ApiResponse&lt;DocumentProperty&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentProperty> putSlidesViewPropertiesWithHttpInfo(PutSlidesViewPropertiesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putSlidesViewPropertiesCall(request, null, null);
+        Type returnType = new TypeToken<DocumentProperty>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Update presentation document properties. (asynchronously)
+     * 
+     * @param request Request for putSlidesViewProperties. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putSlidesViewPropertiesAsync(PutSlidesViewPropertiesRequest request, final ApiCallback<DocumentProperty> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putSlidesViewPropertiesCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<DocumentProperty>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }

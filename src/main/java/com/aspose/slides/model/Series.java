@@ -200,7 +200,21 @@ public class Series {
     
     FILLEDRADAR("FilledRadar"),
     
-    SERIESOFMIXEDTYPES("SeriesOfMixedTypes");
+    SERIESOFMIXEDTYPES("SeriesOfMixedTypes"),
+    
+    TREEMAP("Treemap"),
+    
+    SUNBURST("Sunburst"),
+    
+    HISTOGRAM("Histogram"),
+    
+    PARETOLINE("ParetoLine"),
+    
+    BOXANDWHISKER("BoxAndWhisker"),
+    
+    WATERFALL("Waterfall"),
+    
+    FUNNEL("Funnel");
 
     private String value;
 

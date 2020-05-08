@@ -24,54 +24,53 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
+package com.aspose.slides.model.request;
 
-package com.aspose.slides.extra;
-
-import com.aspose.slides.api.SlidesApi;
-import com.aspose.slides.ApiException;
-import org.junit.Test;
-
-import com.aspose.slides.ApiTest;
+import java.util.List;
 import com.aspose.slides.model.*;
-import com.aspose.slides.model.request.GetSlideShapeRequest;
-import java.io.IOException;
-import static org.junit.Assert.assertTrue;
 
-/**
- * API tests for abstract class deserialization
- */
-public class AbstractClassTest extends ApiTest {
-    /**
-     * Read slide placeholder info.
-     *
-     * 
-     *
-     * @throws ApiException
-     * 
-     */
-    @Test
-    public void shapeTest() throws ApiException, IOException {
-        initialize("getSlideShape", null, null);
-        GetSlideShapeRequest request = new GetSlideShapeRequest();
-        request.setName("test.ppt");
-        request.setFolder("TempSlidesSDK");
-        request.setPassword("password");
-        request.setPath("");
-        request.setSlideIndex(1);
-        request.setShapeIndex(1);
-        ShapeBase shape = api.getSlideShape(request);
-        assertTrue(shape instanceof Shape);
-        assertTrue(((Shape)shape).getText().equals("1"));
-    }
+public class GetSlidesViewPropertiesRequest {
+  public GetSlidesViewPropertiesRequest() {
+  }
 
-    /**
-     * Check default model properties are set.
-     * @throws ApiException
-     */
-    @Test
-    public void chartTest() throws ApiException {
-        Chart chart = new Chart();
-        assertTrue(chart.getType().equals(Chart.TypeEnum.CHART));
-        assertTrue(chart.getShapeType().equals(Chart.ShapeTypeEnum.CHART));
-    }
+  private String name;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  private String password;
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  private String folder;
+
+  public String getFolder() {
+    return folder;
+  }
+
+  public void setFolder(String folder) {
+    this.folder = folder;
+  }
+
+  private String storage;
+
+  public String getStorage() {
+    return storage;
+  }
+
+  public void setStorage(String storage) {
+    this.storage = storage;
+  }
+
 }

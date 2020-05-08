@@ -47,10 +47,6 @@ import static org.junit.Assert.assertTrue;
  * API tests for PlaceholdersApi
  */
 public class PipelineTest extends ApiTest {
-
-    private final SlidesApi api = new SlidesApi(getConfiguration());
-
-    
     /**
      * Read slide placeholder info.
      *

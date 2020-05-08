@@ -46,9 +46,6 @@ import static org.junit.Assert.assertTrue;
  * API tests for nullable property deserialization
  */
 public class NullablePropertyTest extends ApiTest {
-
-    private final SlidesApi api = new SlidesApi(getConfiguration());
-
     /**
      * Read slide placeholder info.
      *

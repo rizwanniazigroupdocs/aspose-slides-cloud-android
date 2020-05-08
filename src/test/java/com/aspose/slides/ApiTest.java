@@ -65,13 +65,14 @@ public class ApiTest {
     private static boolean initialized;
     private Configuration configuration;
     private TestRules testRules;
-    private SlidesApi api;
 
     private final String expectedTestDataVersion = "1";
     private final String tempFolderName = "TempTests";
     private final String folderName = "TempSlidesSDK";
     private final String testDataFolderName = "TestData";
 
+    protected static SlidesApi api;
+    
     public String getFolderName() {
         return folderName;
     }
@@ -107,18 +108,24 @@ public class ApiTest {
     }
 
     protected ApiTest() {
-        try {
-            String configContents = new String(Files.readAllBytes(Paths.get("testConfig.json")), Charset.defaultCharset());
-            configuration = new JSON().deserialize(configContents, new TypeToken<Configuration>(){}.getType());
-        } catch (IOException ex) {
-            configuration = new Configuration();
+        if (api == null)
+        {
+            try {
+                String configContents = new String(Files.readAllBytes(Paths.get("testConfig.json")), Charset.defaultCharset());
+                configuration = new JSON().deserialize(configContents, new TypeToken<Configuration>(){}.getType());
+            } catch (IOException ex) {
+                configuration = new Configuration();
+            }
+            api = new SlidesApi(getConfiguration());
         }
-        api = new SlidesApi(getConfiguration());
-        try {
-            String rulesContents = new String(Files.readAllBytes(Paths.get("testRules.json")), Charset.defaultCharset());
-            testRules = new JSON().deserialize(rulesContents, new TypeToken<TestRules>(){}.getType());
-        } catch (IOException ex) {
-            testRules = new TestRules();
+        if (testRules == null)
+        {
+            try {
+                String rulesContents = new String(Files.readAllBytes(Paths.get("testRules.json")), Charset.defaultCharset());
+                testRules = new JSON().deserialize(rulesContents, new TypeToken<TestRules>(){}.getType());
+            } catch (IOException ex) {
+                testRules = new TestRules();
+            }
         }
     }
 
