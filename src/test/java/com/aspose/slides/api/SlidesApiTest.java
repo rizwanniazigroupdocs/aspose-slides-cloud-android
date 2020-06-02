@@ -175,6 +175,8 @@ import com.aspose.slides.model.request.PostAddNewShapeRequest;
 import com.aspose.slides.model.request.PostAddNotesSlideRequest;
 import com.aspose.slides.model.request.PostCopyLayoutSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostCopyMasterSlideFromSourcePresentationRequest;
+import com.aspose.slides.model.request.PostGetNotesSlideRequest;
+import com.aspose.slides.model.request.PostGetNotesSlideWithFormatRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewParagraphRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewPortionRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewShapeRequest;
@@ -13937,6 +13939,302 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Read notes slide info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideTest() throws ApiException, Exception {
+        initialize("postGetNotesSlide", null, null);
+        NotesSlide response = null;
+        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
+        response = api.postGetNotesSlide(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read notes slide info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlide", "slideIndex"));
+            initialize("postGetNotesSlide", "slideIndex", request.getSlideIndex());
+            NotesSlide response = api.postGetNotesSlide(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postGetNotesSlide", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postGetNotesSlide");
+        }
+    }
+    /**
+     * Read notes slide info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideInvalidDocumentTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
+        try {
+            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "postGetNotesSlide", "document"));
+            initialize("postGetNotesSlide", "document", request.getDocument());
+            NotesSlide response = api.postGetNotesSlide(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "document", "postGetNotesSlide", request.getDocument());
+        }
+        if (needAssertResponse) {
+            assertResponse("document", "postGetNotesSlide");
+        }
+    }
+    /**
+     * Read notes slide info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postGetNotesSlide", "password"));
+            initialize("postGetNotesSlide", "password", request.getPassword());
+            NotesSlide response = api.postGetNotesSlide(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postGetNotesSlide", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postGetNotesSlide");
+        }
+    }
+
+    private PostGetNotesSlideRequest createPostGetNotesSlideRequest() {
+        PostGetNotesSlideRequest request = new PostGetNotesSlideRequest();
+        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlide", "slideIndex"));
+        request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlide", "document"));
+        request.setPassword((String)getTestValue("String", "postGetNotesSlide", "password"));
+        return request;
+    }
+    
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatTest() throws ApiException, Exception {
+        initialize("postGetNotesSlideWithFormat", null, null);
+        File response = null;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        response = api.postGetNotesSlideWithFormat(request);
+        assertTrue(response.isFile());
+    }
+
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlideWithFormat", "slideIndex"));
+            initialize("postGetNotesSlideWithFormat", "slideIndex", request.getSlideIndex());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postGetNotesSlideWithFormat", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidFormatTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setFormat((NotesSlideExportFormat)invalidizeTestValue("NotesSlideExportFormat", request.getFormat(), "postGetNotesSlideWithFormat", "format"));
+            initialize("postGetNotesSlideWithFormat", "format", request.getFormat());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "format", "postGetNotesSlideWithFormat", request.getFormat());
+        }
+        if (needAssertResponse) {
+            assertResponse("format", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidDocumentTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "postGetNotesSlideWithFormat", "document"));
+            initialize("postGetNotesSlideWithFormat", "document", request.getDocument());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "document", "postGetNotesSlideWithFormat", request.getDocument());
+        }
+        if (needAssertResponse) {
+            assertResponse("document", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidWidthTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setWidth((Integer)invalidizeTestValue("Integer", request.getWidth(), "postGetNotesSlideWithFormat", "width"));
+            initialize("postGetNotesSlideWithFormat", "width", request.getWidth());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "width", "postGetNotesSlideWithFormat", request.getWidth());
+        }
+        if (needAssertResponse) {
+            assertResponse("width", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidHeightTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setHeight((Integer)invalidizeTestValue("Integer", request.getHeight(), "postGetNotesSlideWithFormat", "height"));
+            initialize("postGetNotesSlideWithFormat", "height", request.getHeight());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "height", "postGetNotesSlideWithFormat", request.getHeight());
+        }
+        if (needAssertResponse) {
+            assertResponse("height", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postGetNotesSlideWithFormat", "password"));
+            initialize("postGetNotesSlideWithFormat", "password", request.getPassword());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postGetNotesSlideWithFormat", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postGetNotesSlideWithFormat");
+        }
+    }
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidFontsFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setFontsFolder((String)invalidizeTestValue("String", request.getFontsFolder(), "postGetNotesSlideWithFormat", "fontsFolder"));
+            initialize("postGetNotesSlideWithFormat", "fontsFolder", request.getFontsFolder());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "fontsFolder", "postGetNotesSlideWithFormat", request.getFontsFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("fontsFolder", "postGetNotesSlideWithFormat");
+        }
+    }
+
+    private PostGetNotesSlideWithFormatRequest createPostGetNotesSlideWithFormatRequest() {
+        PostGetNotesSlideWithFormatRequest request = new PostGetNotesSlideWithFormatRequest();
+        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "slideIndex"));
+        request.setFormat((NotesSlideExportFormat)getTestValue("NotesSlideExportFormat", "postGetNotesSlideWithFormat", "format"));
+        request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlideWithFormat", "document"));
+        request.setWidth((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "width"));
+        request.setHeight((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "height"));
+        request.setPassword((String)getTestValue("String", "postGetNotesSlideWithFormat", "password"));
+        request.setFontsFolder((String)getTestValue("String", "postGetNotesSlideWithFormat", "fontsFolder"));
+        return request;
+    }
+    
+    /**
      * Creates new paragraph.
      *
      * 
@@ -23329,7 +23627,7 @@ public class SlidesApiTest extends ApiTest {
     @Test
     public void putSlidesViewPropertiesTest() throws ApiException, Exception {
         initialize("putSlidesViewProperties", null, null);
-        DocumentProperty response = null;
+        ViewProperties response = null;
         PutSlidesViewPropertiesRequest request = createPutSlidesViewPropertiesRequest();
         response = api.putSlidesViewProperties(request);
         assertNotNull(response);
@@ -23350,7 +23648,7 @@ public class SlidesApiTest extends ApiTest {
         try {
             request.setName((String)invalidizeTestValue("String", request.getName(), "putSlidesViewProperties", "name"));
             initialize("putSlidesViewProperties", "name", request.getName());
-            DocumentProperty response = api.putSlidesViewProperties(request);
+            ViewProperties response = api.putSlidesViewProperties(request);
             needAssertResponse = true;
         } catch (ApiException ex) {
             assertException(ex, "name", "putSlidesViewProperties", request.getName());
@@ -23374,7 +23672,7 @@ public class SlidesApiTest extends ApiTest {
         try {
             request.setDto((ViewProperties)invalidizeTestValue("ViewProperties", request.getDto(), "putSlidesViewProperties", "dto"));
             initialize("putSlidesViewProperties", "dto", request.getDto());
-            DocumentProperty response = api.putSlidesViewProperties(request);
+            ViewProperties response = api.putSlidesViewProperties(request);
             needAssertResponse = true;
         } catch (ApiException ex) {
             assertException(ex, "dto", "putSlidesViewProperties", request.getDto());
@@ -23398,7 +23696,7 @@ public class SlidesApiTest extends ApiTest {
         try {
             request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSlidesViewProperties", "password"));
             initialize("putSlidesViewProperties", "password", request.getPassword());
-            DocumentProperty response = api.putSlidesViewProperties(request);
+            ViewProperties response = api.putSlidesViewProperties(request);
             needAssertResponse = true;
         } catch (ApiException ex) {
             assertException(ex, "password", "putSlidesViewProperties", request.getPassword());
@@ -23422,7 +23720,7 @@ public class SlidesApiTest extends ApiTest {
         try {
             request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSlidesViewProperties", "folder"));
             initialize("putSlidesViewProperties", "folder", request.getFolder());
-            DocumentProperty response = api.putSlidesViewProperties(request);
+            ViewProperties response = api.putSlidesViewProperties(request);
             needAssertResponse = true;
         } catch (ApiException ex) {
             assertException(ex, "folder", "putSlidesViewProperties", request.getFolder());
@@ -23446,7 +23744,7 @@ public class SlidesApiTest extends ApiTest {
         try {
             request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSlidesViewProperties", "storage"));
             initialize("putSlidesViewProperties", "storage", request.getStorage());
-            DocumentProperty response = api.putSlidesViewProperties(request);
+            ViewProperties response = api.putSlidesViewProperties(request);
             needAssertResponse = true;
         } catch (ApiException ex) {
             assertException(ex, "storage", "putSlidesViewProperties", request.getStorage());

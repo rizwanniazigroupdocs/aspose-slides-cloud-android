@@ -171,6 +171,8 @@ import com.aspose.slides.model.request.PostAddNewShapeRequest;
 import com.aspose.slides.model.request.PostAddNotesSlideRequest;
 import com.aspose.slides.model.request.PostCopyLayoutSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostCopyMasterSlideFromSourcePresentationRequest;
+import com.aspose.slides.model.request.PostGetNotesSlideRequest;
+import com.aspose.slides.model.request.PostGetNotesSlideWithFormatRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewParagraphRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewPortionRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewShapeRequest;
@@ -10579,6 +10581,250 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for postGetNotesSlide
+     * @param request Request for postGetNotesSlide. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postGetNotesSlideCall(PostGetNotesSlideRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling postGetNotesSlide(Async)");
+        }
+        
+        Object postBody = request.getDocument();
+
+        // create path and map variables
+        String path = "/slides/slides/{slideIndex}/notesSlide"
+            .replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/octet-stream", "multipart/form-data"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "POST", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Read notes slide info.
+     * 
+     * @param request Request for postGetNotesSlide. (required)
+     * @return NotesSlide
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NotesSlide postGetNotesSlide(PostGetNotesSlideRequest request) throws ApiException {
+        try {
+            ApiResponse<NotesSlide> resp = postGetNotesSlideWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<NotesSlide> resp = postGetNotesSlideWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Read notes slide info.
+     * 
+     * @param request Request for postGetNotesSlide. (required)
+     * @return ApiResponse&lt;NotesSlide&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NotesSlide> postGetNotesSlideWithHttpInfo(PostGetNotesSlideRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postGetNotesSlideCall(request, null, null);
+        Type returnType = new TypeToken<NotesSlide>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Read notes slide info. (asynchronously)
+     * 
+     * @param request Request for postGetNotesSlide. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postGetNotesSlideAsync(PostGetNotesSlideRequest request, final ApiCallback<NotesSlide> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postGetNotesSlideCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<NotesSlide>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postGetNotesSlideWithFormat
+     * @param request Request for postGetNotesSlideWithFormat. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postGetNotesSlideWithFormatCall(PostGetNotesSlideWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling postGetNotesSlideWithFormat(Async)");
+        }
+        
+        // verify the required parameter 'format' is set
+        if (request.getFormat() == null) {
+            throw new ApiException("Missing the required parameter 'format' when calling postGetNotesSlideWithFormat(Async)");
+        }
+        
+        Object postBody = request.getDocument();
+
+        // create path and map variables
+        String path = "/slides/slides/{slideIndex}/notesSlide/{format}"
+            .replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "format" + "\\}", apiClient.objectToString(request.getFormat()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "width", request.getWidth());
+        apiClient.addQueryParameter(queryParams, "height", request.getHeight());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "fontsFolder", request.getFontsFolder());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "multipart/form-data"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/octet-stream", "multipart/form-data"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "POST", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Convert notes slide to the specified image format.
+     * 
+     * @param request Request for postGetNotesSlideWithFormat. (required)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File postGetNotesSlideWithFormat(PostGetNotesSlideWithFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<File> resp = postGetNotesSlideWithFormatWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<File> resp = postGetNotesSlideWithFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Convert notes slide to the specified image format.
+     * 
+     * @param request Request for postGetNotesSlideWithFormat. (required)
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<File> postGetNotesSlideWithFormatWithHttpInfo(PostGetNotesSlideWithFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postGetNotesSlideWithFormatCall(request, null, null);
+        Type returnType = new TypeToken<File>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Convert notes slide to the specified image format. (asynchronously)
+     * 
+     * @param request Request for postGetNotesSlideWithFormat. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postGetNotesSlideWithFormatAsync(PostGetNotesSlideWithFormatRequest request, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postGetNotesSlideWithFormatCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<File>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for postNotesSlideAddNewParagraph
      * @param request Request for postNotesSlideAddNewParagraph. (required)
      * @param progressListener Progress listener
@@ -16276,15 +16522,15 @@ public class SlidesApi {
      * Update presentation document properties.
      * 
      * @param request Request for putSlidesViewProperties. (required)
-     * @return DocumentProperty
+     * @return ViewProperties
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentProperty putSlidesViewProperties(PutSlidesViewPropertiesRequest request) throws ApiException {
+    public ViewProperties putSlidesViewProperties(PutSlidesViewPropertiesRequest request) throws ApiException {
         try {
-            ApiResponse<DocumentProperty> resp = putSlidesViewPropertiesWithHttpInfo(request);
+            ApiResponse<ViewProperties> resp = putSlidesViewPropertiesWithHttpInfo(request);
             return resp.getData();
         } catch (NeedRepeatRequestException e) {
-            ApiResponse<DocumentProperty> resp = putSlidesViewPropertiesWithHttpInfo(request);
+            ApiResponse<ViewProperties> resp = putSlidesViewPropertiesWithHttpInfo(request);
             return resp.getData();
         }
     }
@@ -16293,12 +16539,12 @@ public class SlidesApi {
      * Update presentation document properties.
      * 
      * @param request Request for putSlidesViewProperties. (required)
-     * @return ApiResponse&lt;DocumentProperty&gt;
+     * @return ApiResponse&lt;ViewProperties&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DocumentProperty> putSlidesViewPropertiesWithHttpInfo(PutSlidesViewPropertiesRequest request) throws ApiException {
+    public ApiResponse<ViewProperties> putSlidesViewPropertiesWithHttpInfo(PutSlidesViewPropertiesRequest request) throws ApiException {
         com.squareup.okhttp.Call call = putSlidesViewPropertiesCall(request, null, null);
-        Type returnType = new TypeToken<DocumentProperty>(){}.getType();
+        Type returnType = new TypeToken<ViewProperties>(){}.getType();
         return apiClient.execute(call, returnType);
     }
 
@@ -16310,7 +16556,7 @@ public class SlidesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call putSlidesViewPropertiesAsync(PutSlidesViewPropertiesRequest request, final ApiCallback<DocumentProperty> callback) throws ApiException {
+    public com.squareup.okhttp.Call putSlidesViewPropertiesAsync(PutSlidesViewPropertiesRequest request, final ApiCallback<ViewProperties> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16332,7 +16578,7 @@ public class SlidesApi {
         }
 
         com.squareup.okhttp.Call call = putSlidesViewPropertiesCall(request, progressListener, progressRequestListener);
-        Type returnType = new TypeToken<DocumentProperty>(){}.getType();
+        Type returnType = new TypeToken<ViewProperties>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
