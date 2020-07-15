@@ -84,7 +84,9 @@ public enum SlideExportFormat {
   
   POTM("Potm"),
   
-  SVG("Svg");
+  SVG("Svg"),
+  
+  FODP("Fodp");
 
   private String value;
 

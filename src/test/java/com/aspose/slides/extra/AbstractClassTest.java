@@ -56,7 +56,6 @@ public class AbstractClassTest extends ApiTest {
         request.setName("test.ppt");
         request.setFolder("TempSlidesSDK");
         request.setPassword("password");
-        request.setPath("");
         request.setSlideIndex(1);
         request.setShapeIndex(1);
         ShapeBase shape = api.getSlideShape(request);

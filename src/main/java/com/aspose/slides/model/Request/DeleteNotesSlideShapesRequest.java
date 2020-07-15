@@ -53,16 +53,6 @@ public class DeleteNotesSlideShapesRequest {
     this.slideIndex = slideIndex;
   }
 
-  private String path;
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
   private List<Integer> shapes;
 
   public List<Integer> getShapes() {

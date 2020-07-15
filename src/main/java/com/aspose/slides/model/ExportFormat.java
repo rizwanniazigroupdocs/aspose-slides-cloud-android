@@ -86,7 +86,9 @@ public enum ExportFormat {
   
   GIF("Gif"),
   
-  BMP("Bmp");
+  BMP("Bmp"),
+  
+  FODP("Fodp");
 
   private String value;
 

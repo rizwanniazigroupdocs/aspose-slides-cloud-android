@@ -94,7 +94,9 @@ public class SaveSlide extends Task {
     
     POTM("Potm"),
     
-    SVG("Svg");
+    SVG("Svg"),
+    
+    FODP("Fodp");
 
     private String value;
 

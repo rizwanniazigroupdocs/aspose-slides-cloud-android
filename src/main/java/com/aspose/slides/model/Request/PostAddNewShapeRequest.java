@@ -53,16 +53,6 @@ public class PostAddNewShapeRequest {
     this.slideIndex = slideIndex;
   }
 
-  private String path;
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
   private ShapeBase dto;
 
   public ShapeBase getDto() {

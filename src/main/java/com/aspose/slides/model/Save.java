@@ -93,7 +93,9 @@ public class Save extends Task {
     
     GIF("Gif"),
     
-    BMP("Bmp");
+    BMP("Bmp"),
+    
+    FODP("Fodp");
 
     private String value;
 

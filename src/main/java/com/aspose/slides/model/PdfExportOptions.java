@@ -108,7 +108,11 @@ public class PdfExportOptions extends ExportOptions {
   public enum ComplianceEnum {
     PDF15("Pdf15"),
     
-    PDFA1B("PdfA1b");
+    PDFA1B("PdfA1b"),
+    
+    PDFA1A("PdfA1a"),
+    
+    PDFUA("PdfUa");
 
     private String value;
 
@@ -293,6 +297,70 @@ public class PdfExportOptions extends ExportOptions {
 
   @SerializedName(value = "applyImageTransparent", alternate = { "ApplyImageTransparent" })
   private Boolean applyImageTransparent;
+
+  /**
+   * Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
+   */
+  @JsonAdapter(AccessPermissionsEnum.Adapter.class)
+  public enum AccessPermissionsEnum {
+    NONE("None"),
+    
+    PRINTDOCUMENT("PrintDocument"),
+    
+    MODIFYCONTENT("ModifyContent"),
+    
+    COPYTEXTANDGRAPHICS("CopyTextAndGraphics"),
+    
+    ADDORMODIFYFIELDS("AddOrModifyFields"),
+    
+    FILLEXISTINGFIELDS("FillExistingFields"),
+    
+    EXTRACTTEXTANDGRAPHICS("ExtractTextAndGraphics"),
+    
+    ASSEMBLEDOCUMENT("AssembleDocument"),
+    
+    HIGHQUALITYPRINT("HighQualityPrint");
+
+    private String value;
+
+    AccessPermissionsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AccessPermissionsEnum fromValue(String text) {
+      for (AccessPermissionsEnum b : AccessPermissionsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<AccessPermissionsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccessPermissionsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AccessPermissionsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AccessPermissionsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName(value = "accessPermissions", alternate = { "AccessPermissions" })
+  private AccessPermissionsEnum accessPermissions;
 
 
   public PdfExportOptions() {
@@ -633,6 +701,24 @@ public class PdfExportOptions extends ExportOptions {
     this.applyImageTransparent = applyImageTransparent;
   }
 
+  public PdfExportOptions accessPermissions(AccessPermissionsEnum accessPermissions) {
+    this.accessPermissions = accessPermissions;
+    return this;
+  }
+
+   /**
+   * Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
+   * @return accessPermissions
+  **/
+  @ApiModelProperty(required = true, value = "Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             ")
+  public AccessPermissionsEnum getAccessPermissions() {
+    return accessPermissions;
+  }
+
+  public void setAccessPermissions(AccessPermissionsEnum accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -643,12 +729,12 @@ public class PdfExportOptions extends ExportOptions {
       return false;
     }
     PdfExportOptions pdfExportOptions = (PdfExportOptions) o;
-    return true && Objects.equals(this.textCompression, pdfExportOptions.textCompression) && Objects.equals(this.embedFullFonts, pdfExportOptions.embedFullFonts) && Objects.equals(this.compliance, pdfExportOptions.compliance) && Objects.equals(this.sufficientResolution, pdfExportOptions.sufficientResolution) && Objects.equals(this.jpegQuality, pdfExportOptions.jpegQuality) && Objects.equals(this.drawSlidesFrame, pdfExportOptions.drawSlidesFrame) && Objects.equals(this.showHiddenSlides, pdfExportOptions.showHiddenSlides) && Objects.equals(this.saveMetafilesAsPng, pdfExportOptions.saveMetafilesAsPng) && Objects.equals(this.password, pdfExportOptions.password) && Objects.equals(this.embedTrueTypeFontsForASCII, pdfExportOptions.embedTrueTypeFontsForASCII) && Objects.equals(this.additionalCommonFontFamilies, pdfExportOptions.additionalCommonFontFamilies) && Objects.equals(this.notesPosition, pdfExportOptions.notesPosition) && Objects.equals(this.commentsPosition, pdfExportOptions.commentsPosition) && Objects.equals(this.commentsAreaWidth, pdfExportOptions.commentsAreaWidth) && Objects.equals(this.commentsAreaColor, pdfExportOptions.commentsAreaColor) && Objects.equals(this.showCommentsByNoAuthor, pdfExportOptions.showCommentsByNoAuthor) && Objects.equals(this.imageTransparentColor, pdfExportOptions.imageTransparentColor) && Objects.equals(this.applyImageTransparent, pdfExportOptions.applyImageTransparent) && super.equals(o);
+    return true && Objects.equals(this.textCompression, pdfExportOptions.textCompression) && Objects.equals(this.embedFullFonts, pdfExportOptions.embedFullFonts) && Objects.equals(this.compliance, pdfExportOptions.compliance) && Objects.equals(this.sufficientResolution, pdfExportOptions.sufficientResolution) && Objects.equals(this.jpegQuality, pdfExportOptions.jpegQuality) && Objects.equals(this.drawSlidesFrame, pdfExportOptions.drawSlidesFrame) && Objects.equals(this.showHiddenSlides, pdfExportOptions.showHiddenSlides) && Objects.equals(this.saveMetafilesAsPng, pdfExportOptions.saveMetafilesAsPng) && Objects.equals(this.password, pdfExportOptions.password) && Objects.equals(this.embedTrueTypeFontsForASCII, pdfExportOptions.embedTrueTypeFontsForASCII) && Objects.equals(this.additionalCommonFontFamilies, pdfExportOptions.additionalCommonFontFamilies) && Objects.equals(this.notesPosition, pdfExportOptions.notesPosition) && Objects.equals(this.commentsPosition, pdfExportOptions.commentsPosition) && Objects.equals(this.commentsAreaWidth, pdfExportOptions.commentsAreaWidth) && Objects.equals(this.commentsAreaColor, pdfExportOptions.commentsAreaColor) && Objects.equals(this.showCommentsByNoAuthor, pdfExportOptions.showCommentsByNoAuthor) && Objects.equals(this.imageTransparentColor, pdfExportOptions.imageTransparentColor) && Objects.equals(this.applyImageTransparent, pdfExportOptions.applyImageTransparent) && Objects.equals(this.accessPermissions, pdfExportOptions.accessPermissions) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(textCompression, embedFullFonts, compliance, sufficientResolution, jpegQuality, drawSlidesFrame, showHiddenSlides, saveMetafilesAsPng, password, embedTrueTypeFontsForASCII, additionalCommonFontFamilies, notesPosition, commentsPosition, commentsAreaWidth, commentsAreaColor, showCommentsByNoAuthor, imageTransparentColor, applyImageTransparent, super.hashCode());
+    return Objects.hash(textCompression, embedFullFonts, compliance, sufficientResolution, jpegQuality, drawSlidesFrame, showHiddenSlides, saveMetafilesAsPng, password, embedTrueTypeFontsForASCII, additionalCommonFontFamilies, notesPosition, commentsPosition, commentsAreaWidth, commentsAreaColor, showCommentsByNoAuthor, imageTransparentColor, applyImageTransparent, accessPermissions, super.hashCode());
   }
 
 
@@ -675,6 +761,7 @@ public class PdfExportOptions extends ExportOptions {
     sb.append("    showCommentsByNoAuthor: ").append(toIndentedString(showCommentsByNoAuthor)).append("\n");
     sb.append("    imageTransparentColor: ").append(toIndentedString(imageTransparentColor)).append("\n");
     sb.append("    applyImageTransparent: ").append(toIndentedString(applyImageTransparent)).append("\n");
+    sb.append("    accessPermissions: ").append(toIndentedString(accessPermissions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

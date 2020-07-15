@@ -53,16 +53,6 @@ public class GetSlideShapeParagraphsRequest {
     this.slideIndex = slideIndex;
   }
 
-  private String path;
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
   private Integer shapeIndex;
 
   public Integer getShapeIndex() {

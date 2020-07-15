@@ -53,16 +53,6 @@ public class GetSlideShapesRequest {
     this.slideIndex = slideIndex;
   }
 
-  private String path;
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
   private String password;
 
   public String getPassword() {

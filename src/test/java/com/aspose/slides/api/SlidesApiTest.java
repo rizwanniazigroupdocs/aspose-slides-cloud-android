@@ -48,6 +48,7 @@ import com.aspose.slides.model.DocumentProperties;
 import com.aspose.slides.model.DocumentProperty;
 import com.aspose.slides.model.DocumentReplaceResult;
 import com.aspose.slides.model.Effect;
+import com.aspose.slides.model.EntityExists;
 import com.aspose.slides.model.ExportOptions;
 import java.io.File;
 import com.aspose.slides.model.FileVersions;
@@ -118,10 +119,16 @@ import com.aspose.slides.model.request.DeleteSlideAnimationMainSequenceRequest;
 import com.aspose.slides.model.request.DeleteSlideByIndexRequest;
 import com.aspose.slides.model.request.DeleteSlideShapeRequest;
 import com.aspose.slides.model.request.DeleteSlideShapesRequest;
+import com.aspose.slides.model.request.DeleteSlideSubshapeRequest;
+import com.aspose.slides.model.request.DeleteSlideSubshapesRequest;
 import com.aspose.slides.model.request.DeleteSlidesCleanSlidesListRequest;
 import com.aspose.slides.model.request.DeleteSlidesDocumentPropertiesRequest;
 import com.aspose.slides.model.request.DeleteSlidesDocumentPropertyRequest;
 import com.aspose.slides.model.request.DeleteSlidesSlideBackgroundRequest;
+import com.aspose.slides.model.request.DeleteSubshapeParagraphRequest;
+import com.aspose.slides.model.request.DeleteSubshapeParagraphsRequest;
+import com.aspose.slides.model.request.DeleteSubshapePortionRequest;
+import com.aspose.slides.model.request.DeleteSubshapePortionsRequest;
 import com.aspose.slides.model.request.DownloadFileRequest;
 import com.aspose.slides.model.request.GetDiscUsageRequest;
 import com.aspose.slides.model.request.GetFileVersionsRequest;
@@ -131,6 +138,7 @@ import com.aspose.slides.model.request.GetLayoutSlidesListRequest;
 import com.aspose.slides.model.request.GetMasterSlideRequest;
 import com.aspose.slides.model.request.GetMasterSlidesListRequest;
 import com.aspose.slides.model.request.GetNotesSlideRequest;
+import com.aspose.slides.model.request.GetNotesSlideExistsRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphsRequest;
@@ -145,6 +153,10 @@ import com.aspose.slides.model.request.GetSlideShapeRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphsRequest;
 import com.aspose.slides.model.request.GetSlideShapesRequest;
+import com.aspose.slides.model.request.GetSlideSubshapeRequest;
+import com.aspose.slides.model.request.GetSlideSubshapeParagraphRequest;
+import com.aspose.slides.model.request.GetSlideSubshapeParagraphsRequest;
+import com.aspose.slides.model.request.GetSlideSubshapesRequest;
 import com.aspose.slides.model.request.GetSlidesApiInfoRequest;
 import com.aspose.slides.model.request.GetSlidesDocumentRequest;
 import com.aspose.slides.model.request.GetSlidesDocumentPropertiesRequest;
@@ -166,16 +178,22 @@ import com.aspose.slides.model.request.GetSlidesThemeColorSchemeRequest;
 import com.aspose.slides.model.request.GetSlidesThemeFontSchemeRequest;
 import com.aspose.slides.model.request.GetSlidesThemeFormatSchemeRequest;
 import com.aspose.slides.model.request.GetSlidesViewPropertiesRequest;
+import com.aspose.slides.model.request.GetSubshapeParagraphPortionRequest;
+import com.aspose.slides.model.request.GetSubshapeParagraphPortionsRequest;
 import com.aspose.slides.model.request.MoveFileRequest;
 import com.aspose.slides.model.request.MoveFolderRequest;
 import com.aspose.slides.model.request.ObjectExistsRequest;
 import com.aspose.slides.model.request.PostAddNewParagraphRequest;
 import com.aspose.slides.model.request.PostAddNewPortionRequest;
 import com.aspose.slides.model.request.PostAddNewShapeRequest;
+import com.aspose.slides.model.request.PostAddNewSubshapeRequest;
+import com.aspose.slides.model.request.PostAddNewSubshapeParagraphRequest;
+import com.aspose.slides.model.request.PostAddNewSubshapePortionRequest;
 import com.aspose.slides.model.request.PostAddNotesSlideRequest;
 import com.aspose.slides.model.request.PostCopyLayoutSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostCopyMasterSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostGetNotesSlideRequest;
+import com.aspose.slides.model.request.PostGetNotesSlideExistsRequest;
 import com.aspose.slides.model.request.PostGetNotesSlideWithFormatRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewParagraphRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewPortionRequest;
@@ -202,17 +220,21 @@ import com.aspose.slides.model.request.PostSlidesSaveAsRequest;
 import com.aspose.slides.model.request.PostSlidesSetDocumentPropertiesRequest;
 import com.aspose.slides.model.request.PostSlidesSlideReplaceTextRequest;
 import com.aspose.slides.model.request.PostSlidesSplitRequest;
+import com.aspose.slides.model.request.PostSubshapeSaveAsRequest;
 import com.aspose.slides.model.request.PutLayoutSlideRequest;
 import com.aspose.slides.model.request.PutNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutPresentationMergeRequest;
 import com.aspose.slides.model.request.PutSetParagraphPortionPropertiesRequest;
 import com.aspose.slides.model.request.PutSetParagraphPropertiesRequest;
+import com.aspose.slides.model.request.PutSetSubshapeParagraphPortionPropertiesRequest;
+import com.aspose.slides.model.request.PutSetSubshapeParagraphPropertiesRequest;
 import com.aspose.slides.model.request.PutShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideAnimationRequest;
 import com.aspose.slides.model.request.PutSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.PutSlideAnimationInteractiveSequenceEffectRequest;
 import com.aspose.slides.model.request.PutSlideSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideShapeInfoRequest;
+import com.aspose.slides.model.request.PutSlideSubshapeInfoRequest;
 import com.aspose.slides.model.request.PutSlidesConvertRequest;
 import com.aspose.slides.model.request.PutSlidesDocumentFromHtmlRequest;
 import com.aspose.slides.model.request.PutSlidesSaveAsRequest;
@@ -222,6 +244,7 @@ import com.aspose.slides.model.request.PutSlidesSlideBackgroundRequest;
 import com.aspose.slides.model.request.PutSlidesSlideBackgroundColorRequest;
 import com.aspose.slides.model.request.PutSlidesSlideSizeRequest;
 import com.aspose.slides.model.request.PutSlidesViewPropertiesRequest;
+import com.aspose.slides.model.request.PutSubshapeSaveAsRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideShapeRequest;
 import com.aspose.slides.model.request.PutUpdateNotesSlideShapeParagraphRequest;
@@ -991,30 +1014,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void deleteNotesSlideParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlideParagraphRequest request = createDeleteNotesSlideParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlideParagraph", "path"));
-            initialize("deleteNotesSlideParagraph", "path", request.getPath());
-            Paragraphs response = api.deleteNotesSlideParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlideParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlideParagraph");
-        }
-    }
-    /**
-     * Remove a paragraph.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void deleteNotesSlideParagraphInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         DeleteNotesSlideParagraphRequest request = createDeleteNotesSlideParagraphRequest();
@@ -1131,7 +1130,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlideParagraphRequest request = new DeleteNotesSlideParagraphRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlideParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlideParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlideParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteNotesSlideParagraph", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deleteNotesSlideParagraph", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "deleteNotesSlideParagraph", "password"));
@@ -1203,30 +1201,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteNotesSlideParagraphs");
-        }
-    }
-    /**
-     * Remove a range of paragraphs.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteNotesSlideParagraphsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlideParagraphsRequest request = createDeleteNotesSlideParagraphsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlideParagraphs", "path"));
-            initialize("deleteNotesSlideParagraphs", "path", request.getPath());
-            Paragraphs response = api.deleteNotesSlideParagraphs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlideParagraphs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlideParagraphs");
         }
     }
     /**
@@ -1354,7 +1328,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlideParagraphsRequest request = new DeleteNotesSlideParagraphsRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlideParagraphs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlideParagraphs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlideParagraphs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteNotesSlideParagraphs", "shapeIndex"));
         request.setParagraphs((List<Integer>)getTestValue("List<Integer>", "deleteNotesSlideParagraphs", "paragraphs"));
         request.setPassword((String)getTestValue("String", "deleteNotesSlideParagraphs", "password"));
@@ -1426,30 +1399,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteNotesSlidePortion");
-        }
-    }
-    /**
-     * Remove a portion.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteNotesSlidePortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlidePortionRequest request = createDeleteNotesSlidePortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlidePortion", "path"));
-            initialize("deleteNotesSlidePortion", "path", request.getPath());
-            Portions response = api.deleteNotesSlidePortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlidePortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlidePortion");
         }
     }
     /**
@@ -1601,7 +1550,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlidePortionRequest request = new DeleteNotesSlidePortionRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlidePortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlidePortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortion", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortion", "portionIndex"));
@@ -1674,30 +1622,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteNotesSlidePortions");
-        }
-    }
-    /**
-     * Remove a range of portions.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteNotesSlidePortionsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlidePortionsRequest request = createDeleteNotesSlidePortionsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlidePortions", "path"));
-            initialize("deleteNotesSlidePortions", "path", request.getPath());
-            Portions response = api.deleteNotesSlidePortions(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlidePortions", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlidePortions");
         }
     }
     /**
@@ -1849,7 +1773,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlidePortionsRequest request = new DeleteNotesSlidePortionsRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlidePortions", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortions", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlidePortions", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortions", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deleteNotesSlidePortions", "paragraphIndex"));
         request.setPortions((List<Integer>)getTestValue("List<Integer>", "deleteNotesSlidePortions", "portions"));
@@ -1922,30 +1845,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteNotesSlideShape");
-        }
-    }
-    /**
-     * Remove a shape.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteNotesSlideShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlideShapeRequest request = createDeleteNotesSlideShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlideShape", "path"));
-            initialize("deleteNotesSlideShape", "path", request.getPath());
-            Shapes response = api.deleteNotesSlideShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlideShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlideShape");
         }
     }
     /**
@@ -2049,7 +1948,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlideShapeRequest request = new DeleteNotesSlideShapeRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlideShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlideShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlideShape", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteNotesSlideShape", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "deleteNotesSlideShape", "password"));
         request.setFolder((String)getTestValue("String", "deleteNotesSlideShape", "folder"));
@@ -2120,30 +2018,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteNotesSlideShapes");
-        }
-    }
-    /**
-     * Remove a range of shapes.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteNotesSlideShapesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteNotesSlideShapesRequest request = createDeleteNotesSlideShapesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteNotesSlideShapes", "path"));
-            initialize("deleteNotesSlideShapes", "path", request.getPath());
-            Shapes response = api.deleteNotesSlideShapes(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteNotesSlideShapes", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteNotesSlideShapes");
         }
     }
     /**
@@ -2247,7 +2121,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteNotesSlideShapesRequest request = new DeleteNotesSlideShapesRequest();
         request.setName((String)getTestValue("String", "deleteNotesSlideShapes", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteNotesSlideShapes", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteNotesSlideShapes", "path"));
         request.setShapes((List<Integer>)getTestValue("List<Integer>", "deleteNotesSlideShapes", "shapes"));
         request.setPassword((String)getTestValue("String", "deleteNotesSlideShapes", "password"));
         request.setFolder((String)getTestValue("String", "deleteNotesSlideShapes", "folder"));
@@ -2318,30 +2191,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteParagraph");
-        }
-    }
-    /**
-     * Remove a paragraph.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteParagraphRequest request = createDeleteParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteParagraph", "path"));
-            initialize("deleteParagraph", "path", request.getPath());
-            Paragraphs response = api.deleteParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteParagraph");
         }
     }
     /**
@@ -2469,7 +2318,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteParagraphRequest request = new DeleteParagraphRequest();
         request.setName((String)getTestValue("String", "deleteParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteParagraph", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deleteParagraph", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "deleteParagraph", "password"));
@@ -2541,30 +2389,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteParagraphs");
-        }
-    }
-    /**
-     * Remove a range of paragraphs.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteParagraphsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteParagraphsRequest request = createDeleteParagraphsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteParagraphs", "path"));
-            initialize("deleteParagraphs", "path", request.getPath());
-            Paragraphs response = api.deleteParagraphs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteParagraphs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteParagraphs");
         }
     }
     /**
@@ -2692,7 +2516,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteParagraphsRequest request = new DeleteParagraphsRequest();
         request.setName((String)getTestValue("String", "deleteParagraphs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteParagraphs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteParagraphs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteParagraphs", "shapeIndex"));
         request.setParagraphs((List<Integer>)getTestValue("List<Integer>", "deleteParagraphs", "paragraphs"));
         request.setPassword((String)getTestValue("String", "deleteParagraphs", "password"));
@@ -2764,30 +2587,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deletePortion");
-        }
-    }
-    /**
-     * Remove a portion.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deletePortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeletePortionRequest request = createDeletePortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deletePortion", "path"));
-            initialize("deletePortion", "path", request.getPath());
-            Portions response = api.deletePortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deletePortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deletePortion");
         }
     }
     /**
@@ -2939,7 +2738,6 @@ public class SlidesApiTest extends ApiTest {
         DeletePortionRequest request = new DeletePortionRequest();
         request.setName((String)getTestValue("String", "deletePortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deletePortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deletePortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deletePortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deletePortion", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "deletePortion", "portionIndex"));
@@ -3012,30 +2810,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deletePortions");
-        }
-    }
-    /**
-     * Remove a range of portions.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deletePortionsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeletePortionsRequest request = createDeletePortionsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deletePortions", "path"));
-            initialize("deletePortions", "path", request.getPath());
-            Portions response = api.deletePortions(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deletePortions", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deletePortions");
         }
     }
     /**
@@ -3187,7 +2961,6 @@ public class SlidesApiTest extends ApiTest {
         DeletePortionsRequest request = new DeletePortionsRequest();
         request.setName((String)getTestValue("String", "deletePortions", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deletePortions", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deletePortions", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deletePortions", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "deletePortions", "paragraphIndex"));
         request.setPortions((List<Integer>)getTestValue("List<Integer>", "deletePortions", "portions"));
@@ -4407,30 +4180,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void deleteSlideShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteSlideShapeRequest request = createDeleteSlideShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSlideShape", "path"));
-            initialize("deleteSlideShape", "path", request.getPath());
-            Shapes response = api.deleteSlideShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteSlideShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteSlideShape");
-        }
-    }
-    /**
-     * Remove a shape.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void deleteSlideShapeInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         DeleteSlideShapeRequest request = createDeleteSlideShapeRequest();
@@ -4523,7 +4272,6 @@ public class SlidesApiTest extends ApiTest {
         DeleteSlideShapeRequest request = new DeleteSlideShapeRequest();
         request.setName((String)getTestValue("String", "deleteSlideShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteSlideShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteSlideShape", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "deleteSlideShape", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "deleteSlideShape", "password"));
         request.setFolder((String)getTestValue("String", "deleteSlideShape", "folder"));
@@ -4594,30 +4342,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "deleteSlideShapes");
-        }
-    }
-    /**
-     * Remove a range of shapes.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteSlideShapesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        DeleteSlideShapesRequest request = createDeleteSlideShapesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSlideShapes", "path"));
-            initialize("deleteSlideShapes", "path", request.getPath());
-            Shapes response = api.deleteSlideShapes(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "deleteSlideShapes", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "deleteSlideShapes");
         }
     }
     /**
@@ -4721,11 +4445,406 @@ public class SlidesApiTest extends ApiTest {
         DeleteSlideShapesRequest request = new DeleteSlideShapesRequest();
         request.setName((String)getTestValue("String", "deleteSlideShapes", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "deleteSlideShapes", "slideIndex"));
-        request.setPath((String)getTestValue("String", "deleteSlideShapes", "path"));
         request.setShapes((List<Integer>)getTestValue("List<Integer>", "deleteSlideShapes", "shapes"));
         request.setPassword((String)getTestValue("String", "deleteSlideShapes", "password"));
         request.setFolder((String)getTestValue("String", "deleteSlideShapes", "folder"));
         request.setStorage((String)getTestValue("String", "deleteSlideShapes", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeTest() throws ApiException, Exception {
+        initialize("deleteSlideSubshape", null, null);
+        Shapes response = null;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        response = api.deleteSlideSubshape(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSlideSubshape", "name"));
+            initialize("deleteSlideSubshape", "name", request.getName());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSlideSubshape", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSlideSubshape", "slideIndex"));
+            initialize("deleteSlideSubshape", "slideIndex", request.getSlideIndex());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSlideSubshape", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSlideSubshape", "path"));
+            initialize("deleteSlideSubshape", "path", request.getPath());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSlideSubshape", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteSlideSubshape", "shapeIndex"));
+            initialize("deleteSlideSubshape", "shapeIndex", request.getShapeIndex());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteSlideSubshape", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSlideSubshape", "password"));
+            initialize("deleteSlideSubshape", "password", request.getPassword());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSlideSubshape", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSlideSubshape", "folder"));
+            initialize("deleteSlideSubshape", "folder", request.getFolder());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSlideSubshape", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSlideSubshape");
+        }
+    }
+    /**
+     * Remove a shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapeInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapeRequest request = createDeleteSlideSubshapeRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSlideSubshape", "storage"));
+            initialize("deleteSlideSubshape", "storage", request.getStorage());
+            Shapes response = api.deleteSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSlideSubshape", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSlideSubshape");
+        }
+    }
+
+    private DeleteSlideSubshapeRequest createDeleteSlideSubshapeRequest() {
+        DeleteSlideSubshapeRequest request = new DeleteSlideSubshapeRequest();
+        request.setName((String)getTestValue("String", "deleteSlideSubshape", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSlideSubshape", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSlideSubshape", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteSlideSubshape", "shapeIndex"));
+        request.setPassword((String)getTestValue("String", "deleteSlideSubshape", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSlideSubshape", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSlideSubshape", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesTest() throws ApiException, Exception {
+        initialize("deleteSlideSubshapes", null, null);
+        Shapes response = null;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        response = api.deleteSlideSubshapes(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSlideSubshapes", "name"));
+            initialize("deleteSlideSubshapes", "name", request.getName());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSlideSubshapes", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSlideSubshapes", "slideIndex"));
+            initialize("deleteSlideSubshapes", "slideIndex", request.getSlideIndex());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSlideSubshapes", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSlideSubshapes", "path"));
+            initialize("deleteSlideSubshapes", "path", request.getPath());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSlideSubshapes", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidShapesTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setShapes((List<Integer>)invalidizeTestValue("List<Integer>", request.getShapes(), "deleteSlideSubshapes", "shapes"));
+            initialize("deleteSlideSubshapes", "shapes", request.getShapes());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapes", "deleteSlideSubshapes", request.getShapes());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapes", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSlideSubshapes", "password"));
+            initialize("deleteSlideSubshapes", "password", request.getPassword());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSlideSubshapes", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSlideSubshapes", "folder"));
+            initialize("deleteSlideSubshapes", "folder", request.getFolder());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSlideSubshapes", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSlideSubshapes");
+        }
+    }
+    /**
+     * Remove a range of shapes (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSlideSubshapesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSlideSubshapesRequest request = createDeleteSlideSubshapesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSlideSubshapes", "storage"));
+            initialize("deleteSlideSubshapes", "storage", request.getStorage());
+            Shapes response = api.deleteSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSlideSubshapes", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSlideSubshapes");
+        }
+    }
+
+    private DeleteSlideSubshapesRequest createDeleteSlideSubshapesRequest() {
+        DeleteSlideSubshapesRequest request = new DeleteSlideSubshapesRequest();
+        request.setName((String)getTestValue("String", "deleteSlideSubshapes", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSlideSubshapes", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSlideSubshapes", "path"));
+        request.setShapes((List<Integer>)getTestValue("List<Integer>", "deleteSlideSubshapes", "shapes"));
+        request.setPassword((String)getTestValue("String", "deleteSlideSubshapes", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSlideSubshapes", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSlideSubshapes", "storage"));
         return request;
     }
     
@@ -5293,6 +5412,948 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "deleteSlidesSlideBackground", "password"));
         request.setFolder((String)getTestValue("String", "deleteSlidesSlideBackground", "folder"));
         request.setStorage((String)getTestValue("String", "deleteSlidesSlideBackground", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphTest() throws ApiException, Exception {
+        initialize("deleteSubshapeParagraph", null, null);
+        Paragraphs response = null;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        response = api.deleteSubshapeParagraph(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSubshapeParagraph", "name"));
+            initialize("deleteSubshapeParagraph", "name", request.getName());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSubshapeParagraph", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSubshapeParagraph", "slideIndex"));
+            initialize("deleteSubshapeParagraph", "slideIndex", request.getSlideIndex());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSubshapeParagraph", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSubshapeParagraph", "path"));
+            initialize("deleteSubshapeParagraph", "path", request.getPath());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSubshapeParagraph", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteSubshapeParagraph", "shapeIndex"));
+            initialize("deleteSubshapeParagraph", "shapeIndex", request.getShapeIndex());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteSubshapeParagraph", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "deleteSubshapeParagraph", "paragraphIndex"));
+            initialize("deleteSubshapeParagraph", "paragraphIndex", request.getParagraphIndex());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "deleteSubshapeParagraph", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSubshapeParagraph", "password"));
+            initialize("deleteSubshapeParagraph", "password", request.getPassword());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSubshapeParagraph", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSubshapeParagraph", "folder"));
+            initialize("deleteSubshapeParagraph", "folder", request.getFolder());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSubshapeParagraph", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSubshapeParagraph");
+        }
+    }
+    /**
+     * Remove a paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphRequest request = createDeleteSubshapeParagraphRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSubshapeParagraph", "storage"));
+            initialize("deleteSubshapeParagraph", "storage", request.getStorage());
+            Paragraphs response = api.deleteSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSubshapeParagraph", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSubshapeParagraph");
+        }
+    }
+
+    private DeleteSubshapeParagraphRequest createDeleteSubshapeParagraphRequest() {
+        DeleteSubshapeParagraphRequest request = new DeleteSubshapeParagraphRequest();
+        request.setName((String)getTestValue("String", "deleteSubshapeParagraph", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSubshapeParagraph", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSubshapeParagraph", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteSubshapeParagraph", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "deleteSubshapeParagraph", "paragraphIndex"));
+        request.setPassword((String)getTestValue("String", "deleteSubshapeParagraph", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSubshapeParagraph", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSubshapeParagraph", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsTest() throws ApiException, Exception {
+        initialize("deleteSubshapeParagraphs", null, null);
+        Paragraphs response = null;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        response = api.deleteSubshapeParagraphs(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSubshapeParagraphs", "name"));
+            initialize("deleteSubshapeParagraphs", "name", request.getName());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSubshapeParagraphs", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSubshapeParagraphs", "slideIndex"));
+            initialize("deleteSubshapeParagraphs", "slideIndex", request.getSlideIndex());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSubshapeParagraphs", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSubshapeParagraphs", "path"));
+            initialize("deleteSubshapeParagraphs", "path", request.getPath());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSubshapeParagraphs", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteSubshapeParagraphs", "shapeIndex"));
+            initialize("deleteSubshapeParagraphs", "shapeIndex", request.getShapeIndex());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteSubshapeParagraphs", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidParagraphsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setParagraphs((List<Integer>)invalidizeTestValue("List<Integer>", request.getParagraphs(), "deleteSubshapeParagraphs", "paragraphs"));
+            initialize("deleteSubshapeParagraphs", "paragraphs", request.getParagraphs());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphs", "deleteSubshapeParagraphs", request.getParagraphs());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphs", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSubshapeParagraphs", "password"));
+            initialize("deleteSubshapeParagraphs", "password", request.getPassword());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSubshapeParagraphs", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSubshapeParagraphs", "folder"));
+            initialize("deleteSubshapeParagraphs", "folder", request.getFolder());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSubshapeParagraphs", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSubshapeParagraphs");
+        }
+    }
+    /**
+     * Remove a range of paragraphs (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapeParagraphsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapeParagraphsRequest request = createDeleteSubshapeParagraphsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSubshapeParagraphs", "storage"));
+            initialize("deleteSubshapeParagraphs", "storage", request.getStorage());
+            Paragraphs response = api.deleteSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSubshapeParagraphs", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSubshapeParagraphs");
+        }
+    }
+
+    private DeleteSubshapeParagraphsRequest createDeleteSubshapeParagraphsRequest() {
+        DeleteSubshapeParagraphsRequest request = new DeleteSubshapeParagraphsRequest();
+        request.setName((String)getTestValue("String", "deleteSubshapeParagraphs", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSubshapeParagraphs", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSubshapeParagraphs", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteSubshapeParagraphs", "shapeIndex"));
+        request.setParagraphs((List<Integer>)getTestValue("List<Integer>", "deleteSubshapeParagraphs", "paragraphs"));
+        request.setPassword((String)getTestValue("String", "deleteSubshapeParagraphs", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSubshapeParagraphs", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSubshapeParagraphs", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionTest() throws ApiException, Exception {
+        initialize("deleteSubshapePortion", null, null);
+        Portions response = null;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        response = api.deleteSubshapePortion(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSubshapePortion", "name"));
+            initialize("deleteSubshapePortion", "name", request.getName());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSubshapePortion", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSubshapePortion", "slideIndex"));
+            initialize("deleteSubshapePortion", "slideIndex", request.getSlideIndex());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSubshapePortion", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSubshapePortion", "path"));
+            initialize("deleteSubshapePortion", "path", request.getPath());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSubshapePortion", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteSubshapePortion", "shapeIndex"));
+            initialize("deleteSubshapePortion", "shapeIndex", request.getShapeIndex());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteSubshapePortion", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "deleteSubshapePortion", "paragraphIndex"));
+            initialize("deleteSubshapePortion", "paragraphIndex", request.getParagraphIndex());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "deleteSubshapePortion", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidPortionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setPortionIndex((Integer)invalidizeTestValue("Integer", request.getPortionIndex(), "deleteSubshapePortion", "portionIndex"));
+            initialize("deleteSubshapePortion", "portionIndex", request.getPortionIndex());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "portionIndex", "deleteSubshapePortion", request.getPortionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("portionIndex", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSubshapePortion", "password"));
+            initialize("deleteSubshapePortion", "password", request.getPassword());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSubshapePortion", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSubshapePortion", "folder"));
+            initialize("deleteSubshapePortion", "folder", request.getFolder());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSubshapePortion", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSubshapePortion");
+        }
+    }
+    /**
+     * Remove a portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionRequest request = createDeleteSubshapePortionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSubshapePortion", "storage"));
+            initialize("deleteSubshapePortion", "storage", request.getStorage());
+            Portions response = api.deleteSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSubshapePortion", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSubshapePortion");
+        }
+    }
+
+    private DeleteSubshapePortionRequest createDeleteSubshapePortionRequest() {
+        DeleteSubshapePortionRequest request = new DeleteSubshapePortionRequest();
+        request.setName((String)getTestValue("String", "deleteSubshapePortion", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSubshapePortion", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSubshapePortion", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteSubshapePortion", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "deleteSubshapePortion", "paragraphIndex"));
+        request.setPortionIndex((Integer)getTestValue("Integer", "deleteSubshapePortion", "portionIndex"));
+        request.setPassword((String)getTestValue("String", "deleteSubshapePortion", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSubshapePortion", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSubshapePortion", "storage"));
+        return request;
+    }
+    
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsTest() throws ApiException, Exception {
+        initialize("deleteSubshapePortions", null, null);
+        Portions response = null;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        response = api.deleteSubshapePortions(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSubshapePortions", "name"));
+            initialize("deleteSubshapePortions", "name", request.getName());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSubshapePortions", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteSubshapePortions", "slideIndex"));
+            initialize("deleteSubshapePortions", "slideIndex", request.getSlideIndex());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteSubshapePortions", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "deleteSubshapePortions", "path"));
+            initialize("deleteSubshapePortions", "path", request.getPath());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "deleteSubshapePortions", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteSubshapePortions", "shapeIndex"));
+            initialize("deleteSubshapePortions", "shapeIndex", request.getShapeIndex());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteSubshapePortions", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "deleteSubshapePortions", "paragraphIndex"));
+            initialize("deleteSubshapePortions", "paragraphIndex", request.getParagraphIndex());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "deleteSubshapePortions", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidPortionsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setPortions((List<Integer>)invalidizeTestValue("List<Integer>", request.getPortions(), "deleteSubshapePortions", "portions"));
+            initialize("deleteSubshapePortions", "portions", request.getPortions());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "portions", "deleteSubshapePortions", request.getPortions());
+        }
+        if (needAssertResponse) {
+            assertResponse("portions", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSubshapePortions", "password"));
+            initialize("deleteSubshapePortions", "password", request.getPassword());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSubshapePortions", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSubshapePortions", "folder"));
+            initialize("deleteSubshapePortions", "folder", request.getFolder());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSubshapePortions", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSubshapePortions");
+        }
+    }
+    /**
+     * Remove a range of portions (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubshapePortionsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSubshapePortionsRequest request = createDeleteSubshapePortionsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSubshapePortions", "storage"));
+            initialize("deleteSubshapePortions", "storage", request.getStorage());
+            Portions response = api.deleteSubshapePortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSubshapePortions", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSubshapePortions");
+        }
+    }
+
+    private DeleteSubshapePortionsRequest createDeleteSubshapePortionsRequest() {
+        DeleteSubshapePortionsRequest request = new DeleteSubshapePortionsRequest();
+        request.setName((String)getTestValue("String", "deleteSubshapePortions", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteSubshapePortions", "slideIndex"));
+        request.setPath((String)getTestValue("String", "deleteSubshapePortions", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteSubshapePortions", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "deleteSubshapePortions", "paragraphIndex"));
+        request.setPortions((List<Integer>)getTestValue("List<Integer>", "deleteSubshapePortions", "portions"));
+        request.setPassword((String)getTestValue("String", "deleteSubshapePortions", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSubshapePortions", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSubshapePortions", "storage"));
         return request;
     }
     
@@ -6279,6 +7340,154 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsTest() throws ApiException, Exception {
+        initialize("getNotesSlideExists", null, null);
+        EntityExists response = null;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        response = api.getNotesSlideExists(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getNotesSlideExists", "name"));
+            initialize("getNotesSlideExists", "name", request.getName());
+            EntityExists response = api.getNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getNotesSlideExists", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getNotesSlideExists", "slideIndex"));
+            initialize("getNotesSlideExists", "slideIndex", request.getSlideIndex());
+            EntityExists response = api.getNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getNotesSlideExists", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getNotesSlideExists", "password"));
+            initialize("getNotesSlideExists", "password", request.getPassword());
+            EntityExists response = api.getNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getNotesSlideExists", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getNotesSlideExists", "folder"));
+            initialize("getNotesSlideExists", "folder", request.getFolder());
+            EntityExists response = api.getNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getNotesSlideExists", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideExistsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideExistsRequest request = createGetNotesSlideExistsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getNotesSlideExists", "storage"));
+            initialize("getNotesSlideExists", "storage", request.getStorage());
+            EntityExists response = api.getNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getNotesSlideExists", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getNotesSlideExists");
+        }
+    }
+
+    private GetNotesSlideExistsRequest createGetNotesSlideExistsRequest() {
+        GetNotesSlideExistsRequest request = new GetNotesSlideExistsRequest();
+        request.setName((String)getTestValue("String", "getNotesSlideExists", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideExists", "slideIndex"));
+        request.setPassword((String)getTestValue("String", "getNotesSlideExists", "password"));
+        request.setFolder((String)getTestValue("String", "getNotesSlideExists", "folder"));
+        request.setStorage((String)getTestValue("String", "getNotesSlideExists", "storage"));
+        return request;
+    }
+    
+    /**
      * Read slide shape info.
      *
      * 
@@ -6341,30 +7550,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getNotesSlideShape");
-        }
-    }
-    /**
-     * Read slide shape info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotesSlideShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapeRequest request = createGetNotesSlideShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShape", "path"));
-            initialize("getNotesSlideShape", "path", request.getPath());
-            ShapeBase response = api.getNotesSlideShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShape");
         }
     }
     /**
@@ -6468,7 +7653,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapeRequest request = new GetNotesSlideShapeRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShape", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getNotesSlideShape", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "getNotesSlideShape", "password"));
         request.setFolder((String)getTestValue("String", "getNotesSlideShape", "folder"));
@@ -6539,30 +7723,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getNotesSlideShapeParagraph");
-        }
-    }
-    /**
-     * Read shape paragraph info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotesSlideShapeParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapeParagraphRequest request = createGetNotesSlideShapeParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShapeParagraph", "path"));
-            initialize("getNotesSlideShapeParagraph", "path", request.getPath());
-            Paragraph response = api.getNotesSlideShapeParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShapeParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShapeParagraph");
         }
     }
     /**
@@ -6690,7 +7850,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapeParagraphRequest request = new GetNotesSlideShapeParagraphRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShapeParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShapeParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShapeParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getNotesSlideShapeParagraph", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getNotesSlideShapeParagraph", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "getNotesSlideShapeParagraph", "password"));
@@ -6762,30 +7921,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getNotesSlideShapeParagraphs");
-        }
-    }
-    /**
-     * Read shape paragraphs info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotesSlideShapeParagraphsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapeParagraphsRequest request = createGetNotesSlideShapeParagraphsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShapeParagraphs", "path"));
-            initialize("getNotesSlideShapeParagraphs", "path", request.getPath());
-            Paragraphs response = api.getNotesSlideShapeParagraphs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShapeParagraphs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShapeParagraphs");
         }
     }
     /**
@@ -6889,7 +8024,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapeParagraphsRequest request = new GetNotesSlideShapeParagraphsRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShapeParagraphs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShapeParagraphs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShapeParagraphs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getNotesSlideShapeParagraphs", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "getNotesSlideShapeParagraphs", "password"));
         request.setFolder((String)getTestValue("String", "getNotesSlideShapeParagraphs", "folder"));
@@ -6960,30 +8094,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getNotesSlideShapePortion");
-        }
-    }
-    /**
-     * Read paragraph portion info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotesSlideShapePortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapePortionRequest request = createGetNotesSlideShapePortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShapePortion", "path"));
-            initialize("getNotesSlideShapePortion", "path", request.getPath());
-            Portion response = api.getNotesSlideShapePortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShapePortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShapePortion");
         }
     }
     /**
@@ -7135,7 +8245,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapePortionRequest request = new GetNotesSlideShapePortionRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShapePortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShapePortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortion", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortion", "portionIndex"));
@@ -7208,30 +8317,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getNotesSlideShapePortions");
-        }
-    }
-    /**
-     * Read paragraph portions info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotesSlideShapePortionsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapePortionsRequest request = createGetNotesSlideShapePortionsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShapePortions", "path"));
-            initialize("getNotesSlideShapePortions", "path", request.getPath());
-            Portions response = api.getNotesSlideShapePortions(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShapePortions", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShapePortions");
         }
     }
     /**
@@ -7359,7 +8444,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapePortionsRequest request = new GetNotesSlideShapePortionsRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShapePortions", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortions", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShapePortions", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortions", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getNotesSlideShapePortions", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "getNotesSlideShapePortions", "password"));
@@ -7442,30 +8526,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getNotesSlideShapesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetNotesSlideShapesRequest request = createGetNotesSlideShapesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getNotesSlideShapes", "path"));
-            initialize("getNotesSlideShapes", "path", request.getPath());
-            Shapes response = api.getNotesSlideShapes(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getNotesSlideShapes", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getNotesSlideShapes");
-        }
-    }
-    /**
-     * Read slide shapes info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void getNotesSlideShapesInvalidPasswordTest() throws ApiException {
         Boolean needAssertResponse = false;
         GetNotesSlideShapesRequest request = createGetNotesSlideShapesRequest();
@@ -7534,7 +8594,6 @@ public class SlidesApiTest extends ApiTest {
         GetNotesSlideShapesRequest request = new GetNotesSlideShapesRequest();
         request.setName((String)getTestValue("String", "getNotesSlideShapes", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideShapes", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getNotesSlideShapes", "path"));
         request.setPassword((String)getTestValue("String", "getNotesSlideShapes", "password"));
         request.setFolder((String)getTestValue("String", "getNotesSlideShapes", "folder"));
         request.setStorage((String)getTestValue("String", "getNotesSlideShapes", "storage"));
@@ -7863,30 +8922,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getParagraphPortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetParagraphPortionRequest request = createGetParagraphPortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getParagraphPortion", "path"));
-            initialize("getParagraphPortion", "path", request.getPath());
-            Portion response = api.getParagraphPortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getParagraphPortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getParagraphPortion");
-        }
-    }
-    /**
-     * Read paragraph portion info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void getParagraphPortionInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         GetParagraphPortionRequest request = createGetParagraphPortionRequest();
@@ -8027,7 +9062,6 @@ public class SlidesApiTest extends ApiTest {
         GetParagraphPortionRequest request = new GetParagraphPortionRequest();
         request.setName((String)getTestValue("String", "getParagraphPortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getParagraphPortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getParagraphPortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getParagraphPortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getParagraphPortion", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "getParagraphPortion", "portionIndex"));
@@ -8100,30 +9134,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getParagraphPortions");
-        }
-    }
-    /**
-     * Read paragraph portions info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getParagraphPortionsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetParagraphPortionsRequest request = createGetParagraphPortionsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getParagraphPortions", "path"));
-            initialize("getParagraphPortions", "path", request.getPath());
-            Portions response = api.getParagraphPortions(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getParagraphPortions", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getParagraphPortions");
         }
     }
     /**
@@ -8251,7 +9261,6 @@ public class SlidesApiTest extends ApiTest {
         GetParagraphPortionsRequest request = new GetParagraphPortionsRequest();
         request.setName((String)getTestValue("String", "getParagraphPortions", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getParagraphPortions", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getParagraphPortions", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getParagraphPortions", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getParagraphPortions", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "getParagraphPortions", "password"));
@@ -8507,30 +9516,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getSlideShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetSlideShapeRequest request = createGetSlideShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideShape", "path"));
-            initialize("getSlideShape", "path", request.getPath());
-            ShapeBase response = api.getSlideShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getSlideShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getSlideShape");
-        }
-    }
-    /**
-     * Read slide shape info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void getSlideShapeInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         GetSlideShapeRequest request = createGetSlideShapeRequest();
@@ -8623,7 +9608,6 @@ public class SlidesApiTest extends ApiTest {
         GetSlideShapeRequest request = new GetSlideShapeRequest();
         request.setName((String)getTestValue("String", "getSlideShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getSlideShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getSlideShape", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getSlideShape", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "getSlideShape", "password"));
         request.setFolder((String)getTestValue("String", "getSlideShape", "folder"));
@@ -8694,30 +9678,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getSlideShapeParagraph");
-        }
-    }
-    /**
-     * Read shape paragraph info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSlideShapeParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetSlideShapeParagraphRequest request = createGetSlideShapeParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideShapeParagraph", "path"));
-            initialize("getSlideShapeParagraph", "path", request.getPath());
-            Paragraph response = api.getSlideShapeParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getSlideShapeParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getSlideShapeParagraph");
         }
     }
     /**
@@ -8845,7 +9805,6 @@ public class SlidesApiTest extends ApiTest {
         GetSlideShapeParagraphRequest request = new GetSlideShapeParagraphRequest();
         request.setName((String)getTestValue("String", "getSlideShapeParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getSlideShapeParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getSlideShapeParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getSlideShapeParagraph", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "getSlideShapeParagraph", "paragraphIndex"));
         request.setPassword((String)getTestValue("String", "getSlideShapeParagraph", "password"));
@@ -8917,30 +9876,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "getSlideShapeParagraphs");
-        }
-    }
-    /**
-     * Read shape paragraphs info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSlideShapeParagraphsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetSlideShapeParagraphsRequest request = createGetSlideShapeParagraphsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideShapeParagraphs", "path"));
-            initialize("getSlideShapeParagraphs", "path", request.getPath());
-            Paragraphs response = api.getSlideShapeParagraphs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getSlideShapeParagraphs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getSlideShapeParagraphs");
         }
     }
     /**
@@ -9044,7 +9979,6 @@ public class SlidesApiTest extends ApiTest {
         GetSlideShapeParagraphsRequest request = new GetSlideShapeParagraphsRequest();
         request.setName((String)getTestValue("String", "getSlideShapeParagraphs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getSlideShapeParagraphs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getSlideShapeParagraphs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "getSlideShapeParagraphs", "shapeIndex"));
         request.setPassword((String)getTestValue("String", "getSlideShapeParagraphs", "password"));
         request.setFolder((String)getTestValue("String", "getSlideShapeParagraphs", "folder"));
@@ -9126,30 +10060,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getSlideShapesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        GetSlideShapesRequest request = createGetSlideShapesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideShapes", "path"));
-            initialize("getSlideShapes", "path", request.getPath());
-            Shapes response = api.getSlideShapes(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "getSlideShapes", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "getSlideShapes");
-        }
-    }
-    /**
-     * Read slide shapes info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void getSlideShapesInvalidPasswordTest() throws ApiException {
         Boolean needAssertResponse = false;
         GetSlideShapesRequest request = createGetSlideShapesRequest();
@@ -9218,10 +10128,801 @@ public class SlidesApiTest extends ApiTest {
         GetSlideShapesRequest request = new GetSlideShapesRequest();
         request.setName((String)getTestValue("String", "getSlideShapes", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "getSlideShapes", "slideIndex"));
-        request.setPath((String)getTestValue("String", "getSlideShapes", "path"));
         request.setPassword((String)getTestValue("String", "getSlideShapes", "password"));
         request.setFolder((String)getTestValue("String", "getSlideShapes", "folder"));
         request.setStorage((String)getTestValue("String", "getSlideShapes", "storage"));
+        return request;
+    }
+    
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeTest() throws ApiException, Exception {
+        initialize("getSlideSubshape", null, null);
+        ShapeBase response = null;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        response = api.getSlideSubshape(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSlideSubshape", "name"));
+            initialize("getSlideSubshape", "name", request.getName());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSlideSubshape", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSlideSubshape", "slideIndex"));
+            initialize("getSlideSubshape", "slideIndex", request.getSlideIndex());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSlideSubshape", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideSubshape", "path"));
+            initialize("getSlideSubshape", "path", request.getPath());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSlideSubshape", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "getSlideSubshape", "shapeIndex"));
+            initialize("getSlideSubshape", "shapeIndex", request.getShapeIndex());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "getSlideSubshape", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSlideSubshape", "password"));
+            initialize("getSlideSubshape", "password", request.getPassword());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSlideSubshape", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSlideSubshape", "folder"));
+            initialize("getSlideSubshape", "folder", request.getFolder());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSlideSubshape", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSlideSubshape");
+        }
+    }
+    /**
+     * Read slide shape info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeRequest request = createGetSlideSubshapeRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSlideSubshape", "storage"));
+            initialize("getSlideSubshape", "storage", request.getStorage());
+            ShapeBase response = api.getSlideSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSlideSubshape", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSlideSubshape");
+        }
+    }
+
+    private GetSlideSubshapeRequest createGetSlideSubshapeRequest() {
+        GetSlideSubshapeRequest request = new GetSlideSubshapeRequest();
+        request.setName((String)getTestValue("String", "getSlideSubshape", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSlideSubshape", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSlideSubshape", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "getSlideSubshape", "shapeIndex"));
+        request.setPassword((String)getTestValue("String", "getSlideSubshape", "password"));
+        request.setFolder((String)getTestValue("String", "getSlideSubshape", "folder"));
+        request.setStorage((String)getTestValue("String", "getSlideSubshape", "storage"));
+        return request;
+    }
+    
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphTest() throws ApiException, Exception {
+        initialize("getSlideSubshapeParagraph", null, null);
+        Paragraph response = null;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        response = api.getSlideSubshapeParagraph(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSlideSubshapeParagraph", "name"));
+            initialize("getSlideSubshapeParagraph", "name", request.getName());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSlideSubshapeParagraph", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSlideSubshapeParagraph", "slideIndex"));
+            initialize("getSlideSubshapeParagraph", "slideIndex", request.getSlideIndex());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSlideSubshapeParagraph", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideSubshapeParagraph", "path"));
+            initialize("getSlideSubshapeParagraph", "path", request.getPath());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSlideSubshapeParagraph", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "getSlideSubshapeParagraph", "shapeIndex"));
+            initialize("getSlideSubshapeParagraph", "shapeIndex", request.getShapeIndex());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "getSlideSubshapeParagraph", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "getSlideSubshapeParagraph", "paragraphIndex"));
+            initialize("getSlideSubshapeParagraph", "paragraphIndex", request.getParagraphIndex());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "getSlideSubshapeParagraph", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSlideSubshapeParagraph", "password"));
+            initialize("getSlideSubshapeParagraph", "password", request.getPassword());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSlideSubshapeParagraph", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSlideSubshapeParagraph", "folder"));
+            initialize("getSlideSubshapeParagraph", "folder", request.getFolder());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSlideSubshapeParagraph", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSlideSubshapeParagraph");
+        }
+    }
+    /**
+     * Read shape paragraph info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphRequest request = createGetSlideSubshapeParagraphRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSlideSubshapeParagraph", "storage"));
+            initialize("getSlideSubshapeParagraph", "storage", request.getStorage());
+            Paragraph response = api.getSlideSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSlideSubshapeParagraph", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSlideSubshapeParagraph");
+        }
+    }
+
+    private GetSlideSubshapeParagraphRequest createGetSlideSubshapeParagraphRequest() {
+        GetSlideSubshapeParagraphRequest request = new GetSlideSubshapeParagraphRequest();
+        request.setName((String)getTestValue("String", "getSlideSubshapeParagraph", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSlideSubshapeParagraph", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSlideSubshapeParagraph", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "getSlideSubshapeParagraph", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "getSlideSubshapeParagraph", "paragraphIndex"));
+        request.setPassword((String)getTestValue("String", "getSlideSubshapeParagraph", "password"));
+        request.setFolder((String)getTestValue("String", "getSlideSubshapeParagraph", "folder"));
+        request.setStorage((String)getTestValue("String", "getSlideSubshapeParagraph", "storage"));
+        return request;
+    }
+    
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsTest() throws ApiException, Exception {
+        initialize("getSlideSubshapeParagraphs", null, null);
+        Paragraphs response = null;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        response = api.getSlideSubshapeParagraphs(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSlideSubshapeParagraphs", "name"));
+            initialize("getSlideSubshapeParagraphs", "name", request.getName());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSlideSubshapeParagraphs", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSlideSubshapeParagraphs", "slideIndex"));
+            initialize("getSlideSubshapeParagraphs", "slideIndex", request.getSlideIndex());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSlideSubshapeParagraphs", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideSubshapeParagraphs", "path"));
+            initialize("getSlideSubshapeParagraphs", "path", request.getPath());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSlideSubshapeParagraphs", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "getSlideSubshapeParagraphs", "shapeIndex"));
+            initialize("getSlideSubshapeParagraphs", "shapeIndex", request.getShapeIndex());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "getSlideSubshapeParagraphs", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSlideSubshapeParagraphs", "password"));
+            initialize("getSlideSubshapeParagraphs", "password", request.getPassword());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSlideSubshapeParagraphs", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSlideSubshapeParagraphs", "folder"));
+            initialize("getSlideSubshapeParagraphs", "folder", request.getFolder());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSlideSubshapeParagraphs", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSlideSubshapeParagraphs");
+        }
+    }
+    /**
+     * Read shape paragraphs info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapeParagraphsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapeParagraphsRequest request = createGetSlideSubshapeParagraphsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSlideSubshapeParagraphs", "storage"));
+            initialize("getSlideSubshapeParagraphs", "storage", request.getStorage());
+            Paragraphs response = api.getSlideSubshapeParagraphs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSlideSubshapeParagraphs", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSlideSubshapeParagraphs");
+        }
+    }
+
+    private GetSlideSubshapeParagraphsRequest createGetSlideSubshapeParagraphsRequest() {
+        GetSlideSubshapeParagraphsRequest request = new GetSlideSubshapeParagraphsRequest();
+        request.setName((String)getTestValue("String", "getSlideSubshapeParagraphs", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSlideSubshapeParagraphs", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSlideSubshapeParagraphs", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "getSlideSubshapeParagraphs", "shapeIndex"));
+        request.setPassword((String)getTestValue("String", "getSlideSubshapeParagraphs", "password"));
+        request.setFolder((String)getTestValue("String", "getSlideSubshapeParagraphs", "folder"));
+        request.setStorage((String)getTestValue("String", "getSlideSubshapeParagraphs", "storage"));
+        return request;
+    }
+    
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesTest() throws ApiException, Exception {
+        initialize("getSlideSubshapes", null, null);
+        Shapes response = null;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        response = api.getSlideSubshapes(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSlideSubshapes", "name"));
+            initialize("getSlideSubshapes", "name", request.getName());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSlideSubshapes", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSlideSubshapes");
+        }
+    }
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSlideSubshapes", "slideIndex"));
+            initialize("getSlideSubshapes", "slideIndex", request.getSlideIndex());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSlideSubshapes", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSlideSubshapes");
+        }
+    }
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSlideSubshapes", "path"));
+            initialize("getSlideSubshapes", "path", request.getPath());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSlideSubshapes", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSlideSubshapes");
+        }
+    }
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSlideSubshapes", "password"));
+            initialize("getSlideSubshapes", "password", request.getPassword());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSlideSubshapes", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSlideSubshapes");
+        }
+    }
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSlideSubshapes", "folder"));
+            initialize("getSlideSubshapes", "folder", request.getFolder());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSlideSubshapes", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSlideSubshapes");
+        }
+    }
+    /**
+     * Read slide shapes info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideSubshapesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideSubshapesRequest request = createGetSlideSubshapesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSlideSubshapes", "storage"));
+            initialize("getSlideSubshapes", "storage", request.getStorage());
+            Shapes response = api.getSlideSubshapes(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSlideSubshapes", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSlideSubshapes");
+        }
+    }
+
+    private GetSlideSubshapesRequest createGetSlideSubshapesRequest() {
+        GetSlideSubshapesRequest request = new GetSlideSubshapesRequest();
+        request.setName((String)getTestValue("String", "getSlideSubshapes", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSlideSubshapes", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSlideSubshapes", "path"));
+        request.setPassword((String)getTestValue("String", "getSlideSubshapes", "password"));
+        request.setFolder((String)getTestValue("String", "getSlideSubshapes", "folder"));
+        request.setStorage((String)getTestValue("String", "getSlideSubshapes", "storage"));
         return request;
     }
     
@@ -12159,6 +13860,477 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionTest() throws ApiException, Exception {
+        initialize("getSubshapeParagraphPortion", null, null);
+        Portion response = null;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        response = api.getSubshapeParagraphPortion(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSubshapeParagraphPortion", "name"));
+            initialize("getSubshapeParagraphPortion", "name", request.getName());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSubshapeParagraphPortion", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSubshapeParagraphPortion", "slideIndex"));
+            initialize("getSubshapeParagraphPortion", "slideIndex", request.getSlideIndex());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSubshapeParagraphPortion", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSubshapeParagraphPortion", "path"));
+            initialize("getSubshapeParagraphPortion", "path", request.getPath());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSubshapeParagraphPortion", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "getSubshapeParagraphPortion", "shapeIndex"));
+            initialize("getSubshapeParagraphPortion", "shapeIndex", request.getShapeIndex());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "getSubshapeParagraphPortion", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "getSubshapeParagraphPortion", "paragraphIndex"));
+            initialize("getSubshapeParagraphPortion", "paragraphIndex", request.getParagraphIndex());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "getSubshapeParagraphPortion", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidPortionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setPortionIndex((Integer)invalidizeTestValue("Integer", request.getPortionIndex(), "getSubshapeParagraphPortion", "portionIndex"));
+            initialize("getSubshapeParagraphPortion", "portionIndex", request.getPortionIndex());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "portionIndex", "getSubshapeParagraphPortion", request.getPortionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("portionIndex", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSubshapeParagraphPortion", "password"));
+            initialize("getSubshapeParagraphPortion", "password", request.getPassword());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSubshapeParagraphPortion", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSubshapeParagraphPortion", "folder"));
+            initialize("getSubshapeParagraphPortion", "folder", request.getFolder());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSubshapeParagraphPortion", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSubshapeParagraphPortion");
+        }
+    }
+    /**
+     * Read paragraph portion info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionRequest request = createGetSubshapeParagraphPortionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSubshapeParagraphPortion", "storage"));
+            initialize("getSubshapeParagraphPortion", "storage", request.getStorage());
+            Portion response = api.getSubshapeParagraphPortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSubshapeParagraphPortion", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSubshapeParagraphPortion");
+        }
+    }
+
+    private GetSubshapeParagraphPortionRequest createGetSubshapeParagraphPortionRequest() {
+        GetSubshapeParagraphPortionRequest request = new GetSubshapeParagraphPortionRequest();
+        request.setName((String)getTestValue("String", "getSubshapeParagraphPortion", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortion", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSubshapeParagraphPortion", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortion", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortion", "paragraphIndex"));
+        request.setPortionIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortion", "portionIndex"));
+        request.setPassword((String)getTestValue("String", "getSubshapeParagraphPortion", "password"));
+        request.setFolder((String)getTestValue("String", "getSubshapeParagraphPortion", "folder"));
+        request.setStorage((String)getTestValue("String", "getSubshapeParagraphPortion", "storage"));
+        return request;
+    }
+    
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsTest() throws ApiException, Exception {
+        initialize("getSubshapeParagraphPortions", null, null);
+        Portions response = null;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        response = api.getSubshapeParagraphPortions(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSubshapeParagraphPortions", "name"));
+            initialize("getSubshapeParagraphPortions", "name", request.getName());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSubshapeParagraphPortions", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSubshapeParagraphPortions", "slideIndex"));
+            initialize("getSubshapeParagraphPortions", "slideIndex", request.getSlideIndex());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSubshapeParagraphPortions", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "getSubshapeParagraphPortions", "path"));
+            initialize("getSubshapeParagraphPortions", "path", request.getPath());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "getSubshapeParagraphPortions", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "getSubshapeParagraphPortions", "shapeIndex"));
+            initialize("getSubshapeParagraphPortions", "shapeIndex", request.getShapeIndex());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "getSubshapeParagraphPortions", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "getSubshapeParagraphPortions", "paragraphIndex"));
+            initialize("getSubshapeParagraphPortions", "paragraphIndex", request.getParagraphIndex());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "getSubshapeParagraphPortions", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSubshapeParagraphPortions", "password"));
+            initialize("getSubshapeParagraphPortions", "password", request.getPassword());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSubshapeParagraphPortions", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSubshapeParagraphPortions", "folder"));
+            initialize("getSubshapeParagraphPortions", "folder", request.getFolder());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSubshapeParagraphPortions", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSubshapeParagraphPortions");
+        }
+    }
+    /**
+     * Read paragraph portions info (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubshapeParagraphPortionsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSubshapeParagraphPortionsRequest request = createGetSubshapeParagraphPortionsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSubshapeParagraphPortions", "storage"));
+            initialize("getSubshapeParagraphPortions", "storage", request.getStorage());
+            Portions response = api.getSubshapeParagraphPortions(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSubshapeParagraphPortions", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSubshapeParagraphPortions");
+        }
+    }
+
+    private GetSubshapeParagraphPortionsRequest createGetSubshapeParagraphPortionsRequest() {
+        GetSubshapeParagraphPortionsRequest request = new GetSubshapeParagraphPortionsRequest();
+        request.setName((String)getTestValue("String", "getSubshapeParagraphPortions", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortions", "slideIndex"));
+        request.setPath((String)getTestValue("String", "getSubshapeParagraphPortions", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortions", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "getSubshapeParagraphPortions", "paragraphIndex"));
+        request.setPassword((String)getTestValue("String", "getSubshapeParagraphPortions", "password"));
+        request.setFolder((String)getTestValue("String", "getSubshapeParagraphPortions", "folder"));
+        request.setStorage((String)getTestValue("String", "getSubshapeParagraphPortions", "storage"));
+        return request;
+    }
+    
+    /**
      * Move file
      *
      * 
@@ -12599,30 +14771,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postAddNewParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostAddNewParagraphRequest request = createPostAddNewParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewParagraph", "path"));
-            initialize("postAddNewParagraph", "path", request.getPath());
-            Paragraph response = api.postAddNewParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postAddNewParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postAddNewParagraph");
-        }
-    }
-    /**
-     * Creates new paragraph.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void postAddNewParagraphInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         PostAddNewParagraphRequest request = createPostAddNewParagraphRequest();
@@ -12763,7 +14911,6 @@ public class SlidesApiTest extends ApiTest {
         PostAddNewParagraphRequest request = new PostAddNewParagraphRequest();
         request.setName((String)getTestValue("String", "postAddNewParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postAddNewParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postAddNewParagraph", "shapeIndex"));
         request.setDto((Paragraph)getTestValue("Paragraph", "postAddNewParagraph", "dto"));
         request.setPassword((String)getTestValue("String", "postAddNewParagraph", "password"));
@@ -12836,30 +14983,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postAddNewPortion");
-        }
-    }
-    /**
-     * Creates new portion.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postAddNewPortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostAddNewPortionRequest request = createPostAddNewPortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewPortion", "path"));
-            initialize("postAddNewPortion", "path", request.getPath());
-            Portion response = api.postAddNewPortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postAddNewPortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postAddNewPortion");
         }
     }
     /**
@@ -13035,7 +15158,6 @@ public class SlidesApiTest extends ApiTest {
         PostAddNewPortionRequest request = new PostAddNewPortionRequest();
         request.setName((String)getTestValue("String", "postAddNewPortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewPortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postAddNewPortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postAddNewPortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "postAddNewPortion", "paragraphIndex"));
         request.setDto((Portion)getTestValue("Portion", "postAddNewPortion", "dto"));
@@ -13109,30 +15231,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postAddNewShape");
-        }
-    }
-    /**
-     * Create new shape.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postAddNewShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostAddNewShapeRequest request = createPostAddNewShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewShape", "path"));
-            initialize("postAddNewShape", "path", request.getPath());
-            ShapeBase response = api.postAddNewShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postAddNewShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postAddNewShape");
         }
     }
     /**
@@ -13284,13 +15382,781 @@ public class SlidesApiTest extends ApiTest {
         PostAddNewShapeRequest request = new PostAddNewShapeRequest();
         request.setName((String)getTestValue("String", "postAddNewShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postAddNewShape", "path"));
         request.setDto((ShapeBase)getTestValue("ShapeBase", "postAddNewShape", "dto"));
         request.setPassword((String)getTestValue("String", "postAddNewShape", "password"));
         request.setFolder((String)getTestValue("String", "postAddNewShape", "folder"));
         request.setStorage((String)getTestValue("String", "postAddNewShape", "storage"));
         request.setShapeToClone((Integer)getTestValue("Integer", "postAddNewShape", "shapeToClone"));
         request.setPosition((Integer)getTestValue("Integer", "postAddNewShape", "position"));
+        return request;
+    }
+    
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeTest() throws ApiException, Exception {
+        initialize("postAddNewSubshape", null, null);
+        ShapeBase response = null;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        response = api.postAddNewSubshape(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postAddNewSubshape", "name"));
+            initialize("postAddNewSubshape", "name", request.getName());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postAddNewSubshape", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postAddNewSubshape", "slideIndex"));
+            initialize("postAddNewSubshape", "slideIndex", request.getSlideIndex());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postAddNewSubshape", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewSubshape", "path"));
+            initialize("postAddNewSubshape", "path", request.getPath());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "postAddNewSubshape", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setDto((ShapeBase)invalidizeTestValue("ShapeBase", request.getDto(), "postAddNewSubshape", "dto"));
+            initialize("postAddNewSubshape", "dto", request.getDto());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "postAddNewSubshape", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postAddNewSubshape", "password"));
+            initialize("postAddNewSubshape", "password", request.getPassword());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postAddNewSubshape", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postAddNewSubshape", "folder"));
+            initialize("postAddNewSubshape", "folder", request.getFolder());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postAddNewSubshape", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postAddNewSubshape", "storage"));
+            initialize("postAddNewSubshape", "storage", request.getStorage());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postAddNewSubshape", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidShapeToCloneTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setShapeToClone((Integer)invalidizeTestValue("Integer", request.getShapeToClone(), "postAddNewSubshape", "shapeToClone"));
+            initialize("postAddNewSubshape", "shapeToClone", request.getShapeToClone());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeToClone", "postAddNewSubshape", request.getShapeToClone());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeToClone", "postAddNewSubshape");
+        }
+    }
+    /**
+     * Create new shape (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeInvalidPositionTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeRequest request = createPostAddNewSubshapeRequest();
+        try {
+            request.setPosition((Integer)invalidizeTestValue("Integer", request.getPosition(), "postAddNewSubshape", "position"));
+            initialize("postAddNewSubshape", "position", request.getPosition());
+            ShapeBase response = api.postAddNewSubshape(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "position", "postAddNewSubshape", request.getPosition());
+        }
+        if (needAssertResponse) {
+            assertResponse("position", "postAddNewSubshape");
+        }
+    }
+
+    private PostAddNewSubshapeRequest createPostAddNewSubshapeRequest() {
+        PostAddNewSubshapeRequest request = new PostAddNewSubshapeRequest();
+        request.setName((String)getTestValue("String", "postAddNewSubshape", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewSubshape", "slideIndex"));
+        request.setPath((String)getTestValue("String", "postAddNewSubshape", "path"));
+        request.setDto((ShapeBase)getTestValue("ShapeBase", "postAddNewSubshape", "dto"));
+        request.setPassword((String)getTestValue("String", "postAddNewSubshape", "password"));
+        request.setFolder((String)getTestValue("String", "postAddNewSubshape", "folder"));
+        request.setStorage((String)getTestValue("String", "postAddNewSubshape", "storage"));
+        request.setShapeToClone((Integer)getTestValue("Integer", "postAddNewSubshape", "shapeToClone"));
+        request.setPosition((Integer)getTestValue("Integer", "postAddNewSubshape", "position"));
+        return request;
+    }
+    
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphTest() throws ApiException, Exception {
+        initialize("postAddNewSubshapeParagraph", null, null);
+        Paragraph response = null;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        response = api.postAddNewSubshapeParagraph(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postAddNewSubshapeParagraph", "name"));
+            initialize("postAddNewSubshapeParagraph", "name", request.getName());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postAddNewSubshapeParagraph", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postAddNewSubshapeParagraph", "slideIndex"));
+            initialize("postAddNewSubshapeParagraph", "slideIndex", request.getSlideIndex());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postAddNewSubshapeParagraph", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewSubshapeParagraph", "path"));
+            initialize("postAddNewSubshapeParagraph", "path", request.getPath());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "postAddNewSubshapeParagraph", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "postAddNewSubshapeParagraph", "shapeIndex"));
+            initialize("postAddNewSubshapeParagraph", "shapeIndex", request.getShapeIndex());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "postAddNewSubshapeParagraph", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setDto((Paragraph)invalidizeTestValue("Paragraph", request.getDto(), "postAddNewSubshapeParagraph", "dto"));
+            initialize("postAddNewSubshapeParagraph", "dto", request.getDto());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "postAddNewSubshapeParagraph", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postAddNewSubshapeParagraph", "password"));
+            initialize("postAddNewSubshapeParagraph", "password", request.getPassword());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postAddNewSubshapeParagraph", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postAddNewSubshapeParagraph", "folder"));
+            initialize("postAddNewSubshapeParagraph", "folder", request.getFolder());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postAddNewSubshapeParagraph", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postAddNewSubshapeParagraph", "storage"));
+            initialize("postAddNewSubshapeParagraph", "storage", request.getStorage());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postAddNewSubshapeParagraph", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postAddNewSubshapeParagraph");
+        }
+    }
+    /**
+     * Creates new paragraph (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapeParagraphInvalidPositionTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapeParagraphRequest request = createPostAddNewSubshapeParagraphRequest();
+        try {
+            request.setPosition((Integer)invalidizeTestValue("Integer", request.getPosition(), "postAddNewSubshapeParagraph", "position"));
+            initialize("postAddNewSubshapeParagraph", "position", request.getPosition());
+            Paragraph response = api.postAddNewSubshapeParagraph(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "position", "postAddNewSubshapeParagraph", request.getPosition());
+        }
+        if (needAssertResponse) {
+            assertResponse("position", "postAddNewSubshapeParagraph");
+        }
+    }
+
+    private PostAddNewSubshapeParagraphRequest createPostAddNewSubshapeParagraphRequest() {
+        PostAddNewSubshapeParagraphRequest request = new PostAddNewSubshapeParagraphRequest();
+        request.setName((String)getTestValue("String", "postAddNewSubshapeParagraph", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewSubshapeParagraph", "slideIndex"));
+        request.setPath((String)getTestValue("String", "postAddNewSubshapeParagraph", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "postAddNewSubshapeParagraph", "shapeIndex"));
+        request.setDto((Paragraph)getTestValue("Paragraph", "postAddNewSubshapeParagraph", "dto"));
+        request.setPassword((String)getTestValue("String", "postAddNewSubshapeParagraph", "password"));
+        request.setFolder((String)getTestValue("String", "postAddNewSubshapeParagraph", "folder"));
+        request.setStorage((String)getTestValue("String", "postAddNewSubshapeParagraph", "storage"));
+        request.setPosition((Integer)getTestValue("Integer", "postAddNewSubshapeParagraph", "position"));
+        return request;
+    }
+    
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionTest() throws ApiException, Exception {
+        initialize("postAddNewSubshapePortion", null, null);
+        Portion response = null;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        response = api.postAddNewSubshapePortion(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postAddNewSubshapePortion", "name"));
+            initialize("postAddNewSubshapePortion", "name", request.getName());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postAddNewSubshapePortion", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postAddNewSubshapePortion", "slideIndex"));
+            initialize("postAddNewSubshapePortion", "slideIndex", request.getSlideIndex());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postAddNewSubshapePortion", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postAddNewSubshapePortion", "path"));
+            initialize("postAddNewSubshapePortion", "path", request.getPath());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "postAddNewSubshapePortion", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "postAddNewSubshapePortion", "shapeIndex"));
+            initialize("postAddNewSubshapePortion", "shapeIndex", request.getShapeIndex());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "postAddNewSubshapePortion", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "postAddNewSubshapePortion", "paragraphIndex"));
+            initialize("postAddNewSubshapePortion", "paragraphIndex", request.getParagraphIndex());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "postAddNewSubshapePortion", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setDto((Portion)invalidizeTestValue("Portion", request.getDto(), "postAddNewSubshapePortion", "dto"));
+            initialize("postAddNewSubshapePortion", "dto", request.getDto());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "postAddNewSubshapePortion", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postAddNewSubshapePortion", "password"));
+            initialize("postAddNewSubshapePortion", "password", request.getPassword());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postAddNewSubshapePortion", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postAddNewSubshapePortion", "folder"));
+            initialize("postAddNewSubshapePortion", "folder", request.getFolder());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postAddNewSubshapePortion", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postAddNewSubshapePortion", "storage"));
+            initialize("postAddNewSubshapePortion", "storage", request.getStorage());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postAddNewSubshapePortion", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postAddNewSubshapePortion");
+        }
+    }
+    /**
+     * Creates new portion (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postAddNewSubshapePortionInvalidPositionTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostAddNewSubshapePortionRequest request = createPostAddNewSubshapePortionRequest();
+        try {
+            request.setPosition((Integer)invalidizeTestValue("Integer", request.getPosition(), "postAddNewSubshapePortion", "position"));
+            initialize("postAddNewSubshapePortion", "position", request.getPosition());
+            Portion response = api.postAddNewSubshapePortion(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "position", "postAddNewSubshapePortion", request.getPosition());
+        }
+        if (needAssertResponse) {
+            assertResponse("position", "postAddNewSubshapePortion");
+        }
+    }
+
+    private PostAddNewSubshapePortionRequest createPostAddNewSubshapePortionRequest() {
+        PostAddNewSubshapePortionRequest request = new PostAddNewSubshapePortionRequest();
+        request.setName((String)getTestValue("String", "postAddNewSubshapePortion", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postAddNewSubshapePortion", "slideIndex"));
+        request.setPath((String)getTestValue("String", "postAddNewSubshapePortion", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "postAddNewSubshapePortion", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "postAddNewSubshapePortion", "paragraphIndex"));
+        request.setDto((Portion)getTestValue("Portion", "postAddNewSubshapePortion", "dto"));
+        request.setPassword((String)getTestValue("String", "postAddNewSubshapePortion", "password"));
+        request.setFolder((String)getTestValue("String", "postAddNewSubshapePortion", "folder"));
+        request.setStorage((String)getTestValue("String", "postAddNewSubshapePortion", "storage"));
+        request.setPosition((Integer)getTestValue("Integer", "postAddNewSubshapePortion", "position"));
         return request;
     }
     
@@ -14037,6 +16903,104 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideExistsTest() throws ApiException, Exception {
+        initialize("postGetNotesSlideExists", null, null);
+        EntityExists response = null;
+        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
+        response = api.postGetNotesSlideExists(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideExistsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlideExists", "slideIndex"));
+            initialize("postGetNotesSlideExists", "slideIndex", request.getSlideIndex());
+            EntityExists response = api.postGetNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postGetNotesSlideExists", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postGetNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideExistsInvalidDocumentTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
+        try {
+            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "postGetNotesSlideExists", "document"));
+            initialize("postGetNotesSlideExists", "document", request.getDocument());
+            EntityExists response = api.postGetNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "document", "postGetNotesSlideExists", request.getDocument());
+        }
+        if (needAssertResponse) {
+            assertResponse("document", "postGetNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideExistsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postGetNotesSlideExists", "password"));
+            initialize("postGetNotesSlideExists", "password", request.getPassword());
+            EntityExists response = api.postGetNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postGetNotesSlideExists", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postGetNotesSlideExists");
+        }
+    }
+
+    private PostGetNotesSlideExistsRequest createPostGetNotesSlideExistsRequest() {
+        PostGetNotesSlideExistsRequest request = new PostGetNotesSlideExistsRequest();
+        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlideExists", "slideIndex"));
+        request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlideExists", "document"));
+        request.setPassword((String)getTestValue("String", "postGetNotesSlideExists", "password"));
+        return request;
+    }
+    
+    /**
      * Convert notes slide to the specified image format.
      *
      * 
@@ -14308,30 +17272,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postNotesSlideAddNewParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostNotesSlideAddNewParagraphRequest request = createPostNotesSlideAddNewParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postNotesSlideAddNewParagraph", "path"));
-            initialize("postNotesSlideAddNewParagraph", "path", request.getPath());
-            Paragraph response = api.postNotesSlideAddNewParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postNotesSlideAddNewParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postNotesSlideAddNewParagraph");
-        }
-    }
-    /**
-     * Creates new paragraph.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void postNotesSlideAddNewParagraphInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         PostNotesSlideAddNewParagraphRequest request = createPostNotesSlideAddNewParagraphRequest();
@@ -14472,7 +17412,6 @@ public class SlidesApiTest extends ApiTest {
         PostNotesSlideAddNewParagraphRequest request = new PostNotesSlideAddNewParagraphRequest();
         request.setName((String)getTestValue("String", "postNotesSlideAddNewParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postNotesSlideAddNewParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewParagraph", "shapeIndex"));
         request.setDto((Paragraph)getTestValue("Paragraph", "postNotesSlideAddNewParagraph", "dto"));
         request.setPassword((String)getTestValue("String", "postNotesSlideAddNewParagraph", "password"));
@@ -14545,30 +17484,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postNotesSlideAddNewPortion");
-        }
-    }
-    /**
-     * Creates new portion.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postNotesSlideAddNewPortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostNotesSlideAddNewPortionRequest request = createPostNotesSlideAddNewPortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postNotesSlideAddNewPortion", "path"));
-            initialize("postNotesSlideAddNewPortion", "path", request.getPath());
-            Portion response = api.postNotesSlideAddNewPortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postNotesSlideAddNewPortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postNotesSlideAddNewPortion");
         }
     }
     /**
@@ -14744,7 +17659,6 @@ public class SlidesApiTest extends ApiTest {
         PostNotesSlideAddNewPortionRequest request = new PostNotesSlideAddNewPortionRequest();
         request.setName((String)getTestValue("String", "postNotesSlideAddNewPortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewPortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postNotesSlideAddNewPortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewPortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewPortion", "paragraphIndex"));
         request.setDto((Portion)getTestValue("Portion", "postNotesSlideAddNewPortion", "dto"));
@@ -14818,30 +17732,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postNotesSlideAddNewShape");
-        }
-    }
-    /**
-     * Create new shape.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postNotesSlideAddNewShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostNotesSlideAddNewShapeRequest request = createPostNotesSlideAddNewShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postNotesSlideAddNewShape", "path"));
-            initialize("postNotesSlideAddNewShape", "path", request.getPath());
-            ShapeBase response = api.postNotesSlideAddNewShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postNotesSlideAddNewShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postNotesSlideAddNewShape");
         }
     }
     /**
@@ -14993,7 +17883,6 @@ public class SlidesApiTest extends ApiTest {
         PostNotesSlideAddNewShapeRequest request = new PostNotesSlideAddNewShapeRequest();
         request.setName((String)getTestValue("String", "postNotesSlideAddNewShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postNotesSlideAddNewShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postNotesSlideAddNewShape", "path"));
         request.setDto((ShapeBase)getTestValue("ShapeBase", "postNotesSlideAddNewShape", "dto"));
         request.setPassword((String)getTestValue("String", "postNotesSlideAddNewShape", "password"));
         request.setFolder((String)getTestValue("String", "postNotesSlideAddNewShape", "folder"));
@@ -15066,30 +17955,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postNotesSlideShapeSaveAs");
-        }
-    }
-    /**
-     * Render shape to specified picture format.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postNotesSlideShapeSaveAsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostNotesSlideShapeSaveAsRequest request = createPostNotesSlideShapeSaveAsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postNotesSlideShapeSaveAs", "path"));
-            initialize("postNotesSlideShapeSaveAs", "path", request.getPath());
-            File response = api.postNotesSlideShapeSaveAs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postNotesSlideShapeSaveAs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postNotesSlideShapeSaveAs");
         }
     }
     /**
@@ -15337,7 +18202,6 @@ public class SlidesApiTest extends ApiTest {
         PostNotesSlideShapeSaveAsRequest request = new PostNotesSlideShapeSaveAsRequest();
         request.setName((String)getTestValue("String", "postNotesSlideShapeSaveAs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postNotesSlideShapeSaveAs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postNotesSlideShapeSaveAs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postNotesSlideShapeSaveAs", "shapeIndex"));
         request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "postNotesSlideShapeSaveAs", "format"));
         request.setOptions((IShapeExportOptions)getTestValue("IShapeExportOptions", "postNotesSlideShapeSaveAs", "options"));
@@ -15562,30 +18426,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "postShapeSaveAs");
-        }
-    }
-    /**
-     * Render shape to specified picture format.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postShapeSaveAsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostShapeSaveAsRequest request = createPostShapeSaveAsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postShapeSaveAs", "path"));
-            initialize("postShapeSaveAs", "path", request.getPath());
-            File response = api.postShapeSaveAs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "postShapeSaveAs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "postShapeSaveAs");
         }
     }
     /**
@@ -15833,7 +18673,6 @@ public class SlidesApiTest extends ApiTest {
         PostShapeSaveAsRequest request = new PostShapeSaveAsRequest();
         request.setName((String)getTestValue("String", "postShapeSaveAs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postShapeSaveAs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "postShapeSaveAs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "postShapeSaveAs", "shapeIndex"));
         request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "postShapeSaveAs", "format"));
         request.setOptions((IShapeExportOptions)getTestValue("IShapeExportOptions", "postShapeSaveAs", "options"));
@@ -19485,6 +22324,354 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsTest() throws ApiException, Exception {
+        initialize("postSubshapeSaveAs", null, null);
+        File response = null;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        response = api.postSubshapeSaveAs(request);
+        assertTrue(response.isFile());
+    }
+
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postSubshapeSaveAs", "name"));
+            initialize("postSubshapeSaveAs", "name", request.getName());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postSubshapeSaveAs", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postSubshapeSaveAs", "slideIndex"));
+            initialize("postSubshapeSaveAs", "slideIndex", request.getSlideIndex());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postSubshapeSaveAs", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "postSubshapeSaveAs", "path"));
+            initialize("postSubshapeSaveAs", "path", request.getPath());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "postSubshapeSaveAs", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "postSubshapeSaveAs", "shapeIndex"));
+            initialize("postSubshapeSaveAs", "shapeIndex", request.getShapeIndex());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "postSubshapeSaveAs", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidFormatTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setFormat((ShapeExportFormat)invalidizeTestValue("ShapeExportFormat", request.getFormat(), "postSubshapeSaveAs", "format"));
+            initialize("postSubshapeSaveAs", "format", request.getFormat());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "format", "postSubshapeSaveAs", request.getFormat());
+        }
+        if (needAssertResponse) {
+            assertResponse("format", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidOptionsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setOptions((IShapeExportOptions)invalidizeTestValue("IShapeExportOptions", request.getOptions(), "postSubshapeSaveAs", "options"));
+            initialize("postSubshapeSaveAs", "options", request.getOptions());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "options", "postSubshapeSaveAs", request.getOptions());
+        }
+        if (needAssertResponse) {
+            assertResponse("options", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postSubshapeSaveAs", "password"));
+            initialize("postSubshapeSaveAs", "password", request.getPassword());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postSubshapeSaveAs", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postSubshapeSaveAs", "folder"));
+            initialize("postSubshapeSaveAs", "folder", request.getFolder());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postSubshapeSaveAs", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postSubshapeSaveAs", "storage"));
+            initialize("postSubshapeSaveAs", "storage", request.getStorage());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postSubshapeSaveAs", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidScaleXTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setScaleX((Double)invalidizeTestValue("Double", request.getScaleX(), "postSubshapeSaveAs", "scaleX"));
+            initialize("postSubshapeSaveAs", "scaleX", request.getScaleX());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "scaleX", "postSubshapeSaveAs", request.getScaleX());
+        }
+        if (needAssertResponse) {
+            assertResponse("scaleX", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidScaleYTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setScaleY((Double)invalidizeTestValue("Double", request.getScaleY(), "postSubshapeSaveAs", "scaleY"));
+            initialize("postSubshapeSaveAs", "scaleY", request.getScaleY());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "scaleY", "postSubshapeSaveAs", request.getScaleY());
+        }
+        if (needAssertResponse) {
+            assertResponse("scaleY", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidBoundsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setBounds((ShapeThumbnailBounds)invalidizeTestValue("ShapeThumbnailBounds", request.getBounds(), "postSubshapeSaveAs", "bounds"));
+            initialize("postSubshapeSaveAs", "bounds", request.getBounds());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "bounds", "postSubshapeSaveAs", request.getBounds());
+        }
+        if (needAssertResponse) {
+            assertResponse("bounds", "postSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSubshapeSaveAsInvalidFontsFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSubshapeSaveAsRequest request = createPostSubshapeSaveAsRequest();
+        try {
+            request.setFontsFolder((String)invalidizeTestValue("String", request.getFontsFolder(), "postSubshapeSaveAs", "fontsFolder"));
+            initialize("postSubshapeSaveAs", "fontsFolder", request.getFontsFolder());
+            File response = api.postSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "fontsFolder", "postSubshapeSaveAs", request.getFontsFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("fontsFolder", "postSubshapeSaveAs");
+        }
+    }
+
+    private PostSubshapeSaveAsRequest createPostSubshapeSaveAsRequest() {
+        PostSubshapeSaveAsRequest request = new PostSubshapeSaveAsRequest();
+        request.setName((String)getTestValue("String", "postSubshapeSaveAs", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postSubshapeSaveAs", "slideIndex"));
+        request.setPath((String)getTestValue("String", "postSubshapeSaveAs", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "postSubshapeSaveAs", "shapeIndex"));
+        request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "postSubshapeSaveAs", "format"));
+        request.setOptions((IShapeExportOptions)getTestValue("IShapeExportOptions", "postSubshapeSaveAs", "options"));
+        request.setPassword((String)getTestValue("String", "postSubshapeSaveAs", "password"));
+        request.setFolder((String)getTestValue("String", "postSubshapeSaveAs", "folder"));
+        request.setStorage((String)getTestValue("String", "postSubshapeSaveAs", "storage"));
+        request.setScaleX((Double)getTestValue("Double", "postSubshapeSaveAs", "scaleX"));
+        request.setScaleY((Double)getTestValue("Double", "postSubshapeSaveAs", "scaleY"));
+        request.setBounds((ShapeThumbnailBounds)getTestValue("ShapeThumbnailBounds", "postSubshapeSaveAs", "bounds"));
+        request.setFontsFolder((String)getTestValue("String", "postSubshapeSaveAs", "fontsFolder"));
+        return request;
+    }
+    
+    /**
      * Update a layoutSlide.
      *
      * 
@@ -19719,30 +22906,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "putNotesSlideShapeSaveAs");
-        }
-    }
-    /**
-     * Render shape to specified picture format.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putNotesSlideShapeSaveAsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutNotesSlideShapeSaveAsRequest request = createPutNotesSlideShapeSaveAsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putNotesSlideShapeSaveAs", "path"));
-            initialize("putNotesSlideShapeSaveAs", "path", request.getPath());
-            api.putNotesSlideShapeSaveAs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putNotesSlideShapeSaveAs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putNotesSlideShapeSaveAs");
         }
     }
     /**
@@ -20014,7 +23177,6 @@ public class SlidesApiTest extends ApiTest {
         PutNotesSlideShapeSaveAsRequest request = new PutNotesSlideShapeSaveAsRequest();
         request.setName((String)getTestValue("String", "putNotesSlideShapeSaveAs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putNotesSlideShapeSaveAs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putNotesSlideShapeSaveAs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putNotesSlideShapeSaveAs", "shapeIndex"));
         request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "putNotesSlideShapeSaveAs", "format"));
         request.setOutPath((String)getTestValue("String", "putNotesSlideShapeSaveAs", "outPath"));
@@ -20251,30 +23413,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void putSetParagraphPortionPropertiesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutSetParagraphPortionPropertiesRequest request = createPutSetParagraphPortionPropertiesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSetParagraphPortionProperties", "path"));
-            initialize("putSetParagraphPortionProperties", "path", request.getPath());
-            Portion response = api.putSetParagraphPortionProperties(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putSetParagraphPortionProperties", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putSetParagraphPortionProperties");
-        }
-    }
-    /**
-     * Update portion properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void putSetParagraphPortionPropertiesInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         PutSetParagraphPortionPropertiesRequest request = createPutSetParagraphPortionPropertiesRequest();
@@ -20439,7 +23577,6 @@ public class SlidesApiTest extends ApiTest {
         PutSetParagraphPortionPropertiesRequest request = new PutSetParagraphPortionPropertiesRequest();
         request.setName((String)getTestValue("String", "putSetParagraphPortionProperties", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putSetParagraphPortionProperties", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putSetParagraphPortionProperties", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putSetParagraphPortionProperties", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "putSetParagraphPortionProperties", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "putSetParagraphPortionProperties", "portionIndex"));
@@ -20513,30 +23650,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "putSetParagraphProperties");
-        }
-    }
-    /**
-     * Update paragraph properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putSetParagraphPropertiesInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutSetParagraphPropertiesRequest request = createPutSetParagraphPropertiesRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSetParagraphProperties", "path"));
-            initialize("putSetParagraphProperties", "path", request.getPath());
-            Paragraph response = api.putSetParagraphProperties(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putSetParagraphProperties", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putSetParagraphProperties");
         }
     }
     /**
@@ -20688,13 +23801,533 @@ public class SlidesApiTest extends ApiTest {
         PutSetParagraphPropertiesRequest request = new PutSetParagraphPropertiesRequest();
         request.setName((String)getTestValue("String", "putSetParagraphProperties", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putSetParagraphProperties", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putSetParagraphProperties", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putSetParagraphProperties", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "putSetParagraphProperties", "paragraphIndex"));
         request.setDto((Paragraph)getTestValue("Paragraph", "putSetParagraphProperties", "dto"));
         request.setPassword((String)getTestValue("String", "putSetParagraphProperties", "password"));
         request.setFolder((String)getTestValue("String", "putSetParagraphProperties", "folder"));
         request.setStorage((String)getTestValue("String", "putSetParagraphProperties", "storage"));
+        return request;
+    }
+    
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesTest() throws ApiException, Exception {
+        initialize("putSetSubshapeParagraphPortionProperties", null, null);
+        Portion response = null;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        response = api.putSetSubshapeParagraphPortionProperties(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSetSubshapeParagraphPortionProperties", "name"));
+            initialize("putSetSubshapeParagraphPortionProperties", "name", request.getName());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSetSubshapeParagraphPortionProperties", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putSetSubshapeParagraphPortionProperties", "slideIndex"));
+            initialize("putSetSubshapeParagraphPortionProperties", "slideIndex", request.getSlideIndex());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putSetSubshapeParagraphPortionProperties", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSetSubshapeParagraphPortionProperties", "path"));
+            initialize("putSetSubshapeParagraphPortionProperties", "path", request.getPath());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "putSetSubshapeParagraphPortionProperties", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "putSetSubshapeParagraphPortionProperties", "shapeIndex"));
+            initialize("putSetSubshapeParagraphPortionProperties", "shapeIndex", request.getShapeIndex());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "putSetSubshapeParagraphPortionProperties", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "putSetSubshapeParagraphPortionProperties", "paragraphIndex"));
+            initialize("putSetSubshapeParagraphPortionProperties", "paragraphIndex", request.getParagraphIndex());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "putSetSubshapeParagraphPortionProperties", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidPortionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setPortionIndex((Integer)invalidizeTestValue("Integer", request.getPortionIndex(), "putSetSubshapeParagraphPortionProperties", "portionIndex"));
+            initialize("putSetSubshapeParagraphPortionProperties", "portionIndex", request.getPortionIndex());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "portionIndex", "putSetSubshapeParagraphPortionProperties", request.getPortionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("portionIndex", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setDto((Portion)invalidizeTestValue("Portion", request.getDto(), "putSetSubshapeParagraphPortionProperties", "dto"));
+            initialize("putSetSubshapeParagraphPortionProperties", "dto", request.getDto());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putSetSubshapeParagraphPortionProperties", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSetSubshapeParagraphPortionProperties", "password"));
+            initialize("putSetSubshapeParagraphPortionProperties", "password", request.getPassword());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSetSubshapeParagraphPortionProperties", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSetSubshapeParagraphPortionProperties", "folder"));
+            initialize("putSetSubshapeParagraphPortionProperties", "folder", request.getFolder());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSetSubshapeParagraphPortionProperties", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+    /**
+     * Update portion properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPortionPropertiesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPortionPropertiesRequest request = createPutSetSubshapeParagraphPortionPropertiesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSetSubshapeParagraphPortionProperties", "storage"));
+            initialize("putSetSubshapeParagraphPortionProperties", "storage", request.getStorage());
+            Portion response = api.putSetSubshapeParagraphPortionProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSetSubshapeParagraphPortionProperties", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSetSubshapeParagraphPortionProperties");
+        }
+    }
+
+    private PutSetSubshapeParagraphPortionPropertiesRequest createPutSetSubshapeParagraphPortionPropertiesRequest() {
+        PutSetSubshapeParagraphPortionPropertiesRequest request = new PutSetSubshapeParagraphPortionPropertiesRequest();
+        request.setName((String)getTestValue("String", "putSetSubshapeParagraphPortionProperties", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphPortionProperties", "slideIndex"));
+        request.setPath((String)getTestValue("String", "putSetSubshapeParagraphPortionProperties", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphPortionProperties", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphPortionProperties", "paragraphIndex"));
+        request.setPortionIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphPortionProperties", "portionIndex"));
+        request.setDto((Portion)getTestValue("Portion", "putSetSubshapeParagraphPortionProperties", "dto"));
+        request.setPassword((String)getTestValue("String", "putSetSubshapeParagraphPortionProperties", "password"));
+        request.setFolder((String)getTestValue("String", "putSetSubshapeParagraphPortionProperties", "folder"));
+        request.setStorage((String)getTestValue("String", "putSetSubshapeParagraphPortionProperties", "storage"));
+        return request;
+    }
+    
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesTest() throws ApiException, Exception {
+        initialize("putSetSubshapeParagraphProperties", null, null);
+        Paragraph response = null;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        response = api.putSetSubshapeParagraphProperties(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSetSubshapeParagraphProperties", "name"));
+            initialize("putSetSubshapeParagraphProperties", "name", request.getName());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSetSubshapeParagraphProperties", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putSetSubshapeParagraphProperties", "slideIndex"));
+            initialize("putSetSubshapeParagraphProperties", "slideIndex", request.getSlideIndex());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putSetSubshapeParagraphProperties", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSetSubshapeParagraphProperties", "path"));
+            initialize("putSetSubshapeParagraphProperties", "path", request.getPath());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "putSetSubshapeParagraphProperties", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "putSetSubshapeParagraphProperties", "shapeIndex"));
+            initialize("putSetSubshapeParagraphProperties", "shapeIndex", request.getShapeIndex());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "putSetSubshapeParagraphProperties", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidParagraphIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setParagraphIndex((Integer)invalidizeTestValue("Integer", request.getParagraphIndex(), "putSetSubshapeParagraphProperties", "paragraphIndex"));
+            initialize("putSetSubshapeParagraphProperties", "paragraphIndex", request.getParagraphIndex());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "paragraphIndex", "putSetSubshapeParagraphProperties", request.getParagraphIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("paragraphIndex", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setDto((Paragraph)invalidizeTestValue("Paragraph", request.getDto(), "putSetSubshapeParagraphProperties", "dto"));
+            initialize("putSetSubshapeParagraphProperties", "dto", request.getDto());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putSetSubshapeParagraphProperties", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSetSubshapeParagraphProperties", "password"));
+            initialize("putSetSubshapeParagraphProperties", "password", request.getPassword());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSetSubshapeParagraphProperties", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSetSubshapeParagraphProperties", "folder"));
+            initialize("putSetSubshapeParagraphProperties", "folder", request.getFolder());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSetSubshapeParagraphProperties", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSetSubshapeParagraphProperties");
+        }
+    }
+    /**
+     * Update paragraph properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSetSubshapeParagraphPropertiesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSetSubshapeParagraphPropertiesRequest request = createPutSetSubshapeParagraphPropertiesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSetSubshapeParagraphProperties", "storage"));
+            initialize("putSetSubshapeParagraphProperties", "storage", request.getStorage());
+            Paragraph response = api.putSetSubshapeParagraphProperties(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSetSubshapeParagraphProperties", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSetSubshapeParagraphProperties");
+        }
+    }
+
+    private PutSetSubshapeParagraphPropertiesRequest createPutSetSubshapeParagraphPropertiesRequest() {
+        PutSetSubshapeParagraphPropertiesRequest request = new PutSetSubshapeParagraphPropertiesRequest();
+        request.setName((String)getTestValue("String", "putSetSubshapeParagraphProperties", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphProperties", "slideIndex"));
+        request.setPath((String)getTestValue("String", "putSetSubshapeParagraphProperties", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphProperties", "shapeIndex"));
+        request.setParagraphIndex((Integer)getTestValue("Integer", "putSetSubshapeParagraphProperties", "paragraphIndex"));
+        request.setDto((Paragraph)getTestValue("Paragraph", "putSetSubshapeParagraphProperties", "dto"));
+        request.setPassword((String)getTestValue("String", "putSetSubshapeParagraphProperties", "password"));
+        request.setFolder((String)getTestValue("String", "putSetSubshapeParagraphProperties", "folder"));
+        request.setStorage((String)getTestValue("String", "putSetSubshapeParagraphProperties", "storage"));
         return request;
     }
     
@@ -20760,30 +24393,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "putShapeSaveAs");
-        }
-    }
-    /**
-     * Render shape to specified picture format.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putShapeSaveAsInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutShapeSaveAsRequest request = createPutShapeSaveAsRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putShapeSaveAs", "path"));
-            initialize("putShapeSaveAs", "path", request.getPath());
-            api.putShapeSaveAs(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putShapeSaveAs", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putShapeSaveAs");
         }
     }
     /**
@@ -21055,7 +24664,6 @@ public class SlidesApiTest extends ApiTest {
         PutShapeSaveAsRequest request = new PutShapeSaveAsRequest();
         request.setName((String)getTestValue("String", "putShapeSaveAs", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putShapeSaveAs", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putShapeSaveAs", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putShapeSaveAs", "shapeIndex"));
         request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "putShapeSaveAs", "format"));
         request.setOutPath((String)getTestValue("String", "putShapeSaveAs", "outPath"));
@@ -22035,30 +25643,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void putSlideShapeInfoInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutSlideShapeInfoRequest request = createPutSlideShapeInfoRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSlideShapeInfo", "path"));
-            initialize("putSlideShapeInfo", "path", request.getPath());
-            ShapeBase response = api.putSlideShapeInfo(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putSlideShapeInfo", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putSlideShapeInfo");
-        }
-    }
-    /**
-     * Update shape properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void putSlideShapeInfoInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         PutSlideShapeInfoRequest request = createPutSlideShapeInfoRequest();
@@ -22175,12 +25759,234 @@ public class SlidesApiTest extends ApiTest {
         PutSlideShapeInfoRequest request = new PutSlideShapeInfoRequest();
         request.setName((String)getTestValue("String", "putSlideShapeInfo", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putSlideShapeInfo", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putSlideShapeInfo", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putSlideShapeInfo", "shapeIndex"));
         request.setDto((ShapeBase)getTestValue("ShapeBase", "putSlideShapeInfo", "dto"));
         request.setPassword((String)getTestValue("String", "putSlideShapeInfo", "password"));
         request.setFolder((String)getTestValue("String", "putSlideShapeInfo", "folder"));
         request.setStorage((String)getTestValue("String", "putSlideShapeInfo", "storage"));
+        return request;
+    }
+    
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoTest() throws ApiException, Exception {
+        initialize("putSlideSubshapeInfo", null, null);
+        ShapeBase response = null;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        response = api.putSlideSubshapeInfo(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSlideSubshapeInfo", "name"));
+            initialize("putSlideSubshapeInfo", "name", request.getName());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSlideSubshapeInfo", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putSlideSubshapeInfo", "slideIndex"));
+            initialize("putSlideSubshapeInfo", "slideIndex", request.getSlideIndex());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putSlideSubshapeInfo", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSlideSubshapeInfo", "path"));
+            initialize("putSlideSubshapeInfo", "path", request.getPath());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "putSlideSubshapeInfo", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "putSlideSubshapeInfo", "shapeIndex"));
+            initialize("putSlideSubshapeInfo", "shapeIndex", request.getShapeIndex());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "putSlideSubshapeInfo", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setDto((ShapeBase)invalidizeTestValue("ShapeBase", request.getDto(), "putSlideSubshapeInfo", "dto"));
+            initialize("putSlideSubshapeInfo", "dto", request.getDto());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putSlideSubshapeInfo", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSlideSubshapeInfo", "password"));
+            initialize("putSlideSubshapeInfo", "password", request.getPassword());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSlideSubshapeInfo", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSlideSubshapeInfo", "folder"));
+            initialize("putSlideSubshapeInfo", "folder", request.getFolder());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSlideSubshapeInfo", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSlideSubshapeInfo");
+        }
+    }
+    /**
+     * Update shape properties (for smart art and group shapes).
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideSubshapeInfoInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideSubshapeInfoRequest request = createPutSlideSubshapeInfoRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSlideSubshapeInfo", "storage"));
+            initialize("putSlideSubshapeInfo", "storage", request.getStorage());
+            ShapeBase response = api.putSlideSubshapeInfo(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSlideSubshapeInfo", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSlideSubshapeInfo");
+        }
+    }
+
+    private PutSlideSubshapeInfoRequest createPutSlideSubshapeInfoRequest() {
+        PutSlideSubshapeInfoRequest request = new PutSlideSubshapeInfoRequest();
+        request.setName((String)getTestValue("String", "putSlideSubshapeInfo", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putSlideSubshapeInfo", "slideIndex"));
+        request.setPath((String)getTestValue("String", "putSlideSubshapeInfo", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "putSlideSubshapeInfo", "shapeIndex"));
+        request.setDto((ShapeBase)getTestValue("ShapeBase", "putSlideSubshapeInfo", "dto"));
+        request.setPassword((String)getTestValue("String", "putSlideSubshapeInfo", "password"));
+        request.setFolder((String)getTestValue("String", "putSlideSubshapeInfo", "folder"));
+        request.setStorage((String)getTestValue("String", "putSlideSubshapeInfo", "storage"));
         return request;
     }
     
@@ -23765,6 +27571,378 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsTest() throws ApiException, Exception {
+        initialize("putSubshapeSaveAs", null, null);
+        ;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        api.putSubshapeSaveAs(request);
+    }
+
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSubshapeSaveAs", "name"));
+            initialize("putSubshapeSaveAs", "name", request.getName());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSubshapeSaveAs", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putSubshapeSaveAs", "slideIndex"));
+            initialize("putSubshapeSaveAs", "slideIndex", request.getSlideIndex());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putSubshapeSaveAs", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putSubshapeSaveAs", "path"));
+            initialize("putSubshapeSaveAs", "path", request.getPath());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "path", "putSubshapeSaveAs", request.getPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("path", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "putSubshapeSaveAs", "shapeIndex"));
+            initialize("putSubshapeSaveAs", "shapeIndex", request.getShapeIndex());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "putSubshapeSaveAs", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidFormatTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setFormat((ShapeExportFormat)invalidizeTestValue("ShapeExportFormat", request.getFormat(), "putSubshapeSaveAs", "format"));
+            initialize("putSubshapeSaveAs", "format", request.getFormat());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "format", "putSubshapeSaveAs", request.getFormat());
+        }
+        if (needAssertResponse) {
+            assertResponse("format", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidOutPathTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setOutPath((String)invalidizeTestValue("String", request.getOutPath(), "putSubshapeSaveAs", "outPath"));
+            initialize("putSubshapeSaveAs", "outPath", request.getOutPath());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "outPath", "putSubshapeSaveAs", request.getOutPath());
+        }
+        if (needAssertResponse) {
+            assertResponse("outPath", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidOptionsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setOptions((IShapeExportOptions)invalidizeTestValue("IShapeExportOptions", request.getOptions(), "putSubshapeSaveAs", "options"));
+            initialize("putSubshapeSaveAs", "options", request.getOptions());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "options", "putSubshapeSaveAs", request.getOptions());
+        }
+        if (needAssertResponse) {
+            assertResponse("options", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSubshapeSaveAs", "password"));
+            initialize("putSubshapeSaveAs", "password", request.getPassword());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSubshapeSaveAs", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSubshapeSaveAs", "folder"));
+            initialize("putSubshapeSaveAs", "folder", request.getFolder());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSubshapeSaveAs", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSubshapeSaveAs", "storage"));
+            initialize("putSubshapeSaveAs", "storage", request.getStorage());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSubshapeSaveAs", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidScaleXTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setScaleX((Double)invalidizeTestValue("Double", request.getScaleX(), "putSubshapeSaveAs", "scaleX"));
+            initialize("putSubshapeSaveAs", "scaleX", request.getScaleX());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "scaleX", "putSubshapeSaveAs", request.getScaleX());
+        }
+        if (needAssertResponse) {
+            assertResponse("scaleX", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidScaleYTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setScaleY((Double)invalidizeTestValue("Double", request.getScaleY(), "putSubshapeSaveAs", "scaleY"));
+            initialize("putSubshapeSaveAs", "scaleY", request.getScaleY());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "scaleY", "putSubshapeSaveAs", request.getScaleY());
+        }
+        if (needAssertResponse) {
+            assertResponse("scaleY", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidBoundsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setBounds((ShapeThumbnailBounds)invalidizeTestValue("ShapeThumbnailBounds", request.getBounds(), "putSubshapeSaveAs", "bounds"));
+            initialize("putSubshapeSaveAs", "bounds", request.getBounds());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "bounds", "putSubshapeSaveAs", request.getBounds());
+        }
+        if (needAssertResponse) {
+            assertResponse("bounds", "putSubshapeSaveAs");
+        }
+    }
+    /**
+     * Render shape to specified picture format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSubshapeSaveAsInvalidFontsFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSubshapeSaveAsRequest request = createPutSubshapeSaveAsRequest();
+        try {
+            request.setFontsFolder((String)invalidizeTestValue("String", request.getFontsFolder(), "putSubshapeSaveAs", "fontsFolder"));
+            initialize("putSubshapeSaveAs", "fontsFolder", request.getFontsFolder());
+            api.putSubshapeSaveAs(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "fontsFolder", "putSubshapeSaveAs", request.getFontsFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("fontsFolder", "putSubshapeSaveAs");
+        }
+    }
+
+    private PutSubshapeSaveAsRequest createPutSubshapeSaveAsRequest() {
+        PutSubshapeSaveAsRequest request = new PutSubshapeSaveAsRequest();
+        request.setName((String)getTestValue("String", "putSubshapeSaveAs", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putSubshapeSaveAs", "slideIndex"));
+        request.setPath((String)getTestValue("String", "putSubshapeSaveAs", "path"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "putSubshapeSaveAs", "shapeIndex"));
+        request.setFormat((ShapeExportFormat)getTestValue("ShapeExportFormat", "putSubshapeSaveAs", "format"));
+        request.setOutPath((String)getTestValue("String", "putSubshapeSaveAs", "outPath"));
+        request.setOptions((IShapeExportOptions)getTestValue("IShapeExportOptions", "putSubshapeSaveAs", "options"));
+        request.setPassword((String)getTestValue("String", "putSubshapeSaveAs", "password"));
+        request.setFolder((String)getTestValue("String", "putSubshapeSaveAs", "folder"));
+        request.setStorage((String)getTestValue("String", "putSubshapeSaveAs", "storage"));
+        request.setScaleX((Double)getTestValue("Double", "putSubshapeSaveAs", "scaleX"));
+        request.setScaleY((Double)getTestValue("Double", "putSubshapeSaveAs", "scaleY"));
+        request.setBounds((ShapeThumbnailBounds)getTestValue("ShapeThumbnailBounds", "putSubshapeSaveAs", "bounds"));
+        request.setFontsFolder((String)getTestValue("String", "putSubshapeSaveAs", "fontsFolder"));
+        return request;
+    }
+    
+    /**
      * Update notes slide properties.
      *
      * 
@@ -24011,30 +28189,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void putUpdateNotesSlideShapeInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutUpdateNotesSlideShapeRequest request = createPutUpdateNotesSlideShapeRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putUpdateNotesSlideShape", "path"));
-            initialize("putUpdateNotesSlideShape", "path", request.getPath());
-            ShapeBase response = api.putUpdateNotesSlideShape(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putUpdateNotesSlideShape", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putUpdateNotesSlideShape");
-        }
-    }
-    /**
-     * Update shape properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void putUpdateNotesSlideShapeInvalidShapeIndexTest() throws ApiException {
         Boolean needAssertResponse = false;
         PutUpdateNotesSlideShapeRequest request = createPutUpdateNotesSlideShapeRequest();
@@ -24151,7 +28305,6 @@ public class SlidesApiTest extends ApiTest {
         PutUpdateNotesSlideShapeRequest request = new PutUpdateNotesSlideShapeRequest();
         request.setName((String)getTestValue("String", "putUpdateNotesSlideShape", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShape", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putUpdateNotesSlideShape", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShape", "shapeIndex"));
         request.setDto((ShapeBase)getTestValue("ShapeBase", "putUpdateNotesSlideShape", "dto"));
         request.setPassword((String)getTestValue("String", "putUpdateNotesSlideShape", "password"));
@@ -24223,30 +28376,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "putUpdateNotesSlideShapeParagraph");
-        }
-    }
-    /**
-     * Update paragraph properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putUpdateNotesSlideShapeParagraphInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutUpdateNotesSlideShapeParagraphRequest request = createPutUpdateNotesSlideShapeParagraphRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putUpdateNotesSlideShapeParagraph", "path"));
-            initialize("putUpdateNotesSlideShapeParagraph", "path", request.getPath());
-            Paragraph response = api.putUpdateNotesSlideShapeParagraph(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putUpdateNotesSlideShapeParagraph", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putUpdateNotesSlideShapeParagraph");
         }
     }
     /**
@@ -24398,7 +28527,6 @@ public class SlidesApiTest extends ApiTest {
         PutUpdateNotesSlideShapeParagraphRequest request = new PutUpdateNotesSlideShapeParagraphRequest();
         request.setName((String)getTestValue("String", "putUpdateNotesSlideShapeParagraph", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapeParagraph", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putUpdateNotesSlideShapeParagraph", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapeParagraph", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapeParagraph", "paragraphIndex"));
         request.setDto((Paragraph)getTestValue("Paragraph", "putUpdateNotesSlideShapeParagraph", "dto"));
@@ -24471,30 +28599,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("slideIndex", "putUpdateNotesSlideShapePortion");
-        }
-    }
-    /**
-     * Update portion properties.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putUpdateNotesSlideShapePortionInvalidPathTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutUpdateNotesSlideShapePortionRequest request = createPutUpdateNotesSlideShapePortionRequest();
-        try {
-            request.setPath((String)invalidizeTestValue("String", request.getPath(), "putUpdateNotesSlideShapePortion", "path"));
-            initialize("putUpdateNotesSlideShapePortion", "path", request.getPath());
-            Portion response = api.putUpdateNotesSlideShapePortion(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "path", "putUpdateNotesSlideShapePortion", request.getPath());
-        }
-        if (needAssertResponse) {
-            assertResponse("path", "putUpdateNotesSlideShapePortion");
         }
     }
     /**
@@ -24670,7 +28774,6 @@ public class SlidesApiTest extends ApiTest {
         PutUpdateNotesSlideShapePortionRequest request = new PutUpdateNotesSlideShapePortionRequest();
         request.setName((String)getTestValue("String", "putUpdateNotesSlideShapePortion", "name"));
         request.setSlideIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapePortion", "slideIndex"));
-        request.setPath((String)getTestValue("String", "putUpdateNotesSlideShapePortion", "path"));
         request.setShapeIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapePortion", "shapeIndex"));
         request.setParagraphIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapePortion", "paragraphIndex"));
         request.setPortionIndex((Integer)getTestValue("Integer", "putUpdateNotesSlideShapePortion", "portionIndex"));
