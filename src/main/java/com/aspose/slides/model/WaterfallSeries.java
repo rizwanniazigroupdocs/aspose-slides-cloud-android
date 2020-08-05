@@ -58,6 +58,7 @@ public class WaterfallSeries extends OneValueSeries {
 
   public WaterfallSeries() {
     super();
+    setDataPointType(DataPointTypeEnum.ONEVALUE);
     setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
@@ -123,4 +124,7 @@ public class WaterfallSeries extends OneValueSeries {
 
   private static final Map<String, Object> typeDeterminers = new Hashtable<String, Object>();
 
+  static {
+      typeDeterminers.put("DataPointType", DataPointTypeEnum.ONEVALUE);
+  }
 }

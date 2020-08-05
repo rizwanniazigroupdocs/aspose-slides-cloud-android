@@ -117,6 +117,7 @@ public class BoxAndWhiskerSeries extends OneValueSeries {
 
   public BoxAndWhiskerSeries() {
     super();
+    setDataPointType(DataPointTypeEnum.ONEVALUE);
     setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
@@ -258,4 +259,7 @@ public class BoxAndWhiskerSeries extends OneValueSeries {
 
   private static final Map<String, Object> typeDeterminers = new Hashtable<String, Object>();
 
+  static {
+      typeDeterminers.put("DataPointType", DataPointTypeEnum.ONEVALUE);
+  }
 }

@@ -28,9 +28,9 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
+import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -596,13 +596,13 @@ public class Paragraph extends ResourceBase {
   private RightToLeftEnum rightToLeft;
 
   @SerializedName(value = "portionList", alternate = { "PortionList" })
-  private List<ResourceUriElement> portionList = null;
+  private List<Portion> portionList = null;
 
 
   public Paragraph() {
     super();
     setAlternateLinks(new ArrayList<ResourceUri>());
-    setPortionList(new ArrayList<ResourceUriElement>());
+    setPortionList(new ArrayList<Portion>());
   }
 
   public Paragraph marginLeft(Double marginLeft) {
@@ -947,14 +947,14 @@ public class Paragraph extends ResourceBase {
     this.rightToLeft = rightToLeft;
   }
 
-  public Paragraph portionList(List<ResourceUriElement> portionList) {
+  public Paragraph portionList(List<Portion> portionList) {
     this.portionList = portionList;
     return this;
   }
 
-  public Paragraph addPortionListItem(ResourceUriElement portionListItem) {
+  public Paragraph addPortionListItem(Portion portionListItem) {
     if (this.portionList == null) {
-      this.portionList = new ArrayList<ResourceUriElement>();
+      this.portionList = new ArrayList<Portion>();
     }
     this.portionList.add(portionListItem);
     return this;
@@ -965,11 +965,11 @@ public class Paragraph extends ResourceBase {
    * @return portionList
   **/
   @ApiModelProperty(value = "List of portion links.")
-  public List<ResourceUriElement> getPortionList() {
+  public List<Portion> getPortionList() {
     return portionList;
   }
 
-  public void setPortionList(List<ResourceUriElement> portionList) {
+  public void setPortionList(List<Portion> portionList) {
     this.portionList = portionList;
   }
 

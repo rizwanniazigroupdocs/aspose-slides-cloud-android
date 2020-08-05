@@ -44,6 +44,7 @@ import java.io.IOException;
 
 
 import com.aspose.slides.model.ApiInfo;
+import com.aspose.slides.model.Chart;
 import com.aspose.slides.model.ColorScheme;
 import com.aspose.slides.model.DiscUsage;
 import com.aspose.slides.model.Document;
@@ -77,6 +78,7 @@ import com.aspose.slides.model.Placeholders;
 import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.Portions;
 import com.aspose.slides.model.PresentationsMergeRequest;
+import com.aspose.slides.model.Series;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.Shapes;
 import com.aspose.slides.model.Slide;
@@ -93,6 +95,7 @@ import com.aspose.slides.model.ViewProperties;
 import com.aspose.slides.model.request.CopyFileRequest;
 import com.aspose.slides.model.request.CopyFolderRequest;
 import com.aspose.slides.model.request.CreateFolderRequest;
+import com.aspose.slides.model.request.DeleteChartSeriesRequest;
 import com.aspose.slides.model.request.DeleteFileRequest;
 import com.aspose.slides.model.request.DeleteFolderRequest;
 import com.aspose.slides.model.request.DeleteNotesSlideRequest;
@@ -186,6 +189,7 @@ import com.aspose.slides.model.request.PostAddNewSubshapeRequest;
 import com.aspose.slides.model.request.PostAddNewSubshapeParagraphRequest;
 import com.aspose.slides.model.request.PostAddNewSubshapePortionRequest;
 import com.aspose.slides.model.request.PostAddNotesSlideRequest;
+import com.aspose.slides.model.request.PostChartSeriesRequest;
 import com.aspose.slides.model.request.PostCopyLayoutSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostCopyMasterSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostGetNotesSlideRequest;
@@ -217,6 +221,7 @@ import com.aspose.slides.model.request.PostSlidesSetDocumentPropertiesRequest;
 import com.aspose.slides.model.request.PostSlidesSlideReplaceTextRequest;
 import com.aspose.slides.model.request.PostSlidesSplitRequest;
 import com.aspose.slides.model.request.PostSubshapeSaveAsRequest;
+import com.aspose.slides.model.request.PutChartSeriesRequest;
 import com.aspose.slides.model.request.PutLayoutSlideRequest;
 import com.aspose.slides.model.request.PutNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutPresentationMergeRequest;
@@ -613,6 +618,141 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = createFolderCall(request, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteChartSeries
+     * @param request Request for deleteChartSeries. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteChartSeriesCall(DeleteChartSeriesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling deleteChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'shapeIndex' is set
+        if (request.getShapeIndex() == null) {
+            throw new ApiException("Missing the required parameter 'shapeIndex' when calling deleteChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'seriesIndex' is set
+        if (request.getSeriesIndex() == null) {
+            throw new ApiException("Missing the required parameter 'seriesIndex' when calling deleteChartSeries(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "seriesIndex" + "\\}", apiClient.objectToString(request.getSeriesIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "DELETE", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Delete a series from a chart.
+     * 
+     * @param request Request for deleteChartSeries. (required)
+     * @return Chart
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Chart deleteChartSeries(DeleteChartSeriesRequest request) throws ApiException {
+        try {
+            ApiResponse<Chart> resp = deleteChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Chart> resp = deleteChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Delete a series from a chart.
+     * 
+     * @param request Request for deleteChartSeries. (required)
+     * @return ApiResponse&lt;Chart&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Chart> deleteChartSeriesWithHttpInfo(DeleteChartSeriesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteChartSeriesCall(request, null, null);
+        Type returnType = new TypeToken<Chart>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Delete a series from a chart. (asynchronously)
+     * 
+     * @param request Request for deleteChartSeries. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteChartSeriesAsync(DeleteChartSeriesRequest request, final ApiCallback<Chart> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteChartSeriesCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Chart>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
         return call;
     }
     /**
@@ -7156,11 +7296,6 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideAnimation(Async)");
         }
         
-        // verify the required parameter 'shapeIndex' is set
-        if (request.getShapeIndex() == null) {
-            throw new ApiException("Missing the required parameter 'shapeIndex' when calling getSlideAnimation(Async)");
-        }
-        
         Object postBody = null;
 
         // create path and map variables
@@ -12447,6 +12582,136 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for postChartSeries
+     * @param request Request for postChartSeries. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postChartSeriesCall(PostChartSeriesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling postChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling postChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'shapeIndex' is set
+        if (request.getShapeIndex() == null) {
+            throw new ApiException("Missing the required parameter 'shapeIndex' when calling postChartSeries(Async)");
+        }
+        
+        Object postBody = request.getSeries();
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "POST", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Add a new series to a chart.
+     * 
+     * @param request Request for postChartSeries. (required)
+     * @return Chart
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Chart postChartSeries(PostChartSeriesRequest request) throws ApiException {
+        try {
+            ApiResponse<Chart> resp = postChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Chart> resp = postChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Add a new series to a chart.
+     * 
+     * @param request Request for postChartSeries. (required)
+     * @return ApiResponse&lt;Chart&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Chart> postChartSeriesWithHttpInfo(PostChartSeriesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postChartSeriesCall(request, null, null);
+        Type returnType = new TypeToken<Chart>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Add a new series to a chart. (asynchronously)
+     * 
+     * @param request Request for postChartSeries. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postChartSeriesAsync(PostChartSeriesRequest request, final ApiCallback<Chart> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postChartSeriesCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Chart>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for postCopyLayoutSlideFromSourcePresentation
      * @param request Request for postCopyLayoutSlideFromSourcePresentation. (required)
      * @param progressListener Progress listener
@@ -16395,6 +16660,141 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = postSubshapeSaveAsCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<File>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putChartSeries
+     * @param request Request for putChartSeries. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putChartSeriesCall(PutChartSeriesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling putChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'shapeIndex' is set
+        if (request.getShapeIndex() == null) {
+            throw new ApiException("Missing the required parameter 'shapeIndex' when calling putChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'seriesIndex' is set
+        if (request.getSeriesIndex() == null) {
+            throw new ApiException("Missing the required parameter 'seriesIndex' when calling putChartSeries(Async)");
+        }
+        
+        Object postBody = request.getSeries();
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex())).replaceAll("\\{" + "shapeIndex" + "\\}", apiClient.objectToString(request.getShapeIndex())).replaceAll("\\{" + "seriesIndex" + "\\}", apiClient.objectToString(request.getSeriesIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Update a series in a chart.
+     * 
+     * @param request Request for putChartSeries. (required)
+     * @return Chart
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Chart putChartSeries(PutChartSeriesRequest request) throws ApiException {
+        try {
+            ApiResponse<Chart> resp = putChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Chart> resp = putChartSeriesWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Update a series in a chart.
+     * 
+     * @param request Request for putChartSeries. (required)
+     * @return ApiResponse&lt;Chart&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Chart> putChartSeriesWithHttpInfo(PutChartSeriesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putChartSeriesCall(request, null, null);
+        Type returnType = new TypeToken<Chart>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Update a series in a chart. (asynchronously)
+     * 
+     * @param request Request for putChartSeries. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putChartSeriesAsync(PutChartSeriesRequest request, final ApiCallback<Chart> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putChartSeriesCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Chart>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }

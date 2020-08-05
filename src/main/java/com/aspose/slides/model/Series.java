@@ -305,6 +305,58 @@ public class Series {
   @SerializedName(value = "lineFormat", alternate = { "LineFormat" })
   private LineFormat lineFormat;
 
+  /**
+   * Gets or Sets dataPointType
+   */
+  @JsonAdapter(DataPointTypeEnum.Adapter.class)
+  public enum DataPointTypeEnum {
+    ONEVALUE("OneValue"),
+    
+    SCATTER("Scatter"),
+    
+    BUBBLE("Bubble");
+
+    private String value;
+
+    DataPointTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DataPointTypeEnum fromValue(String text) {
+      for (DataPointTypeEnum b : DataPointTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DataPointTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DataPointTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DataPointTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DataPointTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName(value = "dataPointType", alternate = { "DataPointType" })
+  private DataPointTypeEnum dataPointType;
+
 
   public Series() {
     super();
@@ -616,6 +668,24 @@ public class Series {
     this.lineFormat = lineFormat;
   }
 
+  public Series dataPointType(DataPointTypeEnum dataPointType) {
+    this.dataPointType = dataPointType;
+    return this;
+  }
+
+   /**
+   * Get dataPointType
+   * @return dataPointType
+  **/
+  @ApiModelProperty(value = "")
+  public DataPointTypeEnum getDataPointType() {
+    return dataPointType;
+  }
+
+  public void setDataPointType(DataPointTypeEnum dataPointType) {
+    this.dataPointType = dataPointType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -626,12 +696,12 @@ public class Series {
       return false;
     }
     Series series = (Series) o;
-    return true && Objects.equals(this.type, series.type) && Objects.equals(this.name, series.name) && Objects.equals(this.isColorVaried, series.isColorVaried) && Objects.equals(this.invertedSolidFillColor, series.invertedSolidFillColor) && Objects.equals(this.smooth, series.smooth) && Objects.equals(this.plotOnSecondAxis, series.plotOnSecondAxis) && Objects.equals(this.order, series.order) && Objects.equals(this.numberFormatOfYValues, series.numberFormatOfYValues) && Objects.equals(this.numberFormatOfXValues, series.numberFormatOfXValues) && Objects.equals(this.numberFormatOfValues, series.numberFormatOfValues) && Objects.equals(this.numberFormatOfBubbleSizes, series.numberFormatOfBubbleSizes) && Objects.equals(this.invertIfNegative, series.invertIfNegative) && Objects.equals(this.explosion, series.explosion) && Objects.equals(this.marker, series.marker) && Objects.equals(this.fillFormat, series.fillFormat) && Objects.equals(this.effectFormat, series.effectFormat) && Objects.equals(this.lineFormat, series.lineFormat);
+    return true && Objects.equals(this.type, series.type) && Objects.equals(this.name, series.name) && Objects.equals(this.isColorVaried, series.isColorVaried) && Objects.equals(this.invertedSolidFillColor, series.invertedSolidFillColor) && Objects.equals(this.smooth, series.smooth) && Objects.equals(this.plotOnSecondAxis, series.plotOnSecondAxis) && Objects.equals(this.order, series.order) && Objects.equals(this.numberFormatOfYValues, series.numberFormatOfYValues) && Objects.equals(this.numberFormatOfXValues, series.numberFormatOfXValues) && Objects.equals(this.numberFormatOfValues, series.numberFormatOfValues) && Objects.equals(this.numberFormatOfBubbleSizes, series.numberFormatOfBubbleSizes) && Objects.equals(this.invertIfNegative, series.invertIfNegative) && Objects.equals(this.explosion, series.explosion) && Objects.equals(this.marker, series.marker) && Objects.equals(this.fillFormat, series.fillFormat) && Objects.equals(this.effectFormat, series.effectFormat) && Objects.equals(this.lineFormat, series.lineFormat) && Objects.equals(this.dataPointType, series.dataPointType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, isColorVaried, invertedSolidFillColor, smooth, plotOnSecondAxis, order, numberFormatOfYValues, numberFormatOfXValues, numberFormatOfValues, numberFormatOfBubbleSizes, invertIfNegative, explosion, marker, fillFormat, effectFormat, lineFormat);
+    return Objects.hash(type, name, isColorVaried, invertedSolidFillColor, smooth, plotOnSecondAxis, order, numberFormatOfYValues, numberFormatOfXValues, numberFormatOfValues, numberFormatOfBubbleSizes, invertIfNegative, explosion, marker, fillFormat, effectFormat, lineFormat, dataPointType);
   }
 
 
@@ -657,6 +727,7 @@ public class Series {
     sb.append("    fillFormat: ").append(toIndentedString(fillFormat)).append("\n");
     sb.append("    effectFormat: ").append(toIndentedString(effectFormat)).append("\n");
     sb.append("    lineFormat: ").append(toIndentedString(lineFormat)).append("\n");
+    sb.append("    dataPointType: ").append(toIndentedString(dataPointType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

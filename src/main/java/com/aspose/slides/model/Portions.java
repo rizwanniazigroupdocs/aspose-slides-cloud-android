@@ -28,9 +28,9 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
+import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,40 +50,40 @@ import java.util.Map;
  */
 @ApiModel(description = "Represents list of Links to Paragraphs resources")
 public class Portions extends ResourceBase {
-  @SerializedName(value = "portionLinks", alternate = { "PortionLinks" })
-  private List<ResourceUriElement> portionLinks = null;
+  @SerializedName(value = "items", alternate = { "Items" })
+  private List<Portion> items = null;
 
 
   public Portions() {
     super();
     setAlternateLinks(new ArrayList<ResourceUri>());
-    setPortionLinks(new ArrayList<ResourceUriElement>());
+    setItems(new ArrayList<Portion>());
   }
 
-  public Portions portionLinks(List<ResourceUriElement> portionLinks) {
-    this.portionLinks = portionLinks;
+  public Portions items(List<Portion> items) {
+    this.items = items;
     return this;
   }
 
-  public Portions addPortionLinksItem(ResourceUriElement portionLinksItem) {
-    if (this.portionLinks == null) {
-      this.portionLinks = new ArrayList<ResourceUriElement>();
+  public Portions addItemsItem(Portion itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<Portion>();
     }
-    this.portionLinks.add(portionLinksItem);
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
    * List of portion links.
-   * @return portionLinks
+   * @return items
   **/
   @ApiModelProperty(value = "List of portion links.")
-  public List<ResourceUriElement> getPortionLinks() {
-    return portionLinks;
+  public List<Portion> getItems() {
+    return items;
   }
 
-  public void setPortionLinks(List<ResourceUriElement> portionLinks) {
-    this.portionLinks = portionLinks;
+  public void setItems(List<Portion> items) {
+    this.items = items;
   }
 
 
@@ -96,12 +96,12 @@ public class Portions extends ResourceBase {
       return false;
     }
     Portions portions = (Portions) o;
-    return true && Objects.equals(this.portionLinks, portions.portionLinks) && super.equals(o);
+    return true && Objects.equals(this.items, portions.items) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(portionLinks, super.hashCode());
+    return Objects.hash(items, super.hashCode());
   }
 
 
@@ -110,7 +110,7 @@ public class Portions extends ResourceBase {
     StringBuilder sb = new StringBuilder();
     sb.append("class Portions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    portionLinks: ").append(toIndentedString(portionLinks)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

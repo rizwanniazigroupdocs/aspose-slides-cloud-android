@@ -41,6 +41,7 @@ import com.aspose.slides.ApiTest;
 import com.aspose.slides.model.*;
 
 import com.aspose.slides.model.ApiInfo;
+import com.aspose.slides.model.Chart;
 import com.aspose.slides.model.ColorScheme;
 import com.aspose.slides.model.DiscUsage;
 import com.aspose.slides.model.Document;
@@ -74,6 +75,7 @@ import com.aspose.slides.model.Placeholders;
 import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.Portions;
 import com.aspose.slides.model.PresentationsMergeRequest;
+import com.aspose.slides.model.Series;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.Shapes;
 import com.aspose.slides.model.Slide;
@@ -97,6 +99,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import com.aspose.slides.model.request.CopyFileRequest;
 import com.aspose.slides.model.request.CopyFolderRequest;
 import com.aspose.slides.model.request.CreateFolderRequest;
+import com.aspose.slides.model.request.DeleteChartSeriesRequest;
 import com.aspose.slides.model.request.DeleteFileRequest;
 import com.aspose.slides.model.request.DeleteFolderRequest;
 import com.aspose.slides.model.request.DeleteNotesSlideRequest;
@@ -190,6 +193,7 @@ import com.aspose.slides.model.request.PostAddNewSubshapeRequest;
 import com.aspose.slides.model.request.PostAddNewSubshapeParagraphRequest;
 import com.aspose.slides.model.request.PostAddNewSubshapePortionRequest;
 import com.aspose.slides.model.request.PostAddNotesSlideRequest;
+import com.aspose.slides.model.request.PostChartSeriesRequest;
 import com.aspose.slides.model.request.PostCopyLayoutSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostCopyMasterSlideFromSourcePresentationRequest;
 import com.aspose.slides.model.request.PostGetNotesSlideRequest;
@@ -221,6 +225,7 @@ import com.aspose.slides.model.request.PostSlidesSetDocumentPropertiesRequest;
 import com.aspose.slides.model.request.PostSlidesSlideReplaceTextRequest;
 import com.aspose.slides.model.request.PostSlidesSplitRequest;
 import com.aspose.slides.model.request.PostSubshapeSaveAsRequest;
+import com.aspose.slides.model.request.PutChartSeriesRequest;
 import com.aspose.slides.model.request.PutLayoutSlideRequest;
 import com.aspose.slides.model.request.PutNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutPresentationMergeRequest;
@@ -595,6 +600,204 @@ public class SlidesApiTest extends ApiTest {
         CreateFolderRequest request = new CreateFolderRequest();
         request.setPath((String)getTestValue("String", "createFolder", "path"));
         request.setStorageName((String)getTestValue("String", "createFolder", "storageName"));
+        return request;
+    }
+    
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesTest() throws ApiException, Exception {
+        initialize("deleteChartSeries", null, null);
+        Chart response = null;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        response = api.deleteChartSeries(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteChartSeries", "name"));
+            initialize("deleteChartSeries", "name", request.getName());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteChartSeries", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "deleteChartSeries", "slideIndex"));
+            initialize("deleteChartSeries", "slideIndex", request.getSlideIndex());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "deleteChartSeries", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "deleteChartSeries", "shapeIndex"));
+            initialize("deleteChartSeries", "shapeIndex", request.getShapeIndex());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "deleteChartSeries", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidSeriesIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setSeriesIndex((Integer)invalidizeTestValue("Integer", request.getSeriesIndex(), "deleteChartSeries", "seriesIndex"));
+            initialize("deleteChartSeries", "seriesIndex", request.getSeriesIndex());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "seriesIndex", "deleteChartSeries", request.getSeriesIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("seriesIndex", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteChartSeries", "password"));
+            initialize("deleteChartSeries", "password", request.getPassword());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteChartSeries", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteChartSeries", "folder"));
+            initialize("deleteChartSeries", "folder", request.getFolder());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteChartSeries", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteChartSeries");
+        }
+    }
+    /**
+     * Delete a series from a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChartSeriesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteChartSeriesRequest request = createDeleteChartSeriesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteChartSeries", "storage"));
+            initialize("deleteChartSeries", "storage", request.getStorage());
+            Chart response = api.deleteChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteChartSeries", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteChartSeries");
+        }
+    }
+
+    private DeleteChartSeriesRequest createDeleteChartSeriesRequest() {
+        DeleteChartSeriesRequest request = new DeleteChartSeriesRequest();
+        request.setName((String)getTestValue("String", "deleteChartSeries", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "deleteChartSeries", "slideIndex"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "deleteChartSeries", "shapeIndex"));
+        request.setSeriesIndex((Integer)getTestValue("Integer", "deleteChartSeries", "seriesIndex"));
+        request.setPassword((String)getTestValue("String", "deleteChartSeries", "password"));
+        request.setFolder((String)getTestValue("String", "deleteChartSeries", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteChartSeries", "storage"));
         return request;
     }
     
@@ -16334,6 +16537,204 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesTest() throws ApiException, Exception {
+        initialize("postChartSeries", null, null);
+        Chart response = null;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        response = api.postChartSeries(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postChartSeries", "name"));
+            initialize("postChartSeries", "name", request.getName());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postChartSeries", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postChartSeries", "slideIndex"));
+            initialize("postChartSeries", "slideIndex", request.getSlideIndex());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postChartSeries", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "postChartSeries", "shapeIndex"));
+            initialize("postChartSeries", "shapeIndex", request.getShapeIndex());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "postChartSeries", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidSeriesTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setSeries((Series)invalidizeTestValue("Series", request.getSeries(), "postChartSeries", "series"));
+            initialize("postChartSeries", "series", request.getSeries());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "series", "postChartSeries", request.getSeries());
+        }
+        if (needAssertResponse) {
+            assertResponse("series", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postChartSeries", "password"));
+            initialize("postChartSeries", "password", request.getPassword());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postChartSeries", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postChartSeries", "folder"));
+            initialize("postChartSeries", "folder", request.getFolder());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postChartSeries", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postChartSeries");
+        }
+    }
+    /**
+     * Add a new series to a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postChartSeriesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostChartSeriesRequest request = createPostChartSeriesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postChartSeries", "storage"));
+            initialize("postChartSeries", "storage", request.getStorage());
+            Chart response = api.postChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postChartSeries", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postChartSeries");
+        }
+    }
+
+    private PostChartSeriesRequest createPostChartSeriesRequest() {
+        PostChartSeriesRequest request = new PostChartSeriesRequest();
+        request.setName((String)getTestValue("String", "postChartSeries", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postChartSeries", "slideIndex"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "postChartSeries", "shapeIndex"));
+        request.setSeries((Series)getTestValue("Series", "postChartSeries", "series"));
+        request.setPassword((String)getTestValue("String", "postChartSeries", "password"));
+        request.setFolder((String)getTestValue("String", "postChartSeries", "folder"));
+        request.setStorage((String)getTestValue("String", "postChartSeries", "storage"));
+        return request;
+    }
+    
+    /**
      * Copy layoutSlide from source presentation.
      *
      * 
@@ -22668,6 +23069,229 @@ public class SlidesApiTest extends ApiTest {
         request.setScaleY((Double)getTestValue("Double", "postSubshapeSaveAs", "scaleY"));
         request.setBounds((ShapeThumbnailBounds)getTestValue("ShapeThumbnailBounds", "postSubshapeSaveAs", "bounds"));
         request.setFontsFolder((String)getTestValue("String", "postSubshapeSaveAs", "fontsFolder"));
+        return request;
+    }
+    
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesTest() throws ApiException, Exception {
+        initialize("putChartSeries", null, null);
+        Chart response = null;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        response = api.putChartSeries(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putChartSeries", "name"));
+            initialize("putChartSeries", "name", request.getName());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putChartSeries", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putChartSeries", "slideIndex"));
+            initialize("putChartSeries", "slideIndex", request.getSlideIndex());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putChartSeries", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidShapeIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setShapeIndex((Integer)invalidizeTestValue("Integer", request.getShapeIndex(), "putChartSeries", "shapeIndex"));
+            initialize("putChartSeries", "shapeIndex", request.getShapeIndex());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "shapeIndex", "putChartSeries", request.getShapeIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("shapeIndex", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidSeriesIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setSeriesIndex((Integer)invalidizeTestValue("Integer", request.getSeriesIndex(), "putChartSeries", "seriesIndex"));
+            initialize("putChartSeries", "seriesIndex", request.getSeriesIndex());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "seriesIndex", "putChartSeries", request.getSeriesIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("seriesIndex", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidSeriesTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setSeries((Series)invalidizeTestValue("Series", request.getSeries(), "putChartSeries", "series"));
+            initialize("putChartSeries", "series", request.getSeries());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "series", "putChartSeries", request.getSeries());
+        }
+        if (needAssertResponse) {
+            assertResponse("series", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putChartSeries", "password"));
+            initialize("putChartSeries", "password", request.getPassword());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putChartSeries", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putChartSeries", "folder"));
+            initialize("putChartSeries", "folder", request.getFolder());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putChartSeries", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putChartSeries");
+        }
+    }
+    /**
+     * Update a series in a chart.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putChartSeriesInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutChartSeriesRequest request = createPutChartSeriesRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putChartSeries", "storage"));
+            initialize("putChartSeries", "storage", request.getStorage());
+            Chart response = api.putChartSeries(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putChartSeries", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putChartSeries");
+        }
+    }
+
+    private PutChartSeriesRequest createPutChartSeriesRequest() {
+        PutChartSeriesRequest request = new PutChartSeriesRequest();
+        request.setName((String)getTestValue("String", "putChartSeries", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putChartSeries", "slideIndex"));
+        request.setShapeIndex((Integer)getTestValue("Integer", "putChartSeries", "shapeIndex"));
+        request.setSeriesIndex((Integer)getTestValue("Integer", "putChartSeries", "seriesIndex"));
+        request.setSeries((Series)getTestValue("Series", "putChartSeries", "series"));
+        request.setPassword((String)getTestValue("String", "putChartSeries", "password"));
+        request.setFolder((String)getTestValue("String", "putChartSeries", "folder"));
+        request.setStorage((String)getTestValue("String", "putChartSeries", "storage"));
         return request;
     }
     
