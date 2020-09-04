@@ -24,34 +24,83 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
+package com.aspose.slides.model.request;
 
-package com.aspose.slides.auth;
+import java.util.List;
+import com.aspose.slides.model.*;
 
-import com.aspose.slides.ApiException;
-import com.squareup.okhttp.Response;
-import java.io.IOException;
+public class DeleteChartCategoryRequest {
+  public DeleteChartCategoryRequest() {
+  }
 
-import java.util.Map;
+  private String name;
 
-/**
- * Base class for authentication. Can be used as void authentication.
- */
-public class Authentication {
-    /**
-     * Apply authentication settings to header params.
-     *
-     * @param headerParams Map of header parameters
-     */
-    public void updateHeaderParams(Map<String, String> headerParams) throws ApiException
-    {
-    }
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * Handle error response.
-     *
-     * @param response Response
-     */
-    public void handleBadResponse(Response response) throws ApiException, IOException
-    {
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  private Integer slideIndex;
+
+  public Integer getSlideIndex() {
+    return slideIndex;
+  }
+
+  public void setSlideIndex(Integer slideIndex) {
+    this.slideIndex = slideIndex;
+  }
+
+  private Integer shapeIndex;
+
+  public Integer getShapeIndex() {
+    return shapeIndex;
+  }
+
+  public void setShapeIndex(Integer shapeIndex) {
+    this.shapeIndex = shapeIndex;
+  }
+
+  private Integer categoryIndex;
+
+  public Integer getCategoryIndex() {
+    return categoryIndex;
+  }
+
+  public void setCategoryIndex(Integer categoryIndex) {
+    this.categoryIndex = categoryIndex;
+  }
+
+  private String password;
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  private String folder;
+
+  public String getFolder() {
+    return folder;
+  }
+
+  public void setFolder(String folder) {
+    this.folder = folder;
+  }
+
+  private String storage;
+
+  public String getStorage() {
+    return storage;
+  }
+
+  public void setStorage(String storage) {
+    this.storage = storage;
+  }
+
 }

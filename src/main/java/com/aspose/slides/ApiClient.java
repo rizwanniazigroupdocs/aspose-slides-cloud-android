@@ -91,7 +91,7 @@ public class ApiClient {
     public ApiClient(Configuration configuration) {
         this(
             configuration.getUrl(),
-            new JWTAuth(configuration.getBaseUrl(), configuration.getAppSid(), configuration.getAppKey()),
+            new JWTAuth(configuration),
             configuration.getDebug(),
             configuration.getTimeout(),
             configuration.getCustomHeaders());
@@ -121,8 +121,7 @@ public class ApiClient {
         verifyingSsl = true;
         json = new JSON();
 
-        addDefaultHeader("x-aspose-client", "java sdk");
-        addDefaultHeader("x-aspose-client-version", getVersion());
+        addDefaultHeader("x-aspose-client", "java sdk v" + getVersion());
         if (timeout > 0) {
             addDefaultHeader("x-aspose-timeout", timeout.toString());
         }
@@ -882,7 +881,11 @@ public class ApiClient {
                 return deserialize(response, returnType);
             }
         } else {
-            authentication.handleBadResponse(response);
+            try {
+                authentication.handleBadResponse(response);
+            } catch (IOException ex) {
+                throw new ApiException(response.message(), ex, response.code(), response.headers().toMultimap());
+            }
             if (response.body() != null) {
                 String respBody;
                 try {

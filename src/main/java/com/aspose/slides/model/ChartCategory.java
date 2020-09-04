@@ -32,6 +32,7 @@ import com.aspose.slides.model.ChartCategory;
 import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
+import com.aspose.slides.model.OneValueChartDataPoint;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +67,14 @@ public class ChartCategory {
   @SerializedName(value = "lineFormat", alternate = { "LineFormat" })
   private LineFormat lineFormat;
 
+  @SerializedName(value = "dataPoints", alternate = { "DataPoints" })
+  private List<OneValueChartDataPoint> dataPoints = null;
+
 
   public ChartCategory() {
     super();
     setCategories(new ArrayList<ChartCategory>());
+    setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
   public ChartCategory categories(List<ChartCategory> categories) {
@@ -170,6 +175,32 @@ public class ChartCategory {
     this.lineFormat = lineFormat;
   }
 
+  public ChartCategory dataPoints(List<OneValueChartDataPoint> dataPoints) {
+    this.dataPoints = dataPoints;
+    return this;
+  }
+
+  public ChartCategory addDataPointsItem(OneValueChartDataPoint dataPointsItem) {
+    if (this.dataPoints == null) {
+      this.dataPoints = new ArrayList<OneValueChartDataPoint>();
+    }
+    this.dataPoints.add(dataPointsItem);
+    return this;
+  }
+
+   /**
+   * Gets or sets the data points for chart data
+   * @return dataPoints
+  **/
+  @ApiModelProperty(value = "Gets or sets the data points for chart data")
+  public List<OneValueChartDataPoint> getDataPoints() {
+    return dataPoints;
+  }
+
+  public void setDataPoints(List<OneValueChartDataPoint> dataPoints) {
+    this.dataPoints = dataPoints;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -180,12 +211,12 @@ public class ChartCategory {
       return false;
     }
     ChartCategory chartCategory = (ChartCategory) o;
-    return true && Objects.equals(this.categories, chartCategory.categories) && Objects.equals(this.value, chartCategory.value) && Objects.equals(this.fillFormat, chartCategory.fillFormat) && Objects.equals(this.effectFormat, chartCategory.effectFormat) && Objects.equals(this.lineFormat, chartCategory.lineFormat);
+    return true && Objects.equals(this.categories, chartCategory.categories) && Objects.equals(this.value, chartCategory.value) && Objects.equals(this.fillFormat, chartCategory.fillFormat) && Objects.equals(this.effectFormat, chartCategory.effectFormat) && Objects.equals(this.lineFormat, chartCategory.lineFormat) && Objects.equals(this.dataPoints, chartCategory.dataPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, value, fillFormat, effectFormat, lineFormat);
+    return Objects.hash(categories, value, fillFormat, effectFormat, lineFormat, dataPoints);
   }
 
 
@@ -199,6 +230,7 @@ public class ChartCategory {
     sb.append("    fillFormat: ").append(toIndentedString(fillFormat)).append("\n");
     sb.append("    effectFormat: ").append(toIndentedString(effectFormat)).append("\n");
     sb.append("    lineFormat: ").append(toIndentedString(lineFormat)).append("\n");
+    sb.append("    dataPoints: ").append(toIndentedString(dataPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -79,6 +79,16 @@ public class Configuration {
     public void setAppKey(String value) {
         appKey = value;
     }
+
+    private String authToken;
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String value) {
+        authToken = value;
+    }
     
     @SerializedName("Debug")
     private Boolean debug = false;

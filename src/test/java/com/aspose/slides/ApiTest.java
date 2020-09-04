@@ -133,11 +133,32 @@ public class ApiTest {
         Object value = "test" + name;
         for (TestRule r : getRules(testRules.getValues(), functionName, name)) {
             ValueRule vr = (ValueRule)r;
-            if (vr.getIsValueSet()) {
-                value = vr.getValue();
+            if (isGoodRuleType(vr, type)) {
+                String ruleType = vr.getType();
+                if (ruleType != null) {
+                    type = ruleType;
+                }
+                if (vr.getIsValueSet()) {
+                    value = vr.getValue();
+                }
             }
         }
         return getTypedTestValue(type, value);
+    }
+
+    protected boolean isGoodRuleType(ValueRule rule, String type) {
+        String ruleType = rule.getType();
+        if (ruleType == null) {
+            return true;
+        }
+        try {
+            Class<?> baseClassInfo = Class.forName("com.aspose.slides.model." + type);
+            Class<?> subClassInfo = Class.forName("com.aspose.slides.model." + ruleType);
+            return baseClassInfo.isAssignableFrom(subClassInfo);
+        } catch (Exception ex) {
+            //Exception just means not a model class; ignore it
+        }
+        return false;
     }
 
     protected Object invalidizeTestValue(String type, Object value, String functionName, String name) {

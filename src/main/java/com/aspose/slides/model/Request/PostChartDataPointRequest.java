@@ -29,8 +29,88 @@ package com.aspose.slides.model.request;
 import java.util.List;
 import com.aspose.slides.model.*;
 
-public class GetSlidesApiInfoRequest {
-  public GetSlidesApiInfoRequest() {
+public class PostChartDataPointRequest {
+  public PostChartDataPointRequest() {
+  }
+
+  private String name;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  private Integer slideIndex;
+
+  public Integer getSlideIndex() {
+    return slideIndex;
+  }
+
+  public void setSlideIndex(Integer slideIndex) {
+    this.slideIndex = slideIndex;
+  }
+
+  private Integer shapeIndex;
+
+  public Integer getShapeIndex() {
+    return shapeIndex;
+  }
+
+  public void setShapeIndex(Integer shapeIndex) {
+    this.shapeIndex = shapeIndex;
+  }
+
+  private Integer seriesIndex;
+
+  public Integer getSeriesIndex() {
+    return seriesIndex;
+  }
+
+  public void setSeriesIndex(Integer seriesIndex) {
+    this.seriesIndex = seriesIndex;
+  }
+
+  private DataPoint dataPoint;
+
+  public DataPoint getDataPoint() {
+    return dataPoint;
+  }
+
+  public void setDataPoint(DataPoint dataPoint) {
+    this.dataPoint = dataPoint;
+  }
+
+  private String password;
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  private String folder;
+
+  public String getFolder() {
+    return folder;
+  }
+
+  public void setFolder(String folder) {
+    this.folder = folder;
+  }
+
+  private String storage;
+
+  public String getStorage() {
+    return storage;
+  }
+
+  public void setStorage(String storage) {
+    this.storage = storage;
   }
 
 }

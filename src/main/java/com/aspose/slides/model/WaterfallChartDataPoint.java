@@ -28,6 +28,7 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
+import com.aspose.slides.model.OneValueChartDataPoint;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,55 +42,34 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Represents export options for whole presentation.
+ * One value chart data point.
  */
-@ApiModel(description = "Represents export options for whole presentation.")
-public class ExportOptions {
-  @SerializedName(value = "defaultRegularFont", alternate = { "DefaultRegularFont" })
-  private String defaultRegularFont;
-
-  @SerializedName(value = "format", alternate = { "Format" })
-  private String format;
+@ApiModel(description = "One value chart data point.")
+public class WaterfallChartDataPoint extends OneValueChartDataPoint {
+  @SerializedName(value = "setAsTotal", alternate = { "SetAsTotal" })
+  private Boolean setAsTotal;
 
 
-  public ExportOptions() {
+  public WaterfallChartDataPoint() {
     super();
   }
 
-  public ExportOptions defaultRegularFont(String defaultRegularFont) {
-    this.defaultRegularFont = defaultRegularFont;
+  public WaterfallChartDataPoint setAsTotal(Boolean setAsTotal) {
+    this.setAsTotal = setAsTotal;
     return this;
   }
 
    /**
-   * Setting user password to protect the PDF document. 
-   * @return defaultRegularFont
+   * Value.
+   * @return setAsTotal
   **/
-  @ApiModelProperty(value = "Setting user password to protect the PDF document. ")
-  public String getDefaultRegularFont() {
-    return defaultRegularFont;
+  @ApiModelProperty(value = "Value.")
+  public Boolean isSetAsTotal() {
+    return setAsTotal;
   }
 
-  public void setDefaultRegularFont(String defaultRegularFont) {
-    this.defaultRegularFont = defaultRegularFont;
-  }
-
-  public ExportOptions format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Get format
-   * @return format
-  **/
-  @ApiModelProperty(value = "")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
+  public void setSetAsTotal(Boolean setAsTotal) {
+    this.setAsTotal = setAsTotal;
   }
 
 
@@ -101,23 +81,22 @@ public class ExportOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExportOptions exportOptions = (ExportOptions) o;
-    return true && Objects.equals(this.defaultRegularFont, exportOptions.defaultRegularFont) && Objects.equals(this.format, exportOptions.format);
+    WaterfallChartDataPoint waterfallChartDataPoint = (WaterfallChartDataPoint) o;
+    return true && Objects.equals(this.setAsTotal, waterfallChartDataPoint.setAsTotal) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultRegularFont, format);
+    return Objects.hash(setAsTotal, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExportOptions {\n");
-    
-    sb.append("    defaultRegularFont: ").append(toIndentedString(defaultRegularFont)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("class WaterfallChartDataPoint {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    setAsTotal: ").append(toIndentedString(setAsTotal)).append("\n");
     sb.append("}");
     return sb.toString();
   }

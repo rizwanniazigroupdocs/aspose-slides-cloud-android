@@ -92,6 +92,7 @@ public class NullablePropertyTest extends ApiTest {
         List<Series> series = new ArrayList<Series>();
         series.add(testSeries);
         testDto.setSeries(series);
+        testDto.setCategories(null);
         Axes testAxes = new Axes();
         Axis testAxis = new Axis();
         testAxis.setIsAutomaticMinValue(false);

@@ -25,33 +25,65 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-package com.aspose.slides.auth;
+package com.aspose.slides.model;
 
-import com.aspose.slides.ApiException;
-import com.squareup.okhttp.Response;
-import java.io.IOException;
-
+import java.util.Objects;
+import io.swagger.annotations.ApiModel;
+import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Base class for authentication. Can be used as void authentication.
+ * Data point.
  */
-public class Authentication {
-    /**
-     * Apply authentication settings to header params.
-     *
-     * @param headerParams Map of header parameters
-     */
-    public void updateHeaderParams(Map<String, String> headerParams) throws ApiException
-    {
-    }
+@ApiModel(description = "Data point.")
+public class DataPoint {
 
-    /**
-     * Handle error response.
-     *
-     * @param response Response
-     */
-    public void handleBadResponse(Response response) throws ApiException, IOException
-    {
+  public DataPoint() {
+    super();
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DataPoint dataPoint = (DataPoint) o;
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash();
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DataPoint {\n");
+    
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+
+  private static final Map<String, Object> typeDeterminers = new Hashtable<String, Object>();
+
 }

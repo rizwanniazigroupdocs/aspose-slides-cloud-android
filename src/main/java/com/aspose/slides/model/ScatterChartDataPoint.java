@@ -28,6 +28,7 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
+import com.aspose.slides.model.DataPoint;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,7 +45,7 @@ import java.util.Map;
  * Scatter chart (two-dimensional) data point
  */
 @ApiModel(description = "Scatter chart (two-dimensional) data point")
-public class ScatterChartDataPoint {
+public class ScatterChartDataPoint extends DataPoint {
   @SerializedName(value = "xvalue", alternate = { "XValue" })
   private Double xvalue;
 
@@ -102,12 +103,12 @@ public class ScatterChartDataPoint {
       return false;
     }
     ScatterChartDataPoint scatterChartDataPoint = (ScatterChartDataPoint) o;
-    return true && Objects.equals(this.xvalue, scatterChartDataPoint.xvalue) && Objects.equals(this.yvalue, scatterChartDataPoint.yvalue);
+    return true && Objects.equals(this.xvalue, scatterChartDataPoint.xvalue) && Objects.equals(this.yvalue, scatterChartDataPoint.yvalue) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(xvalue, yvalue);
+    return Objects.hash(xvalue, yvalue, super.hashCode());
   }
 
 
@@ -115,7 +116,7 @@ public class ScatterChartDataPoint {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScatterChartDataPoint {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    xvalue: ").append(toIndentedString(xvalue)).append("\n");
     sb.append("    yvalue: ").append(toIndentedString(yvalue)).append("\n");
     sb.append("}");

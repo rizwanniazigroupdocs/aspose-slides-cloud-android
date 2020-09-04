@@ -33,48 +33,67 @@ import java.util.HashMap;
 import com.aspose.slides.ApiClient;
 import com.aspose.slides.ApiException;
 import com.aspose.slides.ApiResponse;
+import com.aspose.slides.Configuration;
+import static com.google.common.base.Charsets.UTF_8;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Response;
+import java.io.IOException;
+import okio.BufferedSource;
 
 public class JWTAuth extends Authentication {
-    private final String appSid;
-    private final String appKey;
+    private final Configuration config;
     private final ApiClient apiClient;
-    private String accessToken;
     private Map<String, Object> grantCredentialsParams;
 
-    public JWTAuth(String baseUrl, String appSid, String appKey) {
-        this.appSid = appSid;
-        this.appKey = appKey;
-        apiClient = new ApiClient(baseUrl, new Authentication());
+    public JWTAuth(Configuration config) {
+        this.config = config;
+        apiClient = new ApiClient(config.getBaseUrl(), new Authentication());
     }
 
     @Override
     public void updateHeaderParams(Map<String, String> headerParams) throws ApiException {
-        if (accessToken == null) {
+        if (config.getAuthToken() == null) {
             requestToken();
         }
-        headerParams.put("Authorization", "Bearer " + accessToken);
+        headerParams.put("Authorization", "Bearer " + config.getAuthToken());
     }
 
     @Override
-    public void handleBadResponse(Response response) throws ApiException {
-        if (response.code() == 401) {
+    public void handleBadResponse(Response response) throws ApiException, IOException {
+        if (isAuthError(response)) {
             requestToken();
             throw new NeedRepeatRequestException();
         }
+    }
+    
+    private boolean isAuthError(Response response) throws ApiException, IOException {
+        if (response.code() == 401) {
+            return true;
+        }
+        if (response.code() == 400) {
+            BufferedSource source = response.body().source();
+            source.request(Long.MAX_VALUE);
+            if (source.buffer().clone().readString(UTF_8).contains(" Authority")) {
+                return true;
+            }
+        }
+        return false;
     }
     
     private synchronized void requestToken() throws ApiException {
         if (grantCredentialsParams == null) {
             grantCredentialsParams = new HashMap<String, Object>();
             grantCredentialsParams.put("grant_type", "client_credentials");
-            grantCredentialsParams.put("client_id", appSid);
-            grantCredentialsParams.put("client_secret", appKey);
+            grantCredentialsParams.put("client_id", config.getAppSid());
+            grantCredentialsParams.put("client_secret", config.getAppKey());
         }
         Call call = apiClient.buildCall("/connect/token", "POST", null, null, null, grantCredentialsParams, null, null);
-        ApiResponse<AuthResponse> response = apiClient.execute(call, new TypeToken<AuthResponse>(){}.getType());
-        accessToken = response.getData().getAccessToken();
+        try {
+            ApiResponse<AuthResponse> response = apiClient.execute(call, new TypeToken<AuthResponse>(){}.getType());
+            config.setAuthToken(response.getData().getAccessToken());
+        } catch (ApiException ex) {
+            throw new ApiException(401, ex.getMessage());
+        }
     }
 }

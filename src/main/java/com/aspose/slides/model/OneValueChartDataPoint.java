@@ -28,6 +28,7 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
+import com.aspose.slides.model.DataPoint;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,7 +45,7 @@ import java.util.Map;
  * One value chart data point.
  */
 @ApiModel(description = "One value chart data point.")
-public class OneValueChartDataPoint {
+public class OneValueChartDataPoint extends DataPoint {
   @SerializedName(value = "value", alternate = { "Value" })
   private Double value;
 
@@ -81,12 +82,12 @@ public class OneValueChartDataPoint {
       return false;
     }
     OneValueChartDataPoint oneValueChartDataPoint = (OneValueChartDataPoint) o;
-    return true && Objects.equals(this.value, oneValueChartDataPoint.value);
+    return true && Objects.equals(this.value, oneValueChartDataPoint.value) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(value, super.hashCode());
   }
 
 
@@ -94,7 +95,7 @@ public class OneValueChartDataPoint {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OneValueChartDataPoint {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
