@@ -56,7 +56,6 @@ public class Merge extends Task {
   public Merge() {
     super();
     setType(TypeEnum.MERGE);
-    setPresentations(new ArrayList<MergingSource>());
   }
 
   public Merge presentations(List<MergingSource> presentations) {

@@ -53,7 +53,6 @@ public class CustomDashPattern {
 
   public CustomDashPattern() {
     super();
-    setItems(new ArrayList<Double>());
   }
 
   public CustomDashPattern items(List<Double> items) {

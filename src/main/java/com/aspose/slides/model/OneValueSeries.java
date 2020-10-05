@@ -60,7 +60,6 @@ public class OneValueSeries extends Series {
   public OneValueSeries() {
     super();
     setDataPointType(DataPointTypeEnum.ONEVALUE);
-    setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
   public OneValueSeries dataPoints(List<OneValueChartDataPoint> dataPoints) {

@@ -33,6 +33,16 @@ public class PutSlidesConvertRequest {
   public PutSlidesConvertRequest() {
   }
 
+  private byte[] document;
+
+  public byte[] getDocument() {
+    return document;
+  }
+
+  public void setDocument(byte[] document) {
+    this.document = document;
+  }
+
   private ExportFormat format;
 
   public ExportFormat getFormat() {
@@ -51,16 +61,6 @@ public class PutSlidesConvertRequest {
 
   public void setOutPath(String outPath) {
     this.outPath = outPath;
-  }
-
-  private byte[] document;
-
-  public byte[] getDocument() {
-    return document;
-  }
-
-  public void setDocument(byte[] document) {
-    this.document = document;
   }
 
   private String password;

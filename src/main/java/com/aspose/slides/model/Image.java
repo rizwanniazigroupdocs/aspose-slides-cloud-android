@@ -60,7 +60,6 @@ public class Image extends ResourceBase {
 
   public Image() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public Image width(Integer width) {

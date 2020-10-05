@@ -54,7 +54,6 @@ public class FilesList {
 
   public FilesList() {
     super();
-    setValue(new ArrayList<StorageFile>());
   }
 
   public FilesList value(List<StorageFile> value) {

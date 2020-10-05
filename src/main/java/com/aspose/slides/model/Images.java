@@ -56,8 +56,6 @@ public class Images extends ResourceBase {
 
   public Images() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setList(new ArrayList<Image>());
   }
 
   public Images list(List<Image> list) {

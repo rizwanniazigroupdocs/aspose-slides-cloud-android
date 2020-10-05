@@ -54,7 +54,6 @@ public class OrderedMergeRequest {
 
   public OrderedMergeRequest() {
     super();
-    setPresentations(new ArrayList<PresentationToMerge>());
   }
 
   public OrderedMergeRequest presentations(List<PresentationToMerge> presentations) {

@@ -59,6 +59,7 @@ import com.aspose.slides.model.FilesList;
 import com.aspose.slides.model.FilesUploadResult;
 import com.aspose.slides.model.FontScheme;
 import com.aspose.slides.model.FormatScheme;
+import com.aspose.slides.model.HeaderFooter;
 import com.aspose.slides.model.IShapeExportOptions;
 import com.aspose.slides.model.Images;
 import com.aspose.slides.model.InteractiveSequence;
@@ -67,6 +68,7 @@ import com.aspose.slides.model.LayoutSlides;
 import com.aspose.slides.model.MasterSlide;
 import com.aspose.slides.model.MasterSlides;
 import com.aspose.slides.model.NotesSlide;
+import com.aspose.slides.model.NotesSlideHeaderFooter;
 import com.aspose.slides.model.ObjectExist;
 import com.aspose.slides.model.OrderedMergeRequest;
 import com.aspose.slides.model.Paragraph;
@@ -77,6 +79,7 @@ import com.aspose.slides.model.Placeholders;
 import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.Portions;
 import com.aspose.slides.model.PresentationsMergeRequest;
+import com.aspose.slides.model.Sections;
 import com.aspose.slides.model.Series;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.Shapes;
@@ -117,6 +120,8 @@ import com.aspose.slides.model.request.DeleteParagraphRequest;
 import com.aspose.slides.model.request.DeleteParagraphsRequest;
 import com.aspose.slides.model.request.DeletePortionRequest;
 import com.aspose.slides.model.request.DeletePortionsRequest;
+import com.aspose.slides.model.request.DeleteSectionRequest;
+import com.aspose.slides.model.request.DeleteSectionsRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationInteractiveSequenceRequest;
@@ -146,6 +151,7 @@ import com.aspose.slides.model.request.GetMasterSlideRequest;
 import com.aspose.slides.model.request.GetMasterSlidesListRequest;
 import com.aspose.slides.model.request.GetNotesSlideRequest;
 import com.aspose.slides.model.request.GetNotesSlideExistsRequest;
+import com.aspose.slides.model.request.GetNotesSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphsRequest;
@@ -155,7 +161,9 @@ import com.aspose.slides.model.request.GetNotesSlideShapesRequest;
 import com.aspose.slides.model.request.GetNotesSlideWithFormatRequest;
 import com.aspose.slides.model.request.GetParagraphPortionRequest;
 import com.aspose.slides.model.request.GetParagraphPortionsRequest;
+import com.aspose.slides.model.request.GetSectionsRequest;
 import com.aspose.slides.model.request.GetSlideAnimationRequest;
+import com.aspose.slides.model.request.GetSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.GetSlideShapeRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphsRequest;
@@ -209,6 +217,8 @@ import com.aspose.slides.model.request.PostNotesSlideAddNewPortionRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewShapeRequest;
 import com.aspose.slides.model.request.PostNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PostPresentationMergeRequest;
+import com.aspose.slides.model.request.PostSectionRequest;
+import com.aspose.slides.model.request.PostSectionMoveRequest;
 import com.aspose.slides.model.request.PostShapeSaveAsRequest;
 import com.aspose.slides.model.request.PostSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.PostSlideAnimationInteractiveSequenceRequest;
@@ -234,8 +244,11 @@ import com.aspose.slides.model.request.PutChartCategoryRequest;
 import com.aspose.slides.model.request.PutChartDataPointRequest;
 import com.aspose.slides.model.request.PutChartSeriesRequest;
 import com.aspose.slides.model.request.PutLayoutSlideRequest;
+import com.aspose.slides.model.request.PutNotesSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.PutNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutPresentationMergeRequest;
+import com.aspose.slides.model.request.PutSectionRequest;
+import com.aspose.slides.model.request.PutSectionsRequest;
 import com.aspose.slides.model.request.PutSetParagraphPortionPropertiesRequest;
 import com.aspose.slides.model.request.PutSetParagraphPropertiesRequest;
 import com.aspose.slides.model.request.PutSetSubshapeParagraphPortionPropertiesRequest;
@@ -244,11 +257,13 @@ import com.aspose.slides.model.request.PutShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideAnimationRequest;
 import com.aspose.slides.model.request.PutSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.PutSlideAnimationInteractiveSequenceEffectRequest;
+import com.aspose.slides.model.request.PutSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.PutSlideSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideShapeInfoRequest;
 import com.aspose.slides.model.request.PutSlideSubshapeInfoRequest;
 import com.aspose.slides.model.request.PutSlidesConvertRequest;
 import com.aspose.slides.model.request.PutSlidesDocumentFromHtmlRequest;
+import com.aspose.slides.model.request.PutSlidesHeaderFooterRequest;
 import com.aspose.slides.model.request.PutSlidesSaveAsRequest;
 import com.aspose.slides.model.request.PutSlidesSetDocumentPropertyRequest;
 import com.aspose.slides.model.request.PutSlidesSlideRequest;
@@ -3598,6 +3613,352 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "deletePortions", "password"));
         request.setFolder((String)getTestValue("String", "deletePortions", "folder"));
         request.setStorage((String)getTestValue("String", "deletePortions", "storage"));
+        return request;
+    }
+    
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionTest() throws ApiException, Exception {
+        initialize("deleteSection", null, null);
+        Sections response = null;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        response = api.deleteSection(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSection", "name"));
+            initialize("deleteSection", "name", request.getName());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSection", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSection");
+        }
+    }
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidSectionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setSectionIndex((Integer)invalidizeTestValue("Integer", request.getSectionIndex(), "deleteSection", "sectionIndex"));
+            initialize("deleteSection", "sectionIndex", request.getSectionIndex());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sectionIndex", "deleteSection", request.getSectionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("sectionIndex", "deleteSection");
+        }
+    }
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidWithSlidesTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setWithSlides((Boolean)invalidizeTestValue("Boolean", request.getWithSlides(), "deleteSection", "withSlides"));
+            initialize("deleteSection", "withSlides", request.getWithSlides());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "withSlides", "deleteSection", request.getWithSlides());
+        }
+        if (needAssertResponse) {
+            assertResponse("withSlides", "deleteSection");
+        }
+    }
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSection", "password"));
+            initialize("deleteSection", "password", request.getPassword());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSection", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSection");
+        }
+    }
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSection", "folder"));
+            initialize("deleteSection", "folder", request.getFolder());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSection", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSection");
+        }
+    }
+    /**
+     * Delete a presentation section.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionRequest request = createDeleteSectionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSection", "storage"));
+            initialize("deleteSection", "storage", request.getStorage());
+            Sections response = api.deleteSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSection", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSection");
+        }
+    }
+
+    private DeleteSectionRequest createDeleteSectionRequest() {
+        DeleteSectionRequest request = new DeleteSectionRequest();
+        request.setName((String)getTestValue("String", "deleteSection", "name"));
+        request.setSectionIndex((Integer)getTestValue("Integer", "deleteSection", "sectionIndex"));
+        request.setWithSlides((Boolean)getTestValue("Boolean", "deleteSection", "withSlides"));
+        request.setPassword((String)getTestValue("String", "deleteSection", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSection", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSection", "storage"));
+        return request;
+    }
+    
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsTest() throws ApiException, Exception {
+        initialize("deleteSections", null, null);
+        Sections response = null;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        response = api.deleteSections(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "deleteSections", "name"));
+            initialize("deleteSections", "name", request.getName());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "deleteSections", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "deleteSections");
+        }
+    }
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidSectionsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setSections((List<Integer>)invalidizeTestValue("List<Integer>", request.getSections(), "deleteSections", "sections"));
+            initialize("deleteSections", "sections", request.getSections());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sections", "deleteSections", request.getSections());
+        }
+        if (needAssertResponse) {
+            assertResponse("sections", "deleteSections");
+        }
+    }
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidWithSlidesTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setWithSlides((Boolean)invalidizeTestValue("Boolean", request.getWithSlides(), "deleteSections", "withSlides"));
+            initialize("deleteSections", "withSlides", request.getWithSlides());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "withSlides", "deleteSections", request.getWithSlides());
+        }
+        if (needAssertResponse) {
+            assertResponse("withSlides", "deleteSections");
+        }
+    }
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "deleteSections", "password"));
+            initialize("deleteSections", "password", request.getPassword());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "deleteSections", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "deleteSections");
+        }
+    }
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "deleteSections", "folder"));
+            initialize("deleteSections", "folder", request.getFolder());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "deleteSections", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "deleteSections");
+        }
+    }
+    /**
+     * Delete presentation sections.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSectionsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        DeleteSectionsRequest request = createDeleteSectionsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "deleteSections", "storage"));
+            initialize("deleteSections", "storage", request.getStorage());
+            Sections response = api.deleteSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "deleteSections", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "deleteSections");
+        }
+    }
+
+    private DeleteSectionsRequest createDeleteSectionsRequest() {
+        DeleteSectionsRequest request = new DeleteSectionsRequest();
+        request.setName((String)getTestValue("String", "deleteSections", "name"));
+        request.setSections((List<Integer>)getTestValue("List<Integer>", "deleteSections", "sections"));
+        request.setWithSlides((Boolean)getTestValue("Boolean", "deleteSections", "withSlides"));
+        request.setPassword((String)getTestValue("String", "deleteSections", "password"));
+        request.setFolder((String)getTestValue("String", "deleteSections", "folder"));
+        request.setStorage((String)getTestValue("String", "deleteSections", "storage"));
         return request;
     }
     
@@ -8119,6 +8480,154 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterTest() throws ApiException, Exception {
+        initialize("getNotesSlideHeaderFooter", null, null);
+        NotesSlideHeaderFooter response = null;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        response = api.getNotesSlideHeaderFooter(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getNotesSlideHeaderFooter", "name"));
+            initialize("getNotesSlideHeaderFooter", "name", request.getName());
+            NotesSlideHeaderFooter response = api.getNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getNotesSlideHeaderFooter", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getNotesSlideHeaderFooter", "slideIndex"));
+            initialize("getNotesSlideHeaderFooter", "slideIndex", request.getSlideIndex());
+            NotesSlideHeaderFooter response = api.getNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getNotesSlideHeaderFooter", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getNotesSlideHeaderFooter", "password"));
+            initialize("getNotesSlideHeaderFooter", "password", request.getPassword());
+            NotesSlideHeaderFooter response = api.getNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getNotesSlideHeaderFooter", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getNotesSlideHeaderFooter", "storage"));
+            initialize("getNotesSlideHeaderFooter", "storage", request.getStorage());
+            NotesSlideHeaderFooter response = api.getNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getNotesSlideHeaderFooter", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get header/footer info for the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNotesSlideHeaderFooterInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetNotesSlideHeaderFooterRequest request = createGetNotesSlideHeaderFooterRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getNotesSlideHeaderFooter", "folder"));
+            initialize("getNotesSlideHeaderFooter", "folder", request.getFolder());
+            NotesSlideHeaderFooter response = api.getNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getNotesSlideHeaderFooter", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getNotesSlideHeaderFooter");
+        }
+    }
+
+    private GetNotesSlideHeaderFooterRequest createGetNotesSlideHeaderFooterRequest() {
+        GetNotesSlideHeaderFooterRequest request = new GetNotesSlideHeaderFooterRequest();
+        request.setName((String)getTestValue("String", "getNotesSlideHeaderFooter", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getNotesSlideHeaderFooter", "slideIndex"));
+        request.setPassword((String)getTestValue("String", "getNotesSlideHeaderFooter", "password"));
+        request.setStorage((String)getTestValue("String", "getNotesSlideHeaderFooter", "storage"));
+        request.setFolder((String)getTestValue("String", "getNotesSlideHeaderFooter", "folder"));
+        return request;
+    }
+    
+    /**
      * Read slide shape info.
      *
      * 
@@ -9901,6 +10410,129 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Read presentation sections info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSectionsTest() throws ApiException, Exception {
+        initialize("getSections", null, null);
+        Sections response = null;
+        GetSectionsRequest request = createGetSectionsRequest();
+        response = api.getSections(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Read presentation sections info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSectionsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSectionsRequest request = createGetSectionsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSections", "name"));
+            initialize("getSections", "name", request.getName());
+            Sections response = api.getSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSections", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSections");
+        }
+    }
+    /**
+     * Read presentation sections info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSectionsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSectionsRequest request = createGetSectionsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSections", "password"));
+            initialize("getSections", "password", request.getPassword());
+            Sections response = api.getSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSections", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSections");
+        }
+    }
+    /**
+     * Read presentation sections info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSectionsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSectionsRequest request = createGetSectionsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSections", "folder"));
+            initialize("getSections", "folder", request.getFolder());
+            Sections response = api.getSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSections", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSections");
+        }
+    }
+    /**
+     * Read presentation sections info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSectionsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSectionsRequest request = createGetSectionsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSections", "storage"));
+            initialize("getSections", "storage", request.getStorage());
+            Sections response = api.getSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSections", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSections");
+        }
+    }
+
+    private GetSectionsRequest createGetSectionsRequest() {
+        GetSectionsRequest request = new GetSectionsRequest();
+        request.setName((String)getTestValue("String", "getSections", "name"));
+        request.setPassword((String)getTestValue("String", "getSections", "password"));
+        request.setFolder((String)getTestValue("String", "getSections", "folder"));
+        request.setStorage((String)getTestValue("String", "getSections", "storage"));
+        return request;
+    }
+    
+    /**
      * Read slide animation effects.
      *
      * 
@@ -10070,6 +10702,154 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "getSlideAnimation", "password"));
         request.setFolder((String)getTestValue("String", "getSlideAnimation", "folder"));
         request.setStorage((String)getTestValue("String", "getSlideAnimation", "storage"));
+        return request;
+    }
+    
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterTest() throws ApiException, Exception {
+        initialize("getSlideHeaderFooter", null, null);
+        HeaderFooter response = null;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        response = api.getSlideHeaderFooter(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "getSlideHeaderFooter", "name"));
+            initialize("getSlideHeaderFooter", "name", request.getName());
+            HeaderFooter response = api.getSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "getSlideHeaderFooter", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "getSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "getSlideHeaderFooter", "slideIndex"));
+            initialize("getSlideHeaderFooter", "slideIndex", request.getSlideIndex());
+            HeaderFooter response = api.getSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "getSlideHeaderFooter", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "getSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "getSlideHeaderFooter", "password"));
+            initialize("getSlideHeaderFooter", "password", request.getPassword());
+            HeaderFooter response = api.getSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "getSlideHeaderFooter", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "getSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "getSlideHeaderFooter", "folder"));
+            initialize("getSlideHeaderFooter", "folder", request.getFolder());
+            HeaderFooter response = api.getSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "getSlideHeaderFooter", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "getSlideHeaderFooter");
+        }
+    }
+    /**
+     * Get footer info for the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSlideHeaderFooterInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        GetSlideHeaderFooterRequest request = createGetSlideHeaderFooterRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "getSlideHeaderFooter", "storage"));
+            initialize("getSlideHeaderFooter", "storage", request.getStorage());
+            HeaderFooter response = api.getSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "getSlideHeaderFooter", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "getSlideHeaderFooter");
+        }
+    }
+
+    private GetSlideHeaderFooterRequest createGetSlideHeaderFooterRequest() {
+        GetSlideHeaderFooterRequest request = new GetSlideHeaderFooterRequest();
+        request.setName((String)getTestValue("String", "getSlideHeaderFooter", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "getSlideHeaderFooter", "slideIndex"));
+        request.setPassword((String)getTestValue("String", "getSlideHeaderFooter", "password"));
+        request.setFolder((String)getTestValue("String", "getSlideHeaderFooter", "folder"));
+        request.setStorage((String)getTestValue("String", "getSlideHeaderFooter", "storage"));
         return request;
     }
     
@@ -18074,30 +18854,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postGetNotesSlideInvalidSlideIndexTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
-        try {
-            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlide", "slideIndex"));
-            initialize("postGetNotesSlide", "slideIndex", request.getSlideIndex());
-            NotesSlide response = api.postGetNotesSlide(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "slideIndex", "postGetNotesSlide", request.getSlideIndex());
-        }
-        if (needAssertResponse) {
-            assertResponse("slideIndex", "postGetNotesSlide");
-        }
-    }
-    /**
-     * Read notes slide info.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void postGetNotesSlideInvalidDocumentTest() throws ApiException {
         Boolean needAssertResponse = false;
         PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
@@ -18111,6 +18867,30 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("document", "postGetNotesSlide");
+        }
+    }
+    /**
+     * Read notes slide info.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideRequest request = createPostGetNotesSlideRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlide", "slideIndex"));
+            initialize("postGetNotesSlide", "slideIndex", request.getSlideIndex());
+            NotesSlide response = api.postGetNotesSlide(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postGetNotesSlide", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postGetNotesSlide");
         }
     }
     /**
@@ -18140,8 +18920,8 @@ public class SlidesApiTest extends ApiTest {
 
     private PostGetNotesSlideRequest createPostGetNotesSlideRequest() {
         PostGetNotesSlideRequest request = new PostGetNotesSlideRequest();
-        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlide", "slideIndex"));
         request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlide", "document"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlide", "slideIndex"));
         request.setPassword((String)getTestValue("String", "postGetNotesSlide", "password"));
         return request;
     }
@@ -18163,30 +18943,6 @@ public class SlidesApiTest extends ApiTest {
         assertNotNull(response);
     }
 
-    /**
-     * Get info whether a notes slide exists.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postGetNotesSlideExistsInvalidSlideIndexTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
-        try {
-            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlideExists", "slideIndex"));
-            initialize("postGetNotesSlideExists", "slideIndex", request.getSlideIndex());
-            EntityExists response = api.postGetNotesSlideExists(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "slideIndex", "postGetNotesSlideExists", request.getSlideIndex());
-        }
-        if (needAssertResponse) {
-            assertResponse("slideIndex", "postGetNotesSlideExists");
-        }
-    }
     /**
      * Get info whether a notes slide exists.
      *
@@ -18220,6 +18976,30 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
+    public void postGetNotesSlideExistsInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postGetNotesSlideExists", "slideIndex"));
+            initialize("postGetNotesSlideExists", "slideIndex", request.getSlideIndex());
+            EntityExists response = api.postGetNotesSlideExists(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postGetNotesSlideExists", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postGetNotesSlideExists");
+        }
+    }
+    /**
+     * Get info whether a notes slide exists.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
     public void postGetNotesSlideExistsInvalidPasswordTest() throws ApiException {
         Boolean needAssertResponse = false;
         PostGetNotesSlideExistsRequest request = createPostGetNotesSlideExistsRequest();
@@ -18238,8 +19018,8 @@ public class SlidesApiTest extends ApiTest {
 
     private PostGetNotesSlideExistsRequest createPostGetNotesSlideExistsRequest() {
         PostGetNotesSlideExistsRequest request = new PostGetNotesSlideExistsRequest();
-        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlideExists", "slideIndex"));
         request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlideExists", "document"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlideExists", "slideIndex"));
         request.setPassword((String)getTestValue("String", "postGetNotesSlideExists", "password"));
         return request;
     }
@@ -18261,6 +19041,30 @@ public class SlidesApiTest extends ApiTest {
         assertTrue(response.isFile());
     }
 
+    /**
+     * Convert notes slide to the specified image format.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postGetNotesSlideWithFormatInvalidDocumentTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
+        try {
+            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "postGetNotesSlideWithFormat", "document"));
+            initialize("postGetNotesSlideWithFormat", "document", request.getDocument());
+            File response = api.postGetNotesSlideWithFormat(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "document", "postGetNotesSlideWithFormat", request.getDocument());
+        }
+        if (needAssertResponse) {
+            assertResponse("document", "postGetNotesSlideWithFormat");
+        }
+    }
     /**
      * Convert notes slide to the specified image format.
      *
@@ -18307,30 +19111,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("format", "postGetNotesSlideWithFormat");
-        }
-    }
-    /**
-     * Convert notes slide to the specified image format.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void postGetNotesSlideWithFormatInvalidDocumentTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostGetNotesSlideWithFormatRequest request = createPostGetNotesSlideWithFormatRequest();
-        try {
-            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "postGetNotesSlideWithFormat", "document"));
-            initialize("postGetNotesSlideWithFormat", "document", request.getDocument());
-            File response = api.postGetNotesSlideWithFormat(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "document", "postGetNotesSlideWithFormat", request.getDocument());
-        }
-        if (needAssertResponse) {
-            assertResponse("document", "postGetNotesSlideWithFormat");
         }
     }
     /**
@@ -18432,9 +19212,9 @@ public class SlidesApiTest extends ApiTest {
 
     private PostGetNotesSlideWithFormatRequest createPostGetNotesSlideWithFormatRequest() {
         PostGetNotesSlideWithFormatRequest request = new PostGetNotesSlideWithFormatRequest();
+        request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlideWithFormat", "document"));
         request.setSlideIndex((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "slideIndex"));
         request.setFormat((NotesSlideExportFormat)getTestValue("NotesSlideExportFormat", "postGetNotesSlideWithFormat", "format"));
-        request.setDocument((byte[])getTestValue("byte[]", "postGetNotesSlideWithFormat", "document"));
         request.setWidth((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "width"));
         request.setHeight((Integer)getTestValue("Integer", "postGetNotesSlideWithFormat", "height"));
         request.setPassword((String)getTestValue("String", "postGetNotesSlideWithFormat", "password"));
@@ -19604,6 +20384,352 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "postPresentationMerge", "password"));
         request.setStorage((String)getTestValue("String", "postPresentationMerge", "storage"));
         request.setFolder((String)getTestValue("String", "postPresentationMerge", "folder"));
+        return request;
+    }
+    
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionTest() throws ApiException, Exception {
+        initialize("postSection", null, null);
+        Sections response = null;
+        PostSectionRequest request = createPostSectionRequest();
+        response = api.postSection(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postSection", "name"));
+            initialize("postSection", "name", request.getName());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postSection", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postSection");
+        }
+    }
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidSectionNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setSectionName((String)invalidizeTestValue("String", request.getSectionName(), "postSection", "sectionName"));
+            initialize("postSection", "sectionName", request.getSectionName());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sectionName", "postSection", request.getSectionName());
+        }
+        if (needAssertResponse) {
+            assertResponse("sectionName", "postSection");
+        }
+    }
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "postSection", "slideIndex"));
+            initialize("postSection", "slideIndex", request.getSlideIndex());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "postSection", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "postSection");
+        }
+    }
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postSection", "password"));
+            initialize("postSection", "password", request.getPassword());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postSection", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postSection");
+        }
+    }
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postSection", "folder"));
+            initialize("postSection", "folder", request.getFolder());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postSection", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postSection");
+        }
+    }
+    /**
+     * Create a section starting at a specified slide index.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionRequest request = createPostSectionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postSection", "storage"));
+            initialize("postSection", "storage", request.getStorage());
+            Sections response = api.postSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postSection", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postSection");
+        }
+    }
+
+    private PostSectionRequest createPostSectionRequest() {
+        PostSectionRequest request = new PostSectionRequest();
+        request.setName((String)getTestValue("String", "postSection", "name"));
+        request.setSectionName((String)getTestValue("String", "postSection", "sectionName"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "postSection", "slideIndex"));
+        request.setPassword((String)getTestValue("String", "postSection", "password"));
+        request.setFolder((String)getTestValue("String", "postSection", "folder"));
+        request.setStorage((String)getTestValue("String", "postSection", "storage"));
+        return request;
+    }
+    
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveTest() throws ApiException, Exception {
+        initialize("postSectionMove", null, null);
+        Sections response = null;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        response = api.postSectionMove(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "postSectionMove", "name"));
+            initialize("postSectionMove", "name", request.getName());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "postSectionMove", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "postSectionMove");
+        }
+    }
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidSectionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setSectionIndex((Integer)invalidizeTestValue("Integer", request.getSectionIndex(), "postSectionMove", "sectionIndex"));
+            initialize("postSectionMove", "sectionIndex", request.getSectionIndex());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sectionIndex", "postSectionMove", request.getSectionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("sectionIndex", "postSectionMove");
+        }
+    }
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidNewPositionTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setNewPosition((Integer)invalidizeTestValue("Integer", request.getNewPosition(), "postSectionMove", "newPosition"));
+            initialize("postSectionMove", "newPosition", request.getNewPosition());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "newPosition", "postSectionMove", request.getNewPosition());
+        }
+        if (needAssertResponse) {
+            assertResponse("newPosition", "postSectionMove");
+        }
+    }
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "postSectionMove", "password"));
+            initialize("postSectionMove", "password", request.getPassword());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "postSectionMove", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "postSectionMove");
+        }
+    }
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "postSectionMove", "folder"));
+            initialize("postSectionMove", "folder", request.getFolder());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "postSectionMove", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "postSectionMove");
+        }
+    }
+    /**
+     * Move presentation section to a specified position.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSectionMoveInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSectionMoveRequest request = createPostSectionMoveRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "postSectionMove", "storage"));
+            initialize("postSectionMove", "storage", request.getStorage());
+            Sections response = api.postSectionMove(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "postSectionMove", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "postSectionMove");
+        }
+    }
+
+    private PostSectionMoveRequest createPostSectionMoveRequest() {
+        PostSectionMoveRequest request = new PostSectionMoveRequest();
+        request.setName((String)getTestValue("String", "postSectionMove", "name"));
+        request.setSectionIndex((Integer)getTestValue("Integer", "postSectionMove", "sectionIndex"));
+        request.setNewPosition((Integer)getTestValue("Integer", "postSectionMove", "newPosition"));
+        request.setPassword((String)getTestValue("String", "postSectionMove", "password"));
+        request.setFolder((String)getTestValue("String", "postSectionMove", "folder"));
+        request.setStorage((String)getTestValue("String", "postSectionMove", "storage"));
         return request;
     }
     
@@ -20946,30 +22072,6 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postSlidesConvertInvalidFormatTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PostSlidesConvertRequest request = createPostSlidesConvertRequest();
-        try {
-            request.setFormat((ExportFormat)invalidizeTestValue("ExportFormat", request.getFormat(), "postSlidesConvert", "format"));
-            initialize("postSlidesConvert", "format", request.getFormat());
-            File response = api.postSlidesConvert(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "format", "postSlidesConvert", request.getFormat());
-        }
-        if (needAssertResponse) {
-            assertResponse("format", "postSlidesConvert");
-        }
-    }
-    /**
-     * Convert presentation from request content to format specified.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
     public void postSlidesConvertInvalidDocumentTest() throws ApiException {
         Boolean needAssertResponse = false;
         PostSlidesConvertRequest request = createPostSlidesConvertRequest();
@@ -20983,6 +22085,30 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("document", "postSlidesConvert");
+        }
+    }
+    /**
+     * Convert presentation from request content to format specified.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postSlidesConvertInvalidFormatTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PostSlidesConvertRequest request = createPostSlidesConvertRequest();
+        try {
+            request.setFormat((ExportFormat)invalidizeTestValue("ExportFormat", request.getFormat(), "postSlidesConvert", "format"));
+            initialize("postSlidesConvert", "format", request.getFormat());
+            File response = api.postSlidesConvert(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "format", "postSlidesConvert", request.getFormat());
+        }
+        if (needAssertResponse) {
+            assertResponse("format", "postSlidesConvert");
         }
     }
     /**
@@ -21036,8 +22162,8 @@ public class SlidesApiTest extends ApiTest {
 
     private PostSlidesConvertRequest createPostSlidesConvertRequest() {
         PostSlidesConvertRequest request = new PostSlidesConvertRequest();
-        request.setFormat((ExportFormat)getTestValue("ExportFormat", "postSlidesConvert", "format"));
         request.setDocument((byte[])getTestValue("byte[]", "postSlidesConvert", "document"));
+        request.setFormat((ExportFormat)getTestValue("ExportFormat", "postSlidesConvert", "format"));
         request.setPassword((String)getTestValue("String", "postSlidesConvert", "password"));
         request.setFontsFolder((String)getTestValue("String", "postSlidesConvert", "fontsFolder"));
         return request;
@@ -24783,6 +25909,179 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterTest() throws ApiException, Exception {
+        initialize("putNotesSlideHeaderFooter", null, null);
+        NotesSlideHeaderFooter response = null;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        response = api.putNotesSlideHeaderFooter(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putNotesSlideHeaderFooter", "name"));
+            initialize("putNotesSlideHeaderFooter", "name", request.getName());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putNotesSlideHeaderFooter", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putNotesSlideHeaderFooter", "slideIndex"));
+            initialize("putNotesSlideHeaderFooter", "slideIndex", request.getSlideIndex());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putNotesSlideHeaderFooter", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setDto((NotesSlideHeaderFooter)invalidizeTestValue("NotesSlideHeaderFooter", request.getDto(), "putNotesSlideHeaderFooter", "dto"));
+            initialize("putNotesSlideHeaderFooter", "dto", request.getDto());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putNotesSlideHeaderFooter", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putNotesSlideHeaderFooter", "password"));
+            initialize("putNotesSlideHeaderFooter", "password", request.getPassword());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putNotesSlideHeaderFooter", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putNotesSlideHeaderFooter", "storage"));
+            initialize("putNotesSlideHeaderFooter", "storage", request.getStorage());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putNotesSlideHeaderFooter", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putNotesSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set header/footer the notes slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putNotesSlideHeaderFooterInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutNotesSlideHeaderFooterRequest request = createPutNotesSlideHeaderFooterRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putNotesSlideHeaderFooter", "folder"));
+            initialize("putNotesSlideHeaderFooter", "folder", request.getFolder());
+            NotesSlideHeaderFooter response = api.putNotesSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putNotesSlideHeaderFooter", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putNotesSlideHeaderFooter");
+        }
+    }
+
+    private PutNotesSlideHeaderFooterRequest createPutNotesSlideHeaderFooterRequest() {
+        PutNotesSlideHeaderFooterRequest request = new PutNotesSlideHeaderFooterRequest();
+        request.setName((String)getTestValue("String", "putNotesSlideHeaderFooter", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putNotesSlideHeaderFooter", "slideIndex"));
+        request.setDto((NotesSlideHeaderFooter)getTestValue("NotesSlideHeaderFooter", "putNotesSlideHeaderFooter", "dto"));
+        request.setPassword((String)getTestValue("String", "putNotesSlideHeaderFooter", "password"));
+        request.setStorage((String)getTestValue("String", "putNotesSlideHeaderFooter", "storage"));
+        request.setFolder((String)getTestValue("String", "putNotesSlideHeaderFooter", "folder"));
+        return request;
+    }
+    
+    /**
      * Render shape to specified picture format.
      *
      * 
@@ -25274,6 +26573,327 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "putPresentationMerge", "password"));
         request.setStorage((String)getTestValue("String", "putPresentationMerge", "storage"));
         request.setFolder((String)getTestValue("String", "putPresentationMerge", "folder"));
+        return request;
+    }
+    
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionTest() throws ApiException, Exception {
+        initialize("putSection", null, null);
+        Sections response = null;
+        PutSectionRequest request = createPutSectionRequest();
+        response = api.putSection(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSection", "name"));
+            initialize("putSection", "name", request.getName());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSection", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSection");
+        }
+    }
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidSectionIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setSectionIndex((Integer)invalidizeTestValue("Integer", request.getSectionIndex(), "putSection", "sectionIndex"));
+            initialize("putSection", "sectionIndex", request.getSectionIndex());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sectionIndex", "putSection", request.getSectionIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("sectionIndex", "putSection");
+        }
+    }
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidSectionNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setSectionName((String)invalidizeTestValue("String", request.getSectionName(), "putSection", "sectionName"));
+            initialize("putSection", "sectionName", request.getSectionName());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sectionName", "putSection", request.getSectionName());
+        }
+        if (needAssertResponse) {
+            assertResponse("sectionName", "putSection");
+        }
+    }
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSection", "password"));
+            initialize("putSection", "password", request.getPassword());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSection", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSection");
+        }
+    }
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSection", "folder"));
+            initialize("putSection", "folder", request.getFolder());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSection", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSection");
+        }
+    }
+    /**
+     * Update section name.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionRequest request = createPutSectionRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSection", "storage"));
+            initialize("putSection", "storage", request.getStorage());
+            Sections response = api.putSection(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSection", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSection");
+        }
+    }
+
+    private PutSectionRequest createPutSectionRequest() {
+        PutSectionRequest request = new PutSectionRequest();
+        request.setName((String)getTestValue("String", "putSection", "name"));
+        request.setSectionIndex((Integer)getTestValue("Integer", "putSection", "sectionIndex"));
+        request.setSectionName((String)getTestValue("String", "putSection", "sectionName"));
+        request.setPassword((String)getTestValue("String", "putSection", "password"));
+        request.setFolder((String)getTestValue("String", "putSection", "folder"));
+        request.setStorage((String)getTestValue("String", "putSection", "storage"));
+        return request;
+    }
+    
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsTest() throws ApiException, Exception {
+        initialize("putSections", null, null);
+        Sections response = null;
+        PutSectionsRequest request = createPutSectionsRequest();
+        response = api.putSections(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionsRequest request = createPutSectionsRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSections", "name"));
+            initialize("putSections", "name", request.getName());
+            Sections response = api.putSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSections", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSections");
+        }
+    }
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsInvalidSectionsTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionsRequest request = createPutSectionsRequest();
+        try {
+            request.setSections((Sections)invalidizeTestValue("Sections", request.getSections(), "putSections", "sections"));
+            initialize("putSections", "sections", request.getSections());
+            Sections response = api.putSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "sections", "putSections", request.getSections());
+        }
+        if (needAssertResponse) {
+            assertResponse("sections", "putSections");
+        }
+    }
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionsRequest request = createPutSectionsRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSections", "password"));
+            initialize("putSections", "password", request.getPassword());
+            Sections response = api.putSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSections", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSections");
+        }
+    }
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionsRequest request = createPutSectionsRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSections", "folder"));
+            initialize("putSections", "folder", request.getFolder());
+            Sections response = api.putSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSections", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSections");
+        }
+    }
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSectionsInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSectionsRequest request = createPutSectionsRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSections", "storage"));
+            initialize("putSections", "storage", request.getStorage());
+            Sections response = api.putSections(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSections", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSections");
+        }
+    }
+
+    private PutSectionsRequest createPutSectionsRequest() {
+        PutSectionsRequest request = new PutSectionsRequest();
+        request.setName((String)getTestValue("String", "putSections", "name"));
+        request.setSections((Sections)getTestValue("Sections", "putSections", "sections"));
+        request.setPassword((String)getTestValue("String", "putSections", "password"));
+        request.setFolder((String)getTestValue("String", "putSections", "folder"));
+        request.setStorage((String)getTestValue("String", "putSections", "storage"));
         return request;
     }
     
@@ -27211,6 +28831,179 @@ public class SlidesApiTest extends ApiTest {
     }
     
     /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterTest() throws ApiException, Exception {
+        initialize("putSlideHeaderFooter", null, null);
+        HeaderFooter response = null;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        response = api.putSlideHeaderFooter(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSlideHeaderFooter", "name"));
+            initialize("putSlideHeaderFooter", "name", request.getName());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSlideHeaderFooter", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidSlideIndexTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setSlideIndex((Integer)invalidizeTestValue("Integer", request.getSlideIndex(), "putSlideHeaderFooter", "slideIndex"));
+            initialize("putSlideHeaderFooter", "slideIndex", request.getSlideIndex());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "slideIndex", "putSlideHeaderFooter", request.getSlideIndex());
+        }
+        if (needAssertResponse) {
+            assertResponse("slideIndex", "putSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setDto((HeaderFooter)invalidizeTestValue("HeaderFooter", request.getDto(), "putSlideHeaderFooter", "dto"));
+            initialize("putSlideHeaderFooter", "dto", request.getDto());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putSlideHeaderFooter", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSlideHeaderFooter", "password"));
+            initialize("putSlideHeaderFooter", "password", request.getPassword());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSlideHeaderFooter", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSlideHeaderFooter", "folder"));
+            initialize("putSlideHeaderFooter", "folder", request.getFolder());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSlideHeaderFooter", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSlideHeaderFooter");
+        }
+    }
+    /**
+     * Set footer the slide.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlideHeaderFooterInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlideHeaderFooterRequest request = createPutSlideHeaderFooterRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSlideHeaderFooter", "storage"));
+            initialize("putSlideHeaderFooter", "storage", request.getStorage());
+            HeaderFooter response = api.putSlideHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSlideHeaderFooter", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSlideHeaderFooter");
+        }
+    }
+
+    private PutSlideHeaderFooterRequest createPutSlideHeaderFooterRequest() {
+        PutSlideHeaderFooterRequest request = new PutSlideHeaderFooterRequest();
+        request.setName((String)getTestValue("String", "putSlideHeaderFooter", "name"));
+        request.setSlideIndex((Integer)getTestValue("Integer", "putSlideHeaderFooter", "slideIndex"));
+        request.setDto((HeaderFooter)getTestValue("HeaderFooter", "putSlideHeaderFooter", "dto"));
+        request.setPassword((String)getTestValue("String", "putSlideHeaderFooter", "password"));
+        request.setFolder((String)getTestValue("String", "putSlideHeaderFooter", "folder"));
+        request.setStorage((String)getTestValue("String", "putSlideHeaderFooter", "storage"));
+        return request;
+    }
+    
+    /**
      * Save a slide to a specified format.
      *
      * 
@@ -27953,6 +29746,30 @@ public class SlidesApiTest extends ApiTest {
      *          if the Api call fails
      */
     @Test
+    public void putSlidesConvertInvalidDocumentTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesConvertRequest request = createPutSlidesConvertRequest();
+        try {
+            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "putSlidesConvert", "document"));
+            initialize("putSlidesConvert", "document", request.getDocument());
+            api.putSlidesConvert(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "document", "putSlidesConvert", request.getDocument());
+        }
+        if (needAssertResponse) {
+            assertResponse("document", "putSlidesConvert");
+        }
+    }
+    /**
+     * Convert presentation from request content to format specified.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
     public void putSlidesConvertInvalidFormatTest() throws ApiException {
         Boolean needAssertResponse = false;
         PutSlidesConvertRequest request = createPutSlidesConvertRequest();
@@ -27990,30 +29807,6 @@ public class SlidesApiTest extends ApiTest {
         }
         if (needAssertResponse) {
             assertResponse("outPath", "putSlidesConvert");
-        }
-    }
-    /**
-     * Convert presentation from request content to format specified.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void putSlidesConvertInvalidDocumentTest() throws ApiException {
-        Boolean needAssertResponse = false;
-        PutSlidesConvertRequest request = createPutSlidesConvertRequest();
-        try {
-            request.setDocument((byte[])invalidizeTestValue("byte[]", request.getDocument(), "putSlidesConvert", "document"));
-            initialize("putSlidesConvert", "document", request.getDocument());
-            api.putSlidesConvert(request);
-            needAssertResponse = true;
-        } catch (ApiException ex) {
-            assertException(ex, "document", "putSlidesConvert", request.getDocument());
-        }
-        if (needAssertResponse) {
-            assertResponse("document", "putSlidesConvert");
         }
     }
     /**
@@ -28067,9 +29860,9 @@ public class SlidesApiTest extends ApiTest {
 
     private PutSlidesConvertRequest createPutSlidesConvertRequest() {
         PutSlidesConvertRequest request = new PutSlidesConvertRequest();
+        request.setDocument((byte[])getTestValue("byte[]", "putSlidesConvert", "document"));
         request.setFormat((ExportFormat)getTestValue("ExportFormat", "putSlidesConvert", "format"));
         request.setOutPath((String)getTestValue("String", "putSlidesConvert", "outPath"));
-        request.setDocument((byte[])getTestValue("byte[]", "putSlidesConvert", "document"));
         request.setPassword((String)getTestValue("String", "putSlidesConvert", "password"));
         request.setFontsFolder((String)getTestValue("String", "putSlidesConvert", "fontsFolder"));
         return request;
@@ -28220,6 +30013,154 @@ public class SlidesApiTest extends ApiTest {
         request.setPassword((String)getTestValue("String", "putSlidesDocumentFromHtml", "password"));
         request.setStorage((String)getTestValue("String", "putSlidesDocumentFromHtml", "storage"));
         request.setFolder((String)getTestValue("String", "putSlidesDocumentFromHtml", "folder"));
+        return request;
+    }
+    
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterTest() throws ApiException, Exception {
+        initialize("putSlidesHeaderFooter", null, null);
+        Document response = null;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        response = api.putSlidesHeaderFooter(request);
+        assertNotNull(response);
+    }
+
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterInvalidNameTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        try {
+            request.setName((String)invalidizeTestValue("String", request.getName(), "putSlidesHeaderFooter", "name"));
+            initialize("putSlidesHeaderFooter", "name", request.getName());
+            Document response = api.putSlidesHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "name", "putSlidesHeaderFooter", request.getName());
+        }
+        if (needAssertResponse) {
+            assertResponse("name", "putSlidesHeaderFooter");
+        }
+    }
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterInvalidDtoTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        try {
+            request.setDto((HeaderFooter)invalidizeTestValue("HeaderFooter", request.getDto(), "putSlidesHeaderFooter", "dto"));
+            initialize("putSlidesHeaderFooter", "dto", request.getDto());
+            Document response = api.putSlidesHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "dto", "putSlidesHeaderFooter", request.getDto());
+        }
+        if (needAssertResponse) {
+            assertResponse("dto", "putSlidesHeaderFooter");
+        }
+    }
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterInvalidPasswordTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        try {
+            request.setPassword((String)invalidizeTestValue("String", request.getPassword(), "putSlidesHeaderFooter", "password"));
+            initialize("putSlidesHeaderFooter", "password", request.getPassword());
+            Document response = api.putSlidesHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "password", "putSlidesHeaderFooter", request.getPassword());
+        }
+        if (needAssertResponse) {
+            assertResponse("password", "putSlidesHeaderFooter");
+        }
+    }
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterInvalidStorageTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        try {
+            request.setStorage((String)invalidizeTestValue("String", request.getStorage(), "putSlidesHeaderFooter", "storage"));
+            initialize("putSlidesHeaderFooter", "storage", request.getStorage());
+            Document response = api.putSlidesHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "storage", "putSlidesHeaderFooter", request.getStorage());
+        }
+        if (needAssertResponse) {
+            assertResponse("storage", "putSlidesHeaderFooter");
+        }
+    }
+    /**
+     * Set footers for all slides in a presentation.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void putSlidesHeaderFooterInvalidFolderTest() throws ApiException {
+        Boolean needAssertResponse = false;
+        PutSlidesHeaderFooterRequest request = createPutSlidesHeaderFooterRequest();
+        try {
+            request.setFolder((String)invalidizeTestValue("String", request.getFolder(), "putSlidesHeaderFooter", "folder"));
+            initialize("putSlidesHeaderFooter", "folder", request.getFolder());
+            Document response = api.putSlidesHeaderFooter(request);
+            needAssertResponse = true;
+        } catch (ApiException ex) {
+            assertException(ex, "folder", "putSlidesHeaderFooter", request.getFolder());
+        }
+        if (needAssertResponse) {
+            assertResponse("folder", "putSlidesHeaderFooter");
+        }
+    }
+
+    private PutSlidesHeaderFooterRequest createPutSlidesHeaderFooterRequest() {
+        PutSlidesHeaderFooterRequest request = new PutSlidesHeaderFooterRequest();
+        request.setName((String)getTestValue("String", "putSlidesHeaderFooter", "name"));
+        request.setDto((HeaderFooter)getTestValue("HeaderFooter", "putSlidesHeaderFooter", "dto"));
+        request.setPassword((String)getTestValue("String", "putSlidesHeaderFooter", "password"));
+        request.setStorage((String)getTestValue("String", "putSlidesHeaderFooter", "storage"));
+        request.setFolder((String)getTestValue("String", "putSlidesHeaderFooter", "folder"));
         return request;
     }
     

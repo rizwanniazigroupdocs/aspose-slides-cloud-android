@@ -28,7 +28,6 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
-import com.aspose.slides.model.ChartCategory;
 import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
@@ -52,8 +51,11 @@ import java.util.Map;
  */
 @ApiModel(description = "Represents chart category resource")
 public class ChartCategory {
-  @SerializedName(value = "categories", alternate = { "Categories" })
-  private List<ChartCategory> categories = null;
+  @SerializedName(value = "parentCategories", alternate = { "ParentCategories" })
+  private List<String> parentCategories = null;
+
+  @SerializedName(value = "level", alternate = { "Level" })
+  private Integer level;
 
   @SerializedName(value = "value", alternate = { "Value" })
   private String value;
@@ -73,34 +75,50 @@ public class ChartCategory {
 
   public ChartCategory() {
     super();
-    setCategories(new ArrayList<ChartCategory>());
-    setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
-  public ChartCategory categories(List<ChartCategory> categories) {
-    this.categories = categories;
+  public ChartCategory parentCategories(List<String> parentCategories) {
+    this.parentCategories = parentCategories;
     return this;
   }
 
-  public ChartCategory addCategoriesItem(ChartCategory categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<ChartCategory>();
+  public ChartCategory addParentCategoriesItem(String parentCategoriesItem) {
+    if (this.parentCategories == null) {
+      this.parentCategories = new ArrayList<String>();
     }
-    this.categories.add(categoriesItem);
+    this.parentCategories.add(parentCategoriesItem);
     return this;
   }
 
    /**
-   * Gets or sets the categories for chart data
-   * @return categories
+   * Gets or sets the parent categories. Used with Sunburst &amp;amp; treemap categories; ignored for other chart types.
+   * @return parentCategories
   **/
-  @ApiModelProperty(value = "Gets or sets the categories for chart data")
-  public List<ChartCategory> getCategories() {
-    return categories;
+  @ApiModelProperty(value = "Gets or sets the parent categories. Used with Sunburst &amp; treemap categories; ignored for other chart types.")
+  public List<String> getParentCategories() {
+    return parentCategories;
   }
 
-  public void setCategories(List<ChartCategory> categories) {
-    this.categories = categories;
+  public void setParentCategories(List<String> parentCategories) {
+    this.parentCategories = parentCategories;
+  }
+
+  public ChartCategory level(Integer level) {
+    this.level = level;
+    return this;
+  }
+
+   /**
+   * Gets or sets the grouping level for the category. Used with Sunburst &amp;amp; treemap categories; ignored for other chart types.
+   * @return level
+  **/
+  @ApiModelProperty(value = "Gets or sets the grouping level for the category. Used with Sunburst &amp; treemap categories; ignored for other chart types.")
+  public Integer getLevel() {
+    return level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 
   public ChartCategory value(String value) {
@@ -211,12 +229,12 @@ public class ChartCategory {
       return false;
     }
     ChartCategory chartCategory = (ChartCategory) o;
-    return true && Objects.equals(this.categories, chartCategory.categories) && Objects.equals(this.value, chartCategory.value) && Objects.equals(this.fillFormat, chartCategory.fillFormat) && Objects.equals(this.effectFormat, chartCategory.effectFormat) && Objects.equals(this.lineFormat, chartCategory.lineFormat) && Objects.equals(this.dataPoints, chartCategory.dataPoints);
+    return true && Objects.equals(this.parentCategories, chartCategory.parentCategories) && Objects.equals(this.level, chartCategory.level) && Objects.equals(this.value, chartCategory.value) && Objects.equals(this.fillFormat, chartCategory.fillFormat) && Objects.equals(this.effectFormat, chartCategory.effectFormat) && Objects.equals(this.lineFormat, chartCategory.lineFormat) && Objects.equals(this.dataPoints, chartCategory.dataPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, value, fillFormat, effectFormat, lineFormat, dataPoints);
+    return Objects.hash(parentCategories, level, value, fillFormat, effectFormat, lineFormat, dataPoints);
   }
 
 
@@ -225,7 +243,8 @@ public class ChartCategory {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChartCategory {\n");
     
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    parentCategories: ").append(toIndentedString(parentCategories)).append("\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    fillFormat: ").append(toIndentedString(fillFormat)).append("\n");
     sb.append("    effectFormat: ").append(toIndentedString(effectFormat)).append("\n");

@@ -56,8 +56,6 @@ public class Portions extends ResourceBase {
 
   public Portions() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setItems(new ArrayList<Portion>());
   }
 
   public Portions items(List<Portion> items) {

@@ -33,16 +33,6 @@ public class PostGetNotesSlideRequest {
   public PostGetNotesSlideRequest() {
   }
 
-  private Integer slideIndex;
-
-  public Integer getSlideIndex() {
-    return slideIndex;
-  }
-
-  public void setSlideIndex(Integer slideIndex) {
-    this.slideIndex = slideIndex;
-  }
-
   private byte[] document;
 
   public byte[] getDocument() {
@@ -51,6 +41,16 @@ public class PostGetNotesSlideRequest {
 
   public void setDocument(byte[] document) {
     this.document = document;
+  }
+
+  private Integer slideIndex;
+
+  public Integer getSlideIndex() {
+    return slideIndex;
+  }
+
+  public void setSlideIndex(Integer slideIndex) {
+    this.slideIndex = slideIndex;
   }
 
   private String password;

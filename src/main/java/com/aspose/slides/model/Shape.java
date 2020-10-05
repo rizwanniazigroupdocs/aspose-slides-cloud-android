@@ -61,7 +61,6 @@ public class Shape extends GeometryShape {
 
   public Shape() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.SHAPE);
   }
 

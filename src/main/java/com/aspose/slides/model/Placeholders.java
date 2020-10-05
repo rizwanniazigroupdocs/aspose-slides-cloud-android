@@ -55,8 +55,6 @@ public class Placeholders extends ResourceBase {
 
   public Placeholders() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setPlaceholderLinks(new ArrayList<ResourceUri>());
   }
 
   public Placeholders placeholderLinks(List<ResourceUri> placeholderLinks) {

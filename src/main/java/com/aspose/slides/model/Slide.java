@@ -85,7 +85,6 @@ public class Slide extends ResourceBase {
 
   public Slide() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public Slide width(Double width) {

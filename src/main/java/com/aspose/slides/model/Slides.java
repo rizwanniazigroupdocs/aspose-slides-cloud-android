@@ -56,8 +56,6 @@ public class Slides extends ResourceBase {
 
   public Slides() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setSlideList(new ArrayList<ResourceUriElement>());
   }
 
   public Slides slideList(List<ResourceUriElement> slideList) {

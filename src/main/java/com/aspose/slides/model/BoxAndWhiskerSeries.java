@@ -118,7 +118,6 @@ public class BoxAndWhiskerSeries extends OneValueSeries {
   public BoxAndWhiskerSeries() {
     super();
     setDataPointType(DataPointTypeEnum.ONEVALUE);
-    setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
   public BoxAndWhiskerSeries quartileMethod(QuartileMethodEnum quartileMethod) {

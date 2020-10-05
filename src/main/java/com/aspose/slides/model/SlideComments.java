@@ -56,8 +56,6 @@ public class SlideComments extends ResourceBase {
 
   public SlideComments() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setList(new ArrayList<SlideComment>());
   }
 
   public SlideComments list(List<SlideComment> list) {

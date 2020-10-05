@@ -60,7 +60,6 @@ public class DocumentProperty extends ResourceBase {
 
   public DocumentProperty() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public DocumentProperty name(String name) {

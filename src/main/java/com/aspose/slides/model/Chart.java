@@ -301,11 +301,8 @@ public class Chart extends ShapeBase {
 
   public Chart() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.CHART);
     setShapeType(ShapeTypeEnum.CHART);
-    setSeries(new ArrayList<Series>());
-    setCategories(new ArrayList<ChartCategory>());
   }
 
   public Chart chartType(ChartTypeEnum chartType) {

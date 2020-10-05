@@ -56,8 +56,6 @@ public class PresentationsMergeRequest {
 
   public PresentationsMergeRequest() {
     super();
-    setPresentationPaths(new ArrayList<String>());
-    setPresentationPasswords(new ArrayList<String>());
   }
 
   public PresentationsMergeRequest presentationPaths(List<String> presentationPaths) {

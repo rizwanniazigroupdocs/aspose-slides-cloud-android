@@ -283,11 +283,8 @@ public class Table extends ShapeBase {
 
   public Table() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.TABLE);
     setShapeType(ShapeTypeEnum.TABLE);
-    setRows(new ArrayList<TableRow>());
-    setColumns(new ArrayList<TableColumn>());
   }
 
   public Table style(StyleEnum style) {

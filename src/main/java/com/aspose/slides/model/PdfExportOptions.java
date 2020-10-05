@@ -366,7 +366,6 @@ public class PdfExportOptions extends ExportOptions {
   public PdfExportOptions() {
     super();
     setFormat("PDF");
-    setAdditionalCommonFontFamilies(new ArrayList<String>());
   }
 
   public PdfExportOptions textCompression(TextCompressionEnum textCompression) {

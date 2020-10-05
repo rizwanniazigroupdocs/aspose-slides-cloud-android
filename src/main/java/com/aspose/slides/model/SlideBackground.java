@@ -117,7 +117,6 @@ public class SlideBackground extends ResourceBase {
 
   public SlideBackground() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public SlideBackground type(TypeEnum type) {

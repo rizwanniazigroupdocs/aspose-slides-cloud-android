@@ -33,16 +33,6 @@ public class PostSlidesConvertRequest {
   public PostSlidesConvertRequest() {
   }
 
-  private ExportFormat format;
-
-  public ExportFormat getFormat() {
-    return format;
-  }
-
-  public void setFormat(ExportFormat format) {
-    this.format = format;
-  }
-
   private byte[] document;
 
   public byte[] getDocument() {
@@ -51,6 +41,16 @@ public class PostSlidesConvertRequest {
 
   public void setDocument(byte[] document) {
     this.document = document;
+  }
+
+  private ExportFormat format;
+
+  public ExportFormat getFormat() {
+    return format;
+  }
+
+  public void setFormat(ExportFormat format) {
+    this.format = format;
   }
 
   private String password;

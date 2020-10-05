@@ -55,7 +55,6 @@ public class GraphicalObject extends ShapeBase {
 
   public GraphicalObject() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.GRAPHICALOBJECT);
     setShapeType(ShapeTypeEnum.GRAPHICALOBJECT);
   }

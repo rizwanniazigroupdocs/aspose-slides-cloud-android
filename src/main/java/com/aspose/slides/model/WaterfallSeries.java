@@ -59,7 +59,6 @@ public class WaterfallSeries extends OneValueSeries {
   public WaterfallSeries() {
     super();
     setDataPointType(DataPointTypeEnum.ONEVALUE);
-    setDataPoints(new ArrayList<OneValueChartDataPoint>());
   }
 
   public WaterfallSeries showConnectorLines(Boolean showConnectorLines) {

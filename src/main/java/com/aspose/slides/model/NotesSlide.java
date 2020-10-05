@@ -58,7 +58,6 @@ public class NotesSlide extends ResourceBase {
 
   public NotesSlide() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public NotesSlide text(String text) {

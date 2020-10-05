@@ -56,8 +56,6 @@ public class Paragraphs extends ResourceBase {
 
   public Paragraphs() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setParagraphLinks(new ArrayList<ResourceUriElement>());
   }
 
   public Paragraphs paragraphLinks(List<ResourceUriElement> paragraphLinks) {

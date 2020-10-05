@@ -479,7 +479,6 @@ public class GeometryShape extends ShapeBase {
 
   public GeometryShape() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public GeometryShape geometryShapeType(GeometryShapeTypeEnum geometryShapeType) {

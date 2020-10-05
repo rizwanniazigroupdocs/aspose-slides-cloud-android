@@ -33,6 +33,16 @@ public class PostGetNotesSlideWithFormatRequest {
   public PostGetNotesSlideWithFormatRequest() {
   }
 
+  private byte[] document;
+
+  public byte[] getDocument() {
+    return document;
+  }
+
+  public void setDocument(byte[] document) {
+    this.document = document;
+  }
+
   private Integer slideIndex;
 
   public Integer getSlideIndex() {
@@ -51,16 +61,6 @@ public class PostGetNotesSlideWithFormatRequest {
 
   public void setFormat(NotesSlideExportFormat format) {
     this.format = format;
-  }
-
-  private byte[] document;
-
-  public byte[] getDocument() {
-    return document;
-  }
-
-  public void setDocument(byte[] document) {
-    this.document = document;
   }
 
   private Integer width;

@@ -55,7 +55,6 @@ public class DocumentReplaceResult extends Document {
 
   public DocumentReplaceResult() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public DocumentReplaceResult matches(Integer matches) {

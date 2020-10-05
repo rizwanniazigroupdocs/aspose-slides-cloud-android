@@ -288,7 +288,6 @@ public class ViewProperties extends ResourceBase {
 
   public ViewProperties() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public ViewProperties lastView(LastViewEnum lastView) {

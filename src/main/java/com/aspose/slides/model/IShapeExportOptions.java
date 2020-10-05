@@ -28,14 +28,7 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
@@ -45,30 +38,9 @@ import java.util.Map;
  */
 @ApiModel(description = "Represents export options for whole presentation.")
 public class IShapeExportOptions {
-  @SerializedName(value = "format", alternate = { "Format" })
-  private String format;
-
 
   public IShapeExportOptions() {
     super();
-  }
-
-  public IShapeExportOptions format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Export format.
-   * @return format
-  **/
-  @ApiModelProperty(value = "Export format.")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
   }
 
 
@@ -81,12 +53,12 @@ public class IShapeExportOptions {
       return false;
     }
     IShapeExportOptions ishapeExportOptions = (IShapeExportOptions) o;
-    return true && Objects.equals(this.format, ishapeExportOptions.format);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format);
+    return Objects.hash();
   }
 
 
@@ -95,7 +67,6 @@ public class IShapeExportOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class IShapeExportOptions {\n");
     
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("}");
     return sb.toString();
   }

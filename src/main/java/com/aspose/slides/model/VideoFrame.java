@@ -180,7 +180,6 @@ public class VideoFrame extends GeometryShape {
 
   public VideoFrame() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.VIDEOFRAME);
     setShapeType(ShapeTypeEnum.VIDEOFRAME);
   }

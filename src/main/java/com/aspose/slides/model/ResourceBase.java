@@ -57,7 +57,6 @@ public class ResourceBase {
 
   public ResourceBase() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public ResourceBase selfUri(ResourceUri selfUri) {

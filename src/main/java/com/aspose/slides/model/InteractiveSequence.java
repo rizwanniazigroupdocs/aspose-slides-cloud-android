@@ -57,7 +57,6 @@ public class InteractiveSequence {
 
   public InteractiveSequence() {
     super();
-    setEffects(new ArrayList<Effect>());
   }
 
   public InteractiveSequence effects(List<Effect> effects) {

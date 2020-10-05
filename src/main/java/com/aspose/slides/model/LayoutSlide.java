@@ -180,8 +180,6 @@ public class LayoutSlide extends ResourceBase {
 
   public LayoutSlide() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setDependingSlides(new ArrayList<ResourceUriElement>());
   }
 
   public LayoutSlide name(String name) {

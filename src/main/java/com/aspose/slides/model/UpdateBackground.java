@@ -59,7 +59,6 @@ public class UpdateBackground extends Task {
   public UpdateBackground() {
     super();
     setType(TypeEnum.UPDATEBACKGROUND);
-    setSlides(new ArrayList<Integer>());
   }
 
   public UpdateBackground slides(List<Integer> slides) {

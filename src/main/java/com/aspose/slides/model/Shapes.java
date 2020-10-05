@@ -56,8 +56,6 @@ public class Shapes extends ResourceBase {
 
   public Shapes() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setShapesLinks(new ArrayList<ResourceUriElement>());
   }
 
   public Shapes shapesLinks(List<ResourceUriElement> shapesLinks) {

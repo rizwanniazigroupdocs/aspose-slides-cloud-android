@@ -60,7 +60,6 @@ public class BubbleSeries extends Series {
   public BubbleSeries() {
     super();
     setDataPointType(DataPointTypeEnum.BUBBLE);
-    setDataPoints(new ArrayList<BubbleChartDataPoint>());
   }
 
   public BubbleSeries dataPoints(List<BubbleChartDataPoint> dataPoints) {

@@ -59,7 +59,6 @@ public class PresentationToMerge {
 
   public PresentationToMerge() {
     super();
-    setSlides(new ArrayList<Integer>());
   }
 
   public PresentationToMerge path(String path) {

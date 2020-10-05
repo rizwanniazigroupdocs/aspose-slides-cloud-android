@@ -70,7 +70,6 @@ public class Document extends ResourceBase {
 
   public Document() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public Document documentProperties(ResourceUriElement documentProperties) {

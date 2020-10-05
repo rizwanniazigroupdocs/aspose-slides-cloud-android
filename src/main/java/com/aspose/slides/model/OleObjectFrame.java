@@ -61,7 +61,6 @@ public class OleObjectFrame extends ShapeBase {
 
   public OleObjectFrame() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.OLEOBJECTFRAME);
     setShapeType(ShapeTypeEnum.OLEOBJECTFRAME);
   }

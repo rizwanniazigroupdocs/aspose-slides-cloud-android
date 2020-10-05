@@ -67,7 +67,6 @@ public class Connector extends GeometryShape {
 
   public Connector() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.CONNECTOR);
   }
 

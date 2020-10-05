@@ -55,7 +55,6 @@ public class GroupShape extends ShapeBase {
 
   public GroupShape() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.GROUPSHAPE);
     setShapeType(ShapeTypeEnum.GROUPSHAPE);
   }

@@ -60,7 +60,6 @@ public class ScatterSeries extends Series {
   public ScatterSeries() {
     super();
     setDataPointType(DataPointTypeEnum.SCATTER);
-    setDataPoints(new ArrayList<ScatterChartDataPoint>());
   }
 
   public ScatterSeries dataPoints(List<ScatterChartDataPoint> dataPoints) {

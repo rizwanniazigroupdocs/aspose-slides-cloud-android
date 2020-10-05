@@ -577,10 +577,8 @@ public class SmartArt extends ShapeBase {
 
   public SmartArt() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.SMARTART);
     setShapeType(ShapeTypeEnum.DIAGRAM);
-    setNodes(new ArrayList<SmartArtNode>());
   }
 
   public SmartArt layout(LayoutEnum layout) {

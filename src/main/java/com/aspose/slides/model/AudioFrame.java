@@ -189,7 +189,6 @@ public class AudioFrame extends GeometryShape {
 
   public AudioFrame() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.AUDIOFRAME);
     setShapeType(ShapeTypeEnum.AUDIOFRAME);
   }

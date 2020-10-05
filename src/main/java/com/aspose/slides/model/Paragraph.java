@@ -601,8 +601,6 @@ public class Paragraph extends ResourceBase {
 
   public Paragraph() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setPortionList(new ArrayList<Portion>());
   }
 
   public Paragraph marginLeft(Double marginLeft) {

@@ -56,8 +56,6 @@ public class TextItems extends ResourceBase {
 
   public TextItems() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setItems(new ArrayList<TextItem>());
   }
 
   public TextItems items(List<TextItem> items) {

@@ -606,7 +606,6 @@ public class ShapeBase extends ResourceBase {
 
   public ShapeBase() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public ShapeBase name(String name) {

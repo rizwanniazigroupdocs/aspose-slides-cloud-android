@@ -54,7 +54,6 @@ public class FileVersions {
 
   public FileVersions() {
     super();
-    setValue(new ArrayList<FileVersion>());
   }
 
   public FileVersions value(List<FileVersion> value) {

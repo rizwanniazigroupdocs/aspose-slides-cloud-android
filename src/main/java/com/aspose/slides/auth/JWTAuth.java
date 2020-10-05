@@ -68,17 +68,7 @@ public class JWTAuth extends Authentication {
     }
     
     private boolean isAuthError(Response response) throws ApiException, IOException {
-        if (response.code() == 401) {
-            return true;
-        }
-        if (response.code() == 400) {
-            BufferedSource source = response.body().source();
-            source.request(Long.MAX_VALUE);
-            if (source.buffer().clone().readString(UTF_8).contains(" Authority")) {
-                return true;
-            }
-        }
-        return false;
+        return response.code() == 401 ||  (response.code() == 500 && response.body().contentLength() == 0);
     }
     
     private synchronized void requestToken() throws ApiException {

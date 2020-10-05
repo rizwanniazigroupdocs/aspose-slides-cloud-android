@@ -57,7 +57,6 @@ public class MergingSource {
 
   public MergingSource() {
     super();
-    setSlides(new ArrayList<Integer>());
   }
 
   public MergingSource input(InputFile input) {

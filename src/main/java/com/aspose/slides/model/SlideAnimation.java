@@ -60,9 +60,6 @@ public class SlideAnimation extends ResourceBase {
 
   public SlideAnimation() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
-    setMainSequence(new ArrayList<Effect>());
-    setInteractiveSequences(new ArrayList<InteractiveSequence>());
   }
 
   public SlideAnimation mainSequence(List<Effect> mainSequence) {

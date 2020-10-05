@@ -57,8 +57,6 @@ public class FilesUploadResult {
 
   public FilesUploadResult() {
     super();
-    setUploaded(new ArrayList<String>());
-    setErrors(new ArrayList<Error>());
   }
 
   public FilesUploadResult uploaded(List<String> uploaded) {

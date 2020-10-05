@@ -55,7 +55,6 @@ public class SmartArtShape extends ShapeBase {
 
   public SmartArtShape() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.SMARTARTSHAPE);
     setShapeType(ShapeTypeEnum.CUSTOM);
   }

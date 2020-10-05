@@ -120,7 +120,6 @@ public class SmartArtNode {
 
   public SmartArtNode() {
     super();
-    setNodes(new ArrayList<SmartArtNode>());
   }
 
   public SmartArtNode nodes(List<SmartArtNode> nodes) {

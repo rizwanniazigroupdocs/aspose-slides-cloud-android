@@ -60,7 +60,6 @@ public class TableRow {
 
   public TableRow() {
     super();
-    setCells(new ArrayList<TableCell>());
   }
 
   public TableRow cells(List<TableCell> cells) {

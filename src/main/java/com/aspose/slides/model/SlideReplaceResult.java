@@ -55,7 +55,6 @@ public class SlideReplaceResult extends Slide {
 
   public SlideReplaceResult() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public SlideReplaceResult matches(Integer matches) {

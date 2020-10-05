@@ -232,7 +232,6 @@ public class GradientFill extends FillFormat {
   public GradientFill() {
     super();
     setType(TypeEnum.GRADIENT);
-    setStops(new ArrayList<GradientFillStop>());
   }
 
   public GradientFill direction(DirectionEnum direction) {

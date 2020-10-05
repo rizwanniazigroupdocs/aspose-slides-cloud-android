@@ -59,7 +59,6 @@ public class PictureFrame extends GeometryShape {
 
   public PictureFrame() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
     setType(TypeEnum.PICTUREFRAME);
     setShapeType(ShapeTypeEnum.PICTUREFRAME);
   }

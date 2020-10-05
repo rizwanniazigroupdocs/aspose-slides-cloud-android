@@ -62,6 +62,7 @@ import com.aspose.slides.model.FilesList;
 import com.aspose.slides.model.FilesUploadResult;
 import com.aspose.slides.model.FontScheme;
 import com.aspose.slides.model.FormatScheme;
+import com.aspose.slides.model.HeaderFooter;
 import com.aspose.slides.model.IShapeExportOptions;
 import com.aspose.slides.model.Images;
 import com.aspose.slides.model.InteractiveSequence;
@@ -70,6 +71,7 @@ import com.aspose.slides.model.LayoutSlides;
 import com.aspose.slides.model.MasterSlide;
 import com.aspose.slides.model.MasterSlides;
 import com.aspose.slides.model.NotesSlide;
+import com.aspose.slides.model.NotesSlideHeaderFooter;
 import com.aspose.slides.model.ObjectExist;
 import com.aspose.slides.model.OrderedMergeRequest;
 import com.aspose.slides.model.Paragraph;
@@ -80,6 +82,7 @@ import com.aspose.slides.model.Placeholders;
 import com.aspose.slides.model.Portion;
 import com.aspose.slides.model.Portions;
 import com.aspose.slides.model.PresentationsMergeRequest;
+import com.aspose.slides.model.Sections;
 import com.aspose.slides.model.Series;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.Shapes;
@@ -113,6 +116,8 @@ import com.aspose.slides.model.request.DeleteParagraphRequest;
 import com.aspose.slides.model.request.DeleteParagraphsRequest;
 import com.aspose.slides.model.request.DeletePortionRequest;
 import com.aspose.slides.model.request.DeletePortionsRequest;
+import com.aspose.slides.model.request.DeleteSectionRequest;
+import com.aspose.slides.model.request.DeleteSectionsRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.DeleteSlideAnimationInteractiveSequenceRequest;
@@ -142,6 +147,7 @@ import com.aspose.slides.model.request.GetMasterSlideRequest;
 import com.aspose.slides.model.request.GetMasterSlidesListRequest;
 import com.aspose.slides.model.request.GetNotesSlideRequest;
 import com.aspose.slides.model.request.GetNotesSlideExistsRequest;
+import com.aspose.slides.model.request.GetNotesSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetNotesSlideShapeParagraphsRequest;
@@ -151,7 +157,9 @@ import com.aspose.slides.model.request.GetNotesSlideShapesRequest;
 import com.aspose.slides.model.request.GetNotesSlideWithFormatRequest;
 import com.aspose.slides.model.request.GetParagraphPortionRequest;
 import com.aspose.slides.model.request.GetParagraphPortionsRequest;
+import com.aspose.slides.model.request.GetSectionsRequest;
 import com.aspose.slides.model.request.GetSlideAnimationRequest;
+import com.aspose.slides.model.request.GetSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.GetSlideShapeRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphRequest;
 import com.aspose.slides.model.request.GetSlideShapeParagraphsRequest;
@@ -205,6 +213,8 @@ import com.aspose.slides.model.request.PostNotesSlideAddNewPortionRequest;
 import com.aspose.slides.model.request.PostNotesSlideAddNewShapeRequest;
 import com.aspose.slides.model.request.PostNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PostPresentationMergeRequest;
+import com.aspose.slides.model.request.PostSectionRequest;
+import com.aspose.slides.model.request.PostSectionMoveRequest;
 import com.aspose.slides.model.request.PostShapeSaveAsRequest;
 import com.aspose.slides.model.request.PostSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.PostSlideAnimationInteractiveSequenceRequest;
@@ -230,8 +240,11 @@ import com.aspose.slides.model.request.PutChartCategoryRequest;
 import com.aspose.slides.model.request.PutChartDataPointRequest;
 import com.aspose.slides.model.request.PutChartSeriesRequest;
 import com.aspose.slides.model.request.PutLayoutSlideRequest;
+import com.aspose.slides.model.request.PutNotesSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.PutNotesSlideShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutPresentationMergeRequest;
+import com.aspose.slides.model.request.PutSectionRequest;
+import com.aspose.slides.model.request.PutSectionsRequest;
 import com.aspose.slides.model.request.PutSetParagraphPortionPropertiesRequest;
 import com.aspose.slides.model.request.PutSetParagraphPropertiesRequest;
 import com.aspose.slides.model.request.PutSetSubshapeParagraphPortionPropertiesRequest;
@@ -240,11 +253,13 @@ import com.aspose.slides.model.request.PutShapeSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideAnimationRequest;
 import com.aspose.slides.model.request.PutSlideAnimationEffectRequest;
 import com.aspose.slides.model.request.PutSlideAnimationInteractiveSequenceEffectRequest;
+import com.aspose.slides.model.request.PutSlideHeaderFooterRequest;
 import com.aspose.slides.model.request.PutSlideSaveAsRequest;
 import com.aspose.slides.model.request.PutSlideShapeInfoRequest;
 import com.aspose.slides.model.request.PutSlideSubshapeInfoRequest;
 import com.aspose.slides.model.request.PutSlidesConvertRequest;
 import com.aspose.slides.model.request.PutSlidesDocumentFromHtmlRequest;
+import com.aspose.slides.model.request.PutSlidesHeaderFooterRequest;
 import com.aspose.slides.model.request.PutSlidesSaveAsRequest;
 import com.aspose.slides.model.request.PutSlidesSetDocumentPropertyRequest;
 import com.aspose.slides.model.request.PutSlidesSlideRequest;
@@ -2719,6 +2734,254 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = deletePortionsCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<Portions>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteSection
+     * @param request Request for deleteSection. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteSection(Async)");
+        }
+        
+        // verify the required parameter 'sectionIndex' is set
+        if (request.getSectionIndex() == null) {
+            throw new ApiException("Missing the required parameter 'sectionIndex' when calling deleteSection(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections/{sectionIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.objectToString(request.getSectionIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "withSlides", request.getWithSlides());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "DELETE", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Delete a presentation section.
+     * 
+     * @param request Request for deleteSection. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections deleteSection(DeleteSectionRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = deleteSectionWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = deleteSectionWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Delete a presentation section.
+     * 
+     * @param request Request for deleteSection. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteSectionCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Delete a presentation section. (asynchronously)
+     * 
+     * @param request Request for deleteSection. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteSectionCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteSections
+     * @param request Request for deleteSections. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteSectionsCall(DeleteSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteSections(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "sections", request.getSections());
+        apiClient.addQueryParameter(queryParams, "withSlides", request.getWithSlides());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "DELETE", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Delete presentation sections.
+     * 
+     * @param request Request for deleteSections. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections deleteSections(DeleteSectionsRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = deleteSectionsWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = deleteSectionsWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Delete presentation sections.
+     * 
+     * @param request Request for deleteSections. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> deleteSectionsWithHttpInfo(DeleteSectionsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteSectionsCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Delete presentation sections. (asynchronously)
+     * 
+     * @param request Request for deleteSections. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteSectionsAsync(DeleteSectionsRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteSectionsCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
@@ -6356,6 +6619,131 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for getNotesSlideHeaderFooter
+     * @param request Request for getNotesSlideHeaderFooter. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getNotesSlideHeaderFooterCall(GetNotesSlideHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling getNotesSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling getNotesSlideHeaderFooter(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "GET", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Get header/footer info for the notes slide.
+     * 
+     * @param request Request for getNotesSlideHeaderFooter. (required)
+     * @return NotesSlideHeaderFooter
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NotesSlideHeaderFooter getNotesSlideHeaderFooter(GetNotesSlideHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<NotesSlideHeaderFooter> resp = getNotesSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<NotesSlideHeaderFooter> resp = getNotesSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Get header/footer info for the notes slide.
+     * 
+     * @param request Request for getNotesSlideHeaderFooter. (required)
+     * @return ApiResponse&lt;NotesSlideHeaderFooter&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NotesSlideHeaderFooter> getNotesSlideHeaderFooterWithHttpInfo(GetNotesSlideHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getNotesSlideHeaderFooterCall(request, null, null);
+        Type returnType = new TypeToken<NotesSlideHeaderFooter>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Get header/footer info for the notes slide. (asynchronously)
+     * 
+     * @param request Request for getNotesSlideHeaderFooter. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getNotesSlideHeaderFooterAsync(GetNotesSlideHeaderFooterRequest request, final ApiCallback<NotesSlideHeaderFooter> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getNotesSlideHeaderFooterCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<NotesSlideHeaderFooter>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for getNotesSlideShape
      * @param request Request for getNotesSlideShape. (required)
      * @param progressListener Progress listener
@@ -7559,6 +7947,126 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for getSections
+     * @param request Request for getSections. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSectionsCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling getSections(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "GET", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Read presentation sections info.
+     * 
+     * @param request Request for getSections. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections getSections(GetSectionsRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = getSectionsWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = getSectionsWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Read presentation sections info.
+     * 
+     * @param request Request for getSections. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getSectionsCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Read presentation sections info. (asynchronously)
+     * 
+     * @param request Request for getSections. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSectionsCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for getSlideAnimation
      * @param request Request for getSlideAnimation. (required)
      * @param progressListener Progress listener
@@ -7681,6 +8189,131 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = getSlideAnimationCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<SlideAnimation>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getSlideHeaderFooter
+     * @param request Request for getSlideHeaderFooter. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSlideHeaderFooterCall(GetSlideHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling getSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling getSlideHeaderFooter(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/headerFooter"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "GET", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Get footer info for the slide.
+     * 
+     * @param request Request for getSlideHeaderFooter. (required)
+     * @return HeaderFooter
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HeaderFooter getSlideHeaderFooter(GetSlideHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<HeaderFooter> resp = getSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<HeaderFooter> resp = getSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Get footer info for the slide.
+     * 
+     * @param request Request for getSlideHeaderFooter. (required)
+     * @return ApiResponse&lt;HeaderFooter&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HeaderFooter> getSlideHeaderFooterWithHttpInfo(GetSlideHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getSlideHeaderFooterCall(request, null, null);
+        Type returnType = new TypeToken<HeaderFooter>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Get footer info for the slide. (asynchronously)
+     * 
+     * @param request Request for getSlideHeaderFooter. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSlideHeaderFooterAsync(GetSlideHeaderFooterRequest request, final ApiCallback<HeaderFooter> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSlideHeaderFooterCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<HeaderFooter>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
@@ -11971,6 +12604,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postAddNewParagraph(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postAddNewParagraph(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -12105,6 +12743,11 @@ public class SlidesApi {
         // verify the required parameter 'paragraphIndex' is set
         if (request.getParagraphIndex() == null) {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling postAddNewPortion(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postAddNewPortion(Async)");
         }
         
         Object postBody = request.getDto();
@@ -12492,6 +13135,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postAddNewSubshapeParagraph(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postAddNewSubshapeParagraph(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -12628,6 +13276,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling postAddNewSubshapePortion(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postAddNewSubshapePortion(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -12752,6 +13405,11 @@ public class SlidesApi {
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postAddNotesSlide(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postAddNotesSlide(Async)");
         }
         
         Object postBody = request.getDto();
@@ -12882,6 +13540,11 @@ public class SlidesApi {
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postChartCategory(Async)");
+        }
+        
+        // verify the required parameter 'category' is set
+        if (request.getCategory() == null) {
+            throw new ApiException("Missing the required parameter 'category' when calling postChartCategory(Async)");
         }
         
         Object postBody = request.getCategory();
@@ -13019,6 +13682,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'seriesIndex' when calling postChartDataPoint(Async)");
         }
         
+        // verify the required parameter 'dataPoint' is set
+        if (request.getDataPoint() == null) {
+            throw new ApiException("Missing the required parameter 'dataPoint' when calling postChartDataPoint(Async)");
+        }
+        
         Object postBody = request.getDataPoint();
 
         // create path and map variables
@@ -13147,6 +13815,11 @@ public class SlidesApi {
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postChartSeries(Async)");
+        }
+        
+        // verify the required parameter 'series' is set
+        if (request.getSeries() == null) {
+            throw new ApiException("Missing the required parameter 'series' when calling postChartSeries(Async)");
         }
         
         Object postBody = request.getSeries();
@@ -13533,6 +14206,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call postGetNotesSlideCall(PostGetNotesSlideRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling postGetNotesSlide(Async)");
+        }
+        
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postGetNotesSlide(Async)");
@@ -13651,6 +14329,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call postGetNotesSlideExistsCall(PostGetNotesSlideExistsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling postGetNotesSlideExists(Async)");
+        }
+        
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postGetNotesSlideExists(Async)");
@@ -13768,6 +14451,11 @@ public class SlidesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call postGetNotesSlideWithFormatCall(PostGetNotesSlideWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling postGetNotesSlideWithFormat(Async)");
+        }
         
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
@@ -13910,6 +14598,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling postNotesSlideAddNewParagraph(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postNotesSlideAddNewParagraph(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -14046,6 +14739,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling postNotesSlideAddNewPortion(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postNotesSlideAddNewPortion(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -14170,6 +14868,11 @@ public class SlidesApi {
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postNotesSlideAddNewShape(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling postNotesSlideAddNewShape(Async)");
         }
         
         Object postBody = request.getDto();
@@ -14433,6 +15136,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'name' when calling postPresentationMerge(Async)");
         }
         
+        // verify the required parameter 'request' is set
+        if (request.getRequest() == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling postPresentationMerge(Async)");
+        }
+        
         Object postBody = request.getRequest();
 
         // create path and map variables
@@ -14535,6 +15243,269 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = postPresentationMergeCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<Document>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postSection
+     * @param request Request for postSection. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postSectionCall(PostSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling postSection(Async)");
+        }
+        
+        // verify the required parameter 'sectionName' is set
+        if (request.getSectionName() == null) {
+            throw new ApiException("Missing the required parameter 'sectionName' when calling postSection(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling postSection(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "sectionName", request.getSectionName());
+        apiClient.addQueryParameter(queryParams, "slideIndex", request.getSlideIndex());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "POST", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Create a section starting at a specified slide index.
+     * 
+     * @param request Request for postSection. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections postSection(PostSectionRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = postSectionWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = postSectionWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Create a section starting at a specified slide index.
+     * 
+     * @param request Request for postSection. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> postSectionWithHttpInfo(PostSectionRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postSectionCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Create a section starting at a specified slide index. (asynchronously)
+     * 
+     * @param request Request for postSection. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postSectionAsync(PostSectionRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postSectionCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postSectionMove
+     * @param request Request for postSectionMove. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postSectionMoveCall(PostSectionMoveRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling postSectionMove(Async)");
+        }
+        
+        // verify the required parameter 'sectionIndex' is set
+        if (request.getSectionIndex() == null) {
+            throw new ApiException("Missing the required parameter 'sectionIndex' when calling postSectionMove(Async)");
+        }
+        
+        // verify the required parameter 'newPosition' is set
+        if (request.getNewPosition() == null) {
+            throw new ApiException("Missing the required parameter 'newPosition' when calling postSectionMove(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections/{sectionIndex}/move"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.objectToString(request.getSectionIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "newPosition", request.getNewPosition());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "POST", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Move presentation section to a specified position.
+     * 
+     * @param request Request for postSectionMove. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections postSectionMove(PostSectionMoveRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = postSectionMoveWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = postSectionMoveWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Move presentation section to a specified position.
+     * 
+     * @param request Request for postSectionMove. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> postSectionMoveWithHttpInfo(PostSectionMoveRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postSectionMoveCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Move presentation section to a specified position. (asynchronously)
+     * 
+     * @param request Request for postSectionMove. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postSectionMoveAsync(PostSectionMoveRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postSectionMoveCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
@@ -14697,6 +15668,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postSlideAnimationEffect(Async)");
         }
         
+        // verify the required parameter 'effect' is set
+        if (request.getEffect() == null) {
+            throw new ApiException("Missing the required parameter 'effect' when calling postSlideAnimationEffect(Async)");
+        }
+        
         Object postBody = request.getEffect();
 
         // create path and map variables
@@ -14820,6 +15796,11 @@ public class SlidesApi {
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling postSlideAnimationInteractiveSequence(Async)");
+        }
+        
+        // verify the required parameter 'sequence' is set
+        if (request.getSequence() == null) {
+            throw new ApiException("Missing the required parameter 'sequence' when calling postSlideAnimationInteractiveSequence(Async)");
         }
         
         Object postBody = request.getSequence();
@@ -14950,6 +15931,11 @@ public class SlidesApi {
         // verify the required parameter 'sequenceIndex' is set
         if (request.getSequenceIndex() == null) {
             throw new ApiException("Missing the required parameter 'sequenceIndex' when calling postSlideAnimationInteractiveSequenceEffect(Async)");
+        }
+        
+        // verify the required parameter 'effect' is set
+        if (request.getEffect() == null) {
+            throw new ApiException("Missing the required parameter 'effect' when calling postSlideAnimationInteractiveSequenceEffect(Async)");
         }
         
         Object postBody = request.getEffect();
@@ -15321,6 +16307,11 @@ public class SlidesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call postSlidesConvertCall(PostSlidesConvertRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling postSlidesConvert(Async)");
+        }
         
         // verify the required parameter 'format' is set
         if (request.getFormat() == null) {
@@ -16064,6 +17055,11 @@ public class SlidesApi {
      */
     public com.squareup.okhttp.Call postSlidesPipelineCall(PostSlidesPipelineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+        // verify the required parameter 'pipeline' is set
+        if (request.getPipeline() == null) {
+            throw new ApiException("Missing the required parameter 'pipeline' when calling postSlidesPipeline(Async)");
+        }
+        
         Object postBody = request.getPipeline();
 
         // create path and map variables
@@ -16697,6 +17693,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'name' when calling postSlidesSetDocumentProperties(Async)");
         }
         
+        // verify the required parameter 'properties' is set
+        if (request.getProperties() == null) {
+            throw new ApiException("Missing the required parameter 'properties' when calling postSlidesSetDocumentProperties(Async)");
+        }
+        
         Object postBody = request.getProperties();
 
         // create path and map variables
@@ -17236,6 +18237,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'categoryIndex' when calling putChartCategory(Async)");
         }
         
+        // verify the required parameter 'category' is set
+        if (request.getCategory() == null) {
+            throw new ApiException("Missing the required parameter 'category' when calling putChartCategory(Async)");
+        }
+        
         Object postBody = request.getCategory();
 
         // create path and map variables
@@ -17376,6 +18382,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'pointIndex' when calling putChartDataPoint(Async)");
         }
         
+        // verify the required parameter 'dataPoint' is set
+        if (request.getDataPoint() == null) {
+            throw new ApiException("Missing the required parameter 'dataPoint' when calling putChartDataPoint(Async)");
+        }
+        
         Object postBody = request.getDataPoint();
 
         // create path and map variables
@@ -17511,6 +18522,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'seriesIndex' when calling putChartSeries(Async)");
         }
         
+        // verify the required parameter 'series' is set
+        if (request.getSeries() == null) {
+            throw new ApiException("Missing the required parameter 'series' when calling putChartSeries(Async)");
+        }
+        
         Object postBody = request.getSeries();
 
         // create path and map variables
@@ -17636,6 +18652,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putLayoutSlide(Async)");
         }
         
+        // verify the required parameter 'slideDto' is set
+        if (request.getSlideDto() == null) {
+            throw new ApiException("Missing the required parameter 'slideDto' when calling putLayoutSlide(Async)");
+        }
+        
         Object postBody = request.getSlideDto();
 
         // create path and map variables
@@ -17738,6 +18759,136 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = putLayoutSlideCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<LayoutSlide>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putNotesSlideHeaderFooter
+     * @param request Request for putNotesSlideHeaderFooter. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putNotesSlideHeaderFooterCall(PutNotesSlideHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putNotesSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling putNotesSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putNotesSlideHeaderFooter(Async)");
+        }
+        
+        Object postBody = request.getDto();
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Set header/footer the notes slide.
+     * 
+     * @param request Request for putNotesSlideHeaderFooter. (required)
+     * @return NotesSlideHeaderFooter
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NotesSlideHeaderFooter putNotesSlideHeaderFooter(PutNotesSlideHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<NotesSlideHeaderFooter> resp = putNotesSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<NotesSlideHeaderFooter> resp = putNotesSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Set header/footer the notes slide.
+     * 
+     * @param request Request for putNotesSlideHeaderFooter. (required)
+     * @return ApiResponse&lt;NotesSlideHeaderFooter&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NotesSlideHeaderFooter> putNotesSlideHeaderFooterWithHttpInfo(PutNotesSlideHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putNotesSlideHeaderFooterCall(request, null, null);
+        Type returnType = new TypeToken<NotesSlideHeaderFooter>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Set header/footer the notes slide. (asynchronously)
+     * 
+     * @param request Request for putNotesSlideHeaderFooter. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putNotesSlideHeaderFooterAsync(PutNotesSlideHeaderFooterRequest request, final ApiCallback<NotesSlideHeaderFooter> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putNotesSlideHeaderFooterCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<NotesSlideHeaderFooter>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
@@ -17897,6 +19048,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'name' when calling putPresentationMerge(Async)");
         }
         
+        // verify the required parameter 'request' is set
+        if (request.getRequest() == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling putPresentationMerge(Async)");
+        }
+        
         Object postBody = request.getRequest();
 
         // create path and map variables
@@ -18003,6 +19159,262 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for putSection
+     * @param request Request for putSection. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putSectionCall(PutSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putSection(Async)");
+        }
+        
+        // verify the required parameter 'sectionIndex' is set
+        if (request.getSectionIndex() == null) {
+            throw new ApiException("Missing the required parameter 'sectionIndex' when calling putSection(Async)");
+        }
+        
+        // verify the required parameter 'sectionName' is set
+        if (request.getSectionName() == null) {
+            throw new ApiException("Missing the required parameter 'sectionName' when calling putSection(Async)");
+        }
+        
+        Object postBody = null;
+
+        // create path and map variables
+        String path = "/slides/{name}/sections/{sectionIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.objectToString(request.getSectionIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "sectionName", request.getSectionName());
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Update section name.
+     * 
+     * @param request Request for putSection. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections putSection(PutSectionRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = putSectionWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = putSectionWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Update section name.
+     * 
+     * @param request Request for putSection. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> putSectionWithHttpInfo(PutSectionRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putSectionCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Update section name. (asynchronously)
+     * 
+     * @param request Request for putSection. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putSectionAsync(PutSectionRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putSectionCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putSections
+     * @param request Request for putSections. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putSectionsCall(PutSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putSections(Async)");
+        }
+        
+        // verify the required parameter 'sections' is set
+        if (request.getSections() == null) {
+            throw new ApiException("Missing the required parameter 'sections' when calling putSections(Async)");
+        }
+        
+        Object postBody = request.getSections();
+
+        // create path and map variables
+        String path = "/slides/{name}/sections"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     * 
+     * @param request Request for putSections. (required)
+     * @return Sections
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sections putSections(PutSectionsRequest request) throws ApiException {
+        try {
+            ApiResponse<Sections> resp = putSectionsWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Sections> resp = putSectionsWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     * 
+     * @param request Request for putSections. (required)
+     * @return ApiResponse&lt;Sections&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sections> putSectionsWithHttpInfo(PutSectionsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putSectionsCall(request, null, null);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Replace existing presentation sections with the ones provided in the sections DTO. (asynchronously)
+     * 
+     * @param request Request for putSections. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putSectionsAsync(PutSectionsRequest request, final ApiCallback<Sections> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putSectionsCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Sections>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for putSetParagraphPortionProperties
      * @param request Request for putSetParagraphPortionProperties. (required)
      * @param progressListener Progress listener
@@ -18035,6 +19447,11 @@ public class SlidesApi {
         // verify the required parameter 'portionIndex' is set
         if (request.getPortionIndex() == null) {
             throw new ApiException("Missing the required parameter 'portionIndex' when calling putSetParagraphPortionProperties(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSetParagraphPortionProperties(Async)");
         }
         
         Object postBody = request.getDto();
@@ -18170,6 +19587,11 @@ public class SlidesApi {
         // verify the required parameter 'paragraphIndex' is set
         if (request.getParagraphIndex() == null) {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling putSetParagraphProperties(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSetParagraphProperties(Async)");
         }
         
         Object postBody = request.getDto();
@@ -18312,6 +19734,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'portionIndex' when calling putSetSubshapeParagraphPortionProperties(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSetSubshapeParagraphPortionProperties(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -18445,6 +19872,11 @@ public class SlidesApi {
         // verify the required parameter 'paragraphIndex' is set
         if (request.getParagraphIndex() == null) {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling putSetSubshapeParagraphProperties(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSetSubshapeParagraphProperties(Async)");
         }
         
         Object postBody = request.getDto();
@@ -18713,6 +20145,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSlideAnimation(Async)");
         }
         
+        // verify the required parameter 'animation' is set
+        if (request.getAnimation() == null) {
+            throw new ApiException("Missing the required parameter 'animation' when calling putSlideAnimation(Async)");
+        }
+        
         Object postBody = request.getAnimation();
 
         // create path and map variables
@@ -18841,6 +20278,11 @@ public class SlidesApi {
         // verify the required parameter 'effectIndex' is set
         if (request.getEffectIndex() == null) {
             throw new ApiException("Missing the required parameter 'effectIndex' when calling putSlideAnimationEffect(Async)");
+        }
+        
+        // verify the required parameter 'effect' is set
+        if (request.getEffect() == null) {
+            throw new ApiException("Missing the required parameter 'effect' when calling putSlideAnimationEffect(Async)");
         }
         
         Object postBody = request.getEffect();
@@ -18978,6 +20420,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'effectIndex' when calling putSlideAnimationInteractiveSequenceEffect(Async)");
         }
         
+        // verify the required parameter 'effect' is set
+        if (request.getEffect() == null) {
+            throw new ApiException("Missing the required parameter 'effect' when calling putSlideAnimationInteractiveSequenceEffect(Async)");
+        }
+        
         Object postBody = request.getEffect();
 
         // create path and map variables
@@ -19080,6 +20527,136 @@ public class SlidesApi {
 
         com.squareup.okhttp.Call call = putSlideAnimationInteractiveSequenceEffectCall(request, progressListener, progressRequestListener);
         Type returnType = new TypeToken<SlideAnimation>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putSlideHeaderFooter
+     * @param request Request for putSlideHeaderFooter. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putSlideHeaderFooterCall(PutSlideHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'slideIndex' is set
+        if (request.getSlideIndex() == null) {
+            throw new ApiException("Missing the required parameter 'slideIndex' when calling putSlideHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSlideHeaderFooter(Async)");
+        }
+        
+        Object postBody = request.getDto();
+
+        // create path and map variables
+        String path = "/slides/{name}/slides/{slideIndex}/headerFooter"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName())).replaceAll("\\{" + "slideIndex" + "\\}", apiClient.objectToString(request.getSlideIndex()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Set footer the slide.
+     * 
+     * @param request Request for putSlideHeaderFooter. (required)
+     * @return HeaderFooter
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HeaderFooter putSlideHeaderFooter(PutSlideHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<HeaderFooter> resp = putSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<HeaderFooter> resp = putSlideHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Set footer the slide.
+     * 
+     * @param request Request for putSlideHeaderFooter. (required)
+     * @return ApiResponse&lt;HeaderFooter&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<HeaderFooter> putSlideHeaderFooterWithHttpInfo(PutSlideHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putSlideHeaderFooterCall(request, null, null);
+        Type returnType = new TypeToken<HeaderFooter>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Set footer the slide. (asynchronously)
+     * 
+     * @param request Request for putSlideHeaderFooter. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putSlideHeaderFooterAsync(PutSlideHeaderFooterRequest request, final ApiCallback<HeaderFooter> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putSlideHeaderFooterCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<HeaderFooter>(){}.getType();
         apiClient.executeAsync(call, returnType, callback);
         return call;
     }
@@ -19243,6 +20820,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putSlideShapeInfo(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSlideShapeInfo(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -19373,6 +20955,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putSlideSubshapeInfo(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSlideSubshapeInfo(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -19487,6 +21074,11 @@ public class SlidesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call putSlidesConvertCall(PutSlidesConvertRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling putSlidesConvert(Async)");
+        }
         
         // verify the required parameter 'format' is set
         if (request.getFormat() == null) {
@@ -19720,6 +21312,131 @@ public class SlidesApi {
         return call;
     }
     /**
+     * Build call for putSlidesHeaderFooter
+     * @param request Request for putSlidesHeaderFooter. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putSlidesHeaderFooterCall(PutSlidesHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getName() == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putSlidesHeaderFooter(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSlidesHeaderFooter(Async)");
+        }
+        
+        Object postBody = request.getDto();
+
+        // create path and map variables
+        String path = "/slides/{name}/headerFooter"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.objectToString(request.getName()));
+
+        List<Pair> queryParams = new ArrayList<Pair>();
+        apiClient.addQueryParameter(queryParams, "password", request.getPassword());
+        apiClient.addQueryParameter(queryParams, "storage", request.getStorage());
+        apiClient.addQueryParameter(queryParams, "folder", request.getFolder());
+
+        Map<String, String> headerParams = new HashMap<String, String>();
+
+        Map<String, Object> formParams = new HashMap<String, Object>();
+
+        final String[] accepts = {
+            "application/json"
+        };
+        final String accept = apiClient.selectHeaderAccept(accepts);
+        if (accept != null) headerParams.put("Accept", accept);
+
+        final String[] contentTypes = {
+            "application/json"
+        };
+        final String contentType = apiClient.selectHeaderContentType(contentTypes);
+        headerParams.put("Content-Type", contentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+        return apiClient.buildCall(path, "PUT", queryParams, postBody, headerParams, formParams, null, progressRequestListener);
+    }
+
+    /**
+     * Set footers for all slides in a presentation.
+     * 
+     * @param request Request for putSlidesHeaderFooter. (required)
+     * @return Document
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Document putSlidesHeaderFooter(PutSlidesHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<Document> resp = putSlidesHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        } catch (NeedRepeatRequestException e) {
+            ApiResponse<Document> resp = putSlidesHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+    }
+
+    /**
+     * Set footers for all slides in a presentation.
+     * 
+     * @param request Request for putSlidesHeaderFooter. (required)
+     * @return ApiResponse&lt;Document&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Document> putSlidesHeaderFooterWithHttpInfo(PutSlidesHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = putSlidesHeaderFooterCall(request, null, null);
+        Type returnType = new TypeToken<Document>(){}.getType();
+        return apiClient.execute(call, returnType);
+    }
+
+    /**
+     * Set footers for all slides in a presentation. (asynchronously)
+     * 
+     * @param request Request for putSlidesHeaderFooter. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putSlidesHeaderFooterAsync(PutSlidesHeaderFooterRequest request, final ApiCallback<Document> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putSlidesHeaderFooterCall(request, progressListener, progressRequestListener);
+        Type returnType = new TypeToken<Document>(){}.getType();
+        apiClient.executeAsync(call, returnType, callback);
+        return call;
+    }
+    /**
      * Build call for putSlidesSaveAs
      * @param request Request for putSlidesSaveAs. (required)
      * @param progressListener Progress listener
@@ -19867,6 +21584,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'propertyName' when calling putSlidesSetDocumentProperty(Async)");
         }
         
+        // verify the required parameter 'property' is set
+        if (request.getProperty() == null) {
+            throw new ApiException("Missing the required parameter 'property' when calling putSlidesSetDocumentProperty(Async)");
+        }
+        
         Object postBody = request.getProperty();
 
         // create path and map variables
@@ -19992,6 +21714,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSlidesSlide(Async)");
         }
         
+        // verify the required parameter 'slideDto' is set
+        if (request.getSlideDto() == null) {
+            throw new ApiException("Missing the required parameter 'slideDto' when calling putSlidesSlide(Async)");
+        }
+        
         Object postBody = request.getSlideDto();
 
         // create path and map variables
@@ -20115,6 +21842,11 @@ public class SlidesApi {
         // verify the required parameter 'slideIndex' is set
         if (request.getSlideIndex() == null) {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putSlidesSlideBackground(Async)");
+        }
+        
+        // verify the required parameter 'background' is set
+        if (request.getBackground() == null) {
+            throw new ApiException("Missing the required parameter 'background' when calling putSlidesSlideBackground(Async)");
         }
         
         Object postBody = request.getBackground();
@@ -20492,6 +22224,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'name' when calling putSlidesViewProperties(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putSlidesViewProperties(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -20758,6 +22495,11 @@ public class SlidesApi {
             throw new ApiException("Missing the required parameter 'slideIndex' when calling putUpdateNotesSlide(Async)");
         }
         
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putUpdateNotesSlide(Async)");
+        }
+        
         Object postBody = request.getDto();
 
         // create path and map variables
@@ -20886,6 +22628,11 @@ public class SlidesApi {
         // verify the required parameter 'shapeIndex' is set
         if (request.getShapeIndex() == null) {
             throw new ApiException("Missing the required parameter 'shapeIndex' when calling putUpdateNotesSlideShape(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putUpdateNotesSlideShape(Async)");
         }
         
         Object postBody = request.getDto();
@@ -21021,6 +22768,11 @@ public class SlidesApi {
         // verify the required parameter 'paragraphIndex' is set
         if (request.getParagraphIndex() == null) {
             throw new ApiException("Missing the required parameter 'paragraphIndex' when calling putUpdateNotesSlideShapeParagraph(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putUpdateNotesSlideShapeParagraph(Async)");
         }
         
         Object postBody = request.getDto();
@@ -21161,6 +22913,11 @@ public class SlidesApi {
         // verify the required parameter 'portionIndex' is set
         if (request.getPortionIndex() == null) {
             throw new ApiException("Missing the required parameter 'portionIndex' when calling putUpdateNotesSlideShapePortion(Async)");
+        }
+        
+        // verify the required parameter 'dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException("Missing the required parameter 'dto' when calling putUpdateNotesSlideShapePortion(Async)");
         }
         
         Object postBody = request.getDto();

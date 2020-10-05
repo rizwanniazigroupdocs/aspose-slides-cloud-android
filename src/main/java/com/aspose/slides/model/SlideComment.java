@@ -63,7 +63,6 @@ public class SlideComment {
 
   public SlideComment() {
     super();
-    setChildComments(new ArrayList<SlideComment>());
   }
 
   public SlideComment author(String author) {

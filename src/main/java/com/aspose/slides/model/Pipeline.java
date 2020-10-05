@@ -58,7 +58,6 @@ public class Pipeline {
 
   public Pipeline() {
     super();
-    setTasks(new ArrayList<Task>());
   }
 
   public Pipeline input(Input input) {

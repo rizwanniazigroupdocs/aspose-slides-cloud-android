@@ -87,7 +87,6 @@ public class ColorScheme extends ResourceBase {
 
   public ColorScheme() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public ColorScheme accent1(String accent1) {

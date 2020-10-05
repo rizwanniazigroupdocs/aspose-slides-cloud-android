@@ -238,7 +238,6 @@ public class Placeholder extends ResourceBase {
 
   public Placeholder() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public Placeholder index(Integer index) {

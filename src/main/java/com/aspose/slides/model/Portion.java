@@ -655,7 +655,6 @@ public class Portion extends ResourceBase {
 
   public Portion() {
     super();
-    setAlternateLinks(new ArrayList<ResourceUri>());
   }
 
   public Portion text(String text) {
