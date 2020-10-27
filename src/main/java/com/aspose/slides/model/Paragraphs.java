@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,21 +50,21 @@ import java.util.Map;
 @ApiModel(description = "Represents list of Links to Paragraphs resources")
 public class Paragraphs extends ResourceBase {
   @SerializedName(value = "paragraphLinks", alternate = { "ParagraphLinks" })
-  private List<ResourceUriElement> paragraphLinks = null;
+  private List<ResourceUri> paragraphLinks = null;
 
 
   public Paragraphs() {
     super();
   }
 
-  public Paragraphs paragraphLinks(List<ResourceUriElement> paragraphLinks) {
+  public Paragraphs paragraphLinks(List<ResourceUri> paragraphLinks) {
     this.paragraphLinks = paragraphLinks;
     return this;
   }
 
-  public Paragraphs addParagraphLinksItem(ResourceUriElement paragraphLinksItem) {
+  public Paragraphs addParagraphLinksItem(ResourceUri paragraphLinksItem) {
     if (this.paragraphLinks == null) {
-      this.paragraphLinks = new ArrayList<ResourceUriElement>();
+      this.paragraphLinks = new ArrayList<ResourceUri>();
     }
     this.paragraphLinks.add(paragraphLinksItem);
     return this;
@@ -76,11 +75,11 @@ public class Paragraphs extends ResourceBase {
    * @return paragraphLinks
   **/
   @ApiModelProperty(value = "List of paragraph links.")
-  public List<ResourceUriElement> getParagraphLinks() {
+  public List<ResourceUri> getParagraphLinks() {
     return paragraphLinks;
   }
 
-  public void setParagraphLinks(List<ResourceUriElement> paragraphLinks) {
+  public void setParagraphLinks(List<ResourceUri> paragraphLinks) {
     this.paragraphLinks = paragraphLinks;
   }
 

@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,29 +49,29 @@ import java.util.Map;
 @ApiModel(description = "Represents document DTO.")
 public class Document extends ResourceBase {
   @SerializedName(value = "documentProperties", alternate = { "DocumentProperties" })
-  private ResourceUriElement documentProperties;
+  private ResourceUri documentProperties;
 
   @SerializedName(value = "viewProperties", alternate = { "ViewProperties" })
-  private ResourceUriElement viewProperties;
+  private ResourceUri viewProperties;
 
   @SerializedName(value = "slides", alternate = { "Slides" })
-  private ResourceUriElement slides;
+  private ResourceUri slides;
 
   @SerializedName(value = "images", alternate = { "Images" })
-  private ResourceUriElement images;
+  private ResourceUri images;
 
   @SerializedName(value = "layoutSlides", alternate = { "LayoutSlides" })
-  private ResourceUriElement layoutSlides;
+  private ResourceUri layoutSlides;
 
   @SerializedName(value = "masterSlides", alternate = { "MasterSlides" })
-  private ResourceUriElement masterSlides;
+  private ResourceUri masterSlides;
 
 
   public Document() {
     super();
   }
 
-  public Document documentProperties(ResourceUriElement documentProperties) {
+  public Document documentProperties(ResourceUri documentProperties) {
     this.documentProperties = documentProperties;
     return this;
   }
@@ -82,15 +81,15 @@ public class Document extends ResourceBase {
    * @return documentProperties
   **/
   @ApiModelProperty(value = "Link to Document properties.")
-  public ResourceUriElement getDocumentProperties() {
+  public ResourceUri getDocumentProperties() {
     return documentProperties;
   }
 
-  public void setDocumentProperties(ResourceUriElement documentProperties) {
+  public void setDocumentProperties(ResourceUri documentProperties) {
     this.documentProperties = documentProperties;
   }
 
-  public Document viewProperties(ResourceUriElement viewProperties) {
+  public Document viewProperties(ResourceUri viewProperties) {
     this.viewProperties = viewProperties;
     return this;
   }
@@ -100,15 +99,15 @@ public class Document extends ResourceBase {
    * @return viewProperties
   **/
   @ApiModelProperty(value = "Link to Document properties.")
-  public ResourceUriElement getViewProperties() {
+  public ResourceUri getViewProperties() {
     return viewProperties;
   }
 
-  public void setViewProperties(ResourceUriElement viewProperties) {
+  public void setViewProperties(ResourceUri viewProperties) {
     this.viewProperties = viewProperties;
   }
 
-  public Document slides(ResourceUriElement slides) {
+  public Document slides(ResourceUri slides) {
     this.slides = slides;
     return this;
   }
@@ -118,15 +117,15 @@ public class Document extends ResourceBase {
    * @return slides
   **/
   @ApiModelProperty(value = "Link to slides collection.")
-  public ResourceUriElement getSlides() {
+  public ResourceUri getSlides() {
     return slides;
   }
 
-  public void setSlides(ResourceUriElement slides) {
+  public void setSlides(ResourceUri slides) {
     this.slides = slides;
   }
 
-  public Document images(ResourceUriElement images) {
+  public Document images(ResourceUri images) {
     this.images = images;
     return this;
   }
@@ -136,15 +135,15 @@ public class Document extends ResourceBase {
    * @return images
   **/
   @ApiModelProperty(value = "Link to images collection.")
-  public ResourceUriElement getImages() {
+  public ResourceUri getImages() {
     return images;
   }
 
-  public void setImages(ResourceUriElement images) {
+  public void setImages(ResourceUri images) {
     this.images = images;
   }
 
-  public Document layoutSlides(ResourceUriElement layoutSlides) {
+  public Document layoutSlides(ResourceUri layoutSlides) {
     this.layoutSlides = layoutSlides;
     return this;
   }
@@ -154,15 +153,15 @@ public class Document extends ResourceBase {
    * @return layoutSlides
   **/
   @ApiModelProperty(value = "Link to layout slides collection.")
-  public ResourceUriElement getLayoutSlides() {
+  public ResourceUri getLayoutSlides() {
     return layoutSlides;
   }
 
-  public void setLayoutSlides(ResourceUriElement layoutSlides) {
+  public void setLayoutSlides(ResourceUri layoutSlides) {
     this.layoutSlides = layoutSlides;
   }
 
-  public Document masterSlides(ResourceUriElement masterSlides) {
+  public Document masterSlides(ResourceUri masterSlides) {
     this.masterSlides = masterSlides;
     return this;
   }
@@ -172,11 +171,11 @@ public class Document extends ResourceBase {
    * @return masterSlides
   **/
   @ApiModelProperty(value = "Link to master slides collection.")
-  public ResourceUriElement getMasterSlides() {
+  public ResourceUri getMasterSlides() {
     return masterSlides;
   }
 
-  public void setMasterSlides(ResourceUriElement masterSlides) {
+  public void setMasterSlides(ResourceUri masterSlides) {
     this.masterSlides = masterSlides;
   }
 

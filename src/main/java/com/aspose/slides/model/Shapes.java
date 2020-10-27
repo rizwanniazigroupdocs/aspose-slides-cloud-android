@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,21 +50,21 @@ import java.util.Map;
 @ApiModel(description = "Represents list of Links to Shapes resources")
 public class Shapes extends ResourceBase {
   @SerializedName(value = "shapesLinks", alternate = { "ShapesLinks" })
-  private List<ResourceUriElement> shapesLinks = null;
+  private List<ResourceUri> shapesLinks = null;
 
 
   public Shapes() {
     super();
   }
 
-  public Shapes shapesLinks(List<ResourceUriElement> shapesLinks) {
+  public Shapes shapesLinks(List<ResourceUri> shapesLinks) {
     this.shapesLinks = shapesLinks;
     return this;
   }
 
-  public Shapes addShapesLinksItem(ResourceUriElement shapesLinksItem) {
+  public Shapes addShapesLinksItem(ResourceUri shapesLinksItem) {
     if (this.shapesLinks == null) {
-      this.shapesLinks = new ArrayList<ResourceUriElement>();
+      this.shapesLinks = new ArrayList<ResourceUri>();
     }
     this.shapesLinks.add(shapesLinksItem);
     return this;
@@ -76,11 +75,11 @@ public class Shapes extends ResourceBase {
    * @return shapesLinks
   **/
   @ApiModelProperty(value = "List of shape links.")
-  public List<ResourceUriElement> getShapesLinks() {
+  public List<ResourceUri> getShapesLinks() {
     return shapesLinks;
   }
 
-  public void setShapesLinks(List<ResourceUriElement> shapesLinks) {
+  public void setShapesLinks(List<ResourceUri> shapesLinks) {
     this.shapesLinks = shapesLinks;
   }
 

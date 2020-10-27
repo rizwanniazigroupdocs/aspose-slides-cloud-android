@@ -33,7 +33,6 @@ import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.GeometryShape;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

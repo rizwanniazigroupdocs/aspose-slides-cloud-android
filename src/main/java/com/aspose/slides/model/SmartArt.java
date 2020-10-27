@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.SmartArtNode;
 import com.google.gson.TypeAdapter;
@@ -578,7 +577,6 @@ public class SmartArt extends ShapeBase {
   public SmartArt() {
     super();
     setType(TypeEnum.SMARTART);
-    setShapeType(ShapeTypeEnum.DIAGRAM);
   }
 
   public SmartArt layout(LayoutEnum layout) {
@@ -729,8 +727,5 @@ public class SmartArt extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.SMARTART);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.DIAGRAM);
   }
 }

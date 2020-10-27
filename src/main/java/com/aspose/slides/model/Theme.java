@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,13 +52,13 @@ public class Theme extends ResourceBase {
   private String name;
 
   @SerializedName(value = "colorScheme", alternate = { "ColorScheme" })
-  private ResourceUriElement colorScheme;
+  private ResourceUri colorScheme;
 
   @SerializedName(value = "fontScheme", alternate = { "FontScheme" })
-  private ResourceUriElement fontScheme;
+  private ResourceUri fontScheme;
 
   @SerializedName(value = "formatScheme", alternate = { "FormatScheme" })
-  private ResourceUriElement formatScheme;
+  private ResourceUri formatScheme;
 
 
   public Theme() {
@@ -84,7 +83,7 @@ public class Theme extends ResourceBase {
     this.name = name;
   }
 
-  public Theme colorScheme(ResourceUriElement colorScheme) {
+  public Theme colorScheme(ResourceUri colorScheme) {
     this.colorScheme = colorScheme;
     return this;
   }
@@ -94,15 +93,15 @@ public class Theme extends ResourceBase {
    * @return colorScheme
   **/
   @ApiModelProperty(value = "Color scheme.")
-  public ResourceUriElement getColorScheme() {
+  public ResourceUri getColorScheme() {
     return colorScheme;
   }
 
-  public void setColorScheme(ResourceUriElement colorScheme) {
+  public void setColorScheme(ResourceUri colorScheme) {
     this.colorScheme = colorScheme;
   }
 
-  public Theme fontScheme(ResourceUriElement fontScheme) {
+  public Theme fontScheme(ResourceUri fontScheme) {
     this.fontScheme = fontScheme;
     return this;
   }
@@ -112,15 +111,15 @@ public class Theme extends ResourceBase {
    * @return fontScheme
   **/
   @ApiModelProperty(value = "Font scheme.")
-  public ResourceUriElement getFontScheme() {
+  public ResourceUri getFontScheme() {
     return fontScheme;
   }
 
-  public void setFontScheme(ResourceUriElement fontScheme) {
+  public void setFontScheme(ResourceUri fontScheme) {
     this.fontScheme = fontScheme;
   }
 
-  public Theme formatScheme(ResourceUriElement formatScheme) {
+  public Theme formatScheme(ResourceUri formatScheme) {
     this.formatScheme = formatScheme;
     return this;
   }
@@ -130,11 +129,11 @@ public class Theme extends ResourceBase {
    * @return formatScheme
   **/
   @ApiModelProperty(value = "Format scheme.")
-  public ResourceUriElement getFormatScheme() {
+  public ResourceUri getFormatScheme() {
     return formatScheme;
   }
 
-  public void setFormatScheme(ResourceUriElement formatScheme) {
+  public void setFormatScheme(ResourceUri formatScheme) {
     this.formatScheme = formatScheme;
   }
 

@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,28 +58,28 @@ public class Slide extends ResourceBase {
   private Boolean showMasterShapes;
 
   @SerializedName(value = "layoutSlide", alternate = { "LayoutSlide" })
-  private ResourceUriElement layoutSlide;
+  private ResourceUri layoutSlide;
 
   @SerializedName(value = "shapes", alternate = { "Shapes" })
-  private ResourceUriElement shapes;
+  private ResourceUri shapes;
 
   @SerializedName(value = "theme", alternate = { "Theme" })
-  private ResourceUriElement theme;
+  private ResourceUri theme;
 
   @SerializedName(value = "placeholders", alternate = { "Placeholders" })
-  private ResourceUriElement placeholders;
+  private ResourceUri placeholders;
 
   @SerializedName(value = "images", alternate = { "Images" })
-  private ResourceUriElement images;
+  private ResourceUri images;
 
   @SerializedName(value = "comments", alternate = { "Comments" })
-  private ResourceUriElement comments;
+  private ResourceUri comments;
 
   @SerializedName(value = "background", alternate = { "Background" })
-  private ResourceUriElement background;
+  private ResourceUri background;
 
   @SerializedName(value = "notesSlide", alternate = { "NotesSlide" })
-  private ResourceUriElement notesSlide;
+  private ResourceUri notesSlide;
 
 
   public Slide() {
@@ -141,7 +140,7 @@ public class Slide extends ResourceBase {
     this.showMasterShapes = showMasterShapes;
   }
 
-  public Slide layoutSlide(ResourceUriElement layoutSlide) {
+  public Slide layoutSlide(ResourceUri layoutSlide) {
     this.layoutSlide = layoutSlide;
     return this;
   }
@@ -151,15 +150,15 @@ public class Slide extends ResourceBase {
    * @return layoutSlide
   **/
   @ApiModelProperty(value = "Gets or sets the  link to the layout slide.")
-  public ResourceUriElement getLayoutSlide() {
+  public ResourceUri getLayoutSlide() {
     return layoutSlide;
   }
 
-  public void setLayoutSlide(ResourceUriElement layoutSlide) {
+  public void setLayoutSlide(ResourceUri layoutSlide) {
     this.layoutSlide = layoutSlide;
   }
 
-  public Slide shapes(ResourceUriElement shapes) {
+  public Slide shapes(ResourceUri shapes) {
     this.shapes = shapes;
     return this;
   }
@@ -169,15 +168,15 @@ public class Slide extends ResourceBase {
    * @return shapes
   **/
   @ApiModelProperty(value = "Gets or sets the  link to list of top-level shapes.")
-  public ResourceUriElement getShapes() {
+  public ResourceUri getShapes() {
     return shapes;
   }
 
-  public void setShapes(ResourceUriElement shapes) {
+  public void setShapes(ResourceUri shapes) {
     this.shapes = shapes;
   }
 
-  public Slide theme(ResourceUriElement theme) {
+  public Slide theme(ResourceUri theme) {
     this.theme = theme;
     return this;
   }
@@ -187,15 +186,15 @@ public class Slide extends ResourceBase {
    * @return theme
   **/
   @ApiModelProperty(value = "Gets or sets the link to theme.")
-  public ResourceUriElement getTheme() {
+  public ResourceUri getTheme() {
     return theme;
   }
 
-  public void setTheme(ResourceUriElement theme) {
+  public void setTheme(ResourceUri theme) {
     this.theme = theme;
   }
 
-  public Slide placeholders(ResourceUriElement placeholders) {
+  public Slide placeholders(ResourceUri placeholders) {
     this.placeholders = placeholders;
     return this;
   }
@@ -205,15 +204,15 @@ public class Slide extends ResourceBase {
    * @return placeholders
   **/
   @ApiModelProperty(value = "Gets or sets the  link to placeholders.")
-  public ResourceUriElement getPlaceholders() {
+  public ResourceUri getPlaceholders() {
     return placeholders;
   }
 
-  public void setPlaceholders(ResourceUriElement placeholders) {
+  public void setPlaceholders(ResourceUri placeholders) {
     this.placeholders = placeholders;
   }
 
-  public Slide images(ResourceUriElement images) {
+  public Slide images(ResourceUri images) {
     this.images = images;
     return this;
   }
@@ -223,15 +222,15 @@ public class Slide extends ResourceBase {
    * @return images
   **/
   @ApiModelProperty(value = "Gets or sets the link to images.")
-  public ResourceUriElement getImages() {
+  public ResourceUri getImages() {
     return images;
   }
 
-  public void setImages(ResourceUriElement images) {
+  public void setImages(ResourceUri images) {
     this.images = images;
   }
 
-  public Slide comments(ResourceUriElement comments) {
+  public Slide comments(ResourceUri comments) {
     this.comments = comments;
     return this;
   }
@@ -241,15 +240,15 @@ public class Slide extends ResourceBase {
    * @return comments
   **/
   @ApiModelProperty(value = "Gets or sets the link to comments.")
-  public ResourceUriElement getComments() {
+  public ResourceUri getComments() {
     return comments;
   }
 
-  public void setComments(ResourceUriElement comments) {
+  public void setComments(ResourceUri comments) {
     this.comments = comments;
   }
 
-  public Slide background(ResourceUriElement background) {
+  public Slide background(ResourceUri background) {
     this.background = background;
     return this;
   }
@@ -259,15 +258,15 @@ public class Slide extends ResourceBase {
    * @return background
   **/
   @ApiModelProperty(value = "Get or sets the link to slide's background")
-  public ResourceUriElement getBackground() {
+  public ResourceUri getBackground() {
     return background;
   }
 
-  public void setBackground(ResourceUriElement background) {
+  public void setBackground(ResourceUri background) {
     this.background = background;
   }
 
-  public Slide notesSlide(ResourceUriElement notesSlide) {
+  public Slide notesSlide(ResourceUri notesSlide) {
     this.notesSlide = notesSlide;
     return this;
   }
@@ -277,11 +276,11 @@ public class Slide extends ResourceBase {
    * @return notesSlide
   **/
   @ApiModelProperty(value = "Get or sets the link to notes slide.")
-  public ResourceUriElement getNotesSlide() {
+  public ResourceUri getNotesSlide() {
     return notesSlide;
   }
 
-  public void setNotesSlide(ResourceUriElement notesSlide) {
+  public void setNotesSlide(ResourceUri notesSlide) {
     this.notesSlide = notesSlide;
   }
 

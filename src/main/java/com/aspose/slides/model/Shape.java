@@ -33,7 +33,6 @@ import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.GeometryShape;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,7 +55,7 @@ public class Shape extends GeometryShape {
   private String text;
 
   @SerializedName(value = "paragraphs", alternate = { "Paragraphs" })
-  private ResourceUriElement paragraphs;
+  private ResourceUri paragraphs;
 
 
   public Shape() {
@@ -82,7 +81,7 @@ public class Shape extends GeometryShape {
     this.text = text;
   }
 
-  public Shape paragraphs(ResourceUriElement paragraphs) {
+  public Shape paragraphs(ResourceUri paragraphs) {
     this.paragraphs = paragraphs;
     return this;
   }
@@ -92,11 +91,11 @@ public class Shape extends GeometryShape {
    * @return paragraphs
   **/
   @ApiModelProperty(value = "Get or sets list to paragraphs list")
-  public ResourceUriElement getParagraphs() {
+  public ResourceUri getParagraphs() {
     return paragraphs;
   }
 
-  public void setParagraphs(ResourceUriElement paragraphs) {
+  public void setParagraphs(ResourceUri paragraphs) {
     this.paragraphs = paragraphs;
   }
 

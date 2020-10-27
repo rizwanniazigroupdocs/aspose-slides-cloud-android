@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -233,7 +232,7 @@ public class Placeholder extends ResourceBase {
   private TypeEnum type;
 
   @SerializedName(value = "shape", alternate = { "Shape" })
-  private ResourceUriElement shape;
+  private ResourceUri shape;
 
 
   public Placeholder() {
@@ -312,7 +311,7 @@ public class Placeholder extends ResourceBase {
     this.type = type;
   }
 
-  public Placeholder shape(ResourceUriElement shape) {
+  public Placeholder shape(ResourceUri shape) {
     this.shape = shape;
     return this;
   }
@@ -322,11 +321,11 @@ public class Placeholder extends ResourceBase {
    * @return shape
   **/
   @ApiModelProperty(value = "Shape link.")
-  public ResourceUriElement getShape() {
+  public ResourceUri getShape() {
     return shape;
   }
 
-  public void setShape(ResourceUriElement shape) {
+  public void setShape(ResourceUri shape) {
     this.shape = shape;
   }
 

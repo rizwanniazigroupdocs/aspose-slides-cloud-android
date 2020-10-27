@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,10 +53,10 @@ public class MasterSlide extends ResourceBase {
   private String name;
 
   @SerializedName(value = "layoutSlides", alternate = { "LayoutSlides" })
-  private List<ResourceUriElement> layoutSlides = null;
+  private List<ResourceUri> layoutSlides = null;
 
   @SerializedName(value = "dependingSlides", alternate = { "DependingSlides" })
-  private List<ResourceUriElement> dependingSlides = null;
+  private List<ResourceUri> dependingSlides = null;
 
 
   public MasterSlide() {
@@ -82,14 +81,14 @@ public class MasterSlide extends ResourceBase {
     this.name = name;
   }
 
-  public MasterSlide layoutSlides(List<ResourceUriElement> layoutSlides) {
+  public MasterSlide layoutSlides(List<ResourceUri> layoutSlides) {
     this.layoutSlides = layoutSlides;
     return this;
   }
 
-  public MasterSlide addLayoutSlidesItem(ResourceUriElement layoutSlidesItem) {
+  public MasterSlide addLayoutSlidesItem(ResourceUri layoutSlidesItem) {
     if (this.layoutSlides == null) {
-      this.layoutSlides = new ArrayList<ResourceUriElement>();
+      this.layoutSlides = new ArrayList<ResourceUri>();
     }
     this.layoutSlides.add(layoutSlidesItem);
     return this;
@@ -100,22 +99,22 @@ public class MasterSlide extends ResourceBase {
    * @return layoutSlides
   **/
   @ApiModelProperty(value = "List of layout slide links.")
-  public List<ResourceUriElement> getLayoutSlides() {
+  public List<ResourceUri> getLayoutSlides() {
     return layoutSlides;
   }
 
-  public void setLayoutSlides(List<ResourceUriElement> layoutSlides) {
+  public void setLayoutSlides(List<ResourceUri> layoutSlides) {
     this.layoutSlides = layoutSlides;
   }
 
-  public MasterSlide dependingSlides(List<ResourceUriElement> dependingSlides) {
+  public MasterSlide dependingSlides(List<ResourceUri> dependingSlides) {
     this.dependingSlides = dependingSlides;
     return this;
   }
 
-  public MasterSlide addDependingSlidesItem(ResourceUriElement dependingSlidesItem) {
+  public MasterSlide addDependingSlidesItem(ResourceUri dependingSlidesItem) {
     if (this.dependingSlides == null) {
-      this.dependingSlides = new ArrayList<ResourceUriElement>();
+      this.dependingSlides = new ArrayList<ResourceUri>();
     }
     this.dependingSlides.add(dependingSlidesItem);
     return this;
@@ -126,11 +125,11 @@ public class MasterSlide extends ResourceBase {
    * @return dependingSlides
   **/
   @ApiModelProperty(value = "List of depending slide links.")
-  public List<ResourceUriElement> getDependingSlides() {
+  public List<ResourceUri> getDependingSlides() {
     return dependingSlides;
   }
 
-  public void setDependingSlides(List<ResourceUriElement> dependingSlides) {
+  public void setDependingSlides(List<ResourceUri> dependingSlides) {
     this.dependingSlides = dependingSlides;
   }
 

@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -56,7 +55,6 @@ public class GraphicalObject extends ShapeBase {
   public GraphicalObject() {
     super();
     setType(TypeEnum.GRAPHICALOBJECT);
-    setShapeType(ShapeTypeEnum.GRAPHICALOBJECT);
   }
 
 
@@ -104,8 +102,5 @@ public class GraphicalObject extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.GRAPHICALOBJECT);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.GRAPHICALOBJECT);
   }
 }

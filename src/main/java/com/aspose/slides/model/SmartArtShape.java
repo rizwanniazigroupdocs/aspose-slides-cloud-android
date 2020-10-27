@@ -30,10 +30,9 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
+import com.aspose.slides.model.GeometryShape;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
-import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,12 +50,11 @@ import java.util.Map;
  * Represents SmartArt resource.
  */
 @ApiModel(description = "Represents SmartArt resource.")
-public class SmartArtShape extends ShapeBase {
+public class SmartArtShape extends GeometryShape {
 
   public SmartArtShape() {
     super();
     setType(TypeEnum.SMARTARTSHAPE);
-    setShapeType(ShapeTypeEnum.CUSTOM);
   }
 
 
@@ -104,8 +102,5 @@ public class SmartArtShape extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.SMARTARTSHAPE);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.CUSTOM);
   }
 }

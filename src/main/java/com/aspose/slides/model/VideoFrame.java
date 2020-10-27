@@ -33,7 +33,6 @@ import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.GeometryShape;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -181,7 +180,6 @@ public class VideoFrame extends GeometryShape {
   public VideoFrame() {
     super();
     setType(TypeEnum.VIDEOFRAME);
-    setShapeType(ShapeTypeEnum.VIDEOFRAME);
   }
 
   public VideoFrame fullScreenMode(Boolean fullScreenMode) {
@@ -362,8 +360,5 @@ public class VideoFrame extends GeometryShape {
 
   static {
       typeDeterminers.put("Type", TypeEnum.VIDEOFRAME);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.VIDEOFRAME);
   }
 }

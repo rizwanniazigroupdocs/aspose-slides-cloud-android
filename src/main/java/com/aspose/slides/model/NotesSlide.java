@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,7 +52,7 @@ public class NotesSlide extends ResourceBase {
   private String text;
 
   @SerializedName(value = "shapes", alternate = { "Shapes" })
-  private ResourceUriElement shapes;
+  private ResourceUri shapes;
 
 
   public NotesSlide() {
@@ -78,7 +77,7 @@ public class NotesSlide extends ResourceBase {
     this.text = text;
   }
 
-  public NotesSlide shapes(ResourceUriElement shapes) {
+  public NotesSlide shapes(ResourceUri shapes) {
     this.shapes = shapes;
     return this;
   }
@@ -88,11 +87,11 @@ public class NotesSlide extends ResourceBase {
    * @return shapes
   **/
   @ApiModelProperty(value = "Get or sets the  link to list notes slide shapes.")
-  public ResourceUriElement getShapes() {
+  public ResourceUri getShapes() {
     return shapes;
   }
 
-  public void setShapes(ResourceUriElement shapes) {
+  public void setShapes(ResourceUri shapes) {
     this.shapes = shapes;
   }
 

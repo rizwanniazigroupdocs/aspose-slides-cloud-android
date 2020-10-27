@@ -38,7 +38,6 @@ import com.aspose.slides.model.Legend;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.PlotArea;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.Series;
 import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
@@ -302,7 +301,6 @@ public class Chart extends ShapeBase {
   public Chart() {
     super();
     setType(TypeEnum.CHART);
-    setShapeType(ShapeTypeEnum.CHART);
   }
 
   public Chart chartType(ChartTypeEnum chartType) {
@@ -575,8 +573,5 @@ public class Chart extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.CHART);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.CHART);
   }
 }

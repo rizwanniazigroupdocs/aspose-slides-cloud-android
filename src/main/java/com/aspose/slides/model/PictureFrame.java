@@ -34,7 +34,6 @@ import com.aspose.slides.model.GeometryShape;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.PictureFill;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,7 +59,6 @@ public class PictureFrame extends GeometryShape {
   public PictureFrame() {
     super();
     setType(TypeEnum.PICTUREFRAME);
-    setShapeType(ShapeTypeEnum.PICTUREFRAME);
   }
 
   public PictureFrame pictureFillFormat(PictureFill pictureFillFormat) {
@@ -127,8 +125,5 @@ public class PictureFrame extends GeometryShape {
 
   static {
       typeDeterminers.put("Type", TypeEnum.PICTUREFRAME);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.PICTUREFRAME);
   }
 }

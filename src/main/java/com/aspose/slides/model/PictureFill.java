@@ -29,7 +29,7 @@ package com.aspose.slides.model;
 
 import java.util.Objects;
 import com.aspose.slides.model.FillFormat;
-import com.aspose.slides.model.ResourceUriElement;
+import com.aspose.slides.model.ResourceUri;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,7 +63,7 @@ public class PictureFill extends FillFormat {
   private Integer dpi;
 
   @SerializedName(value = "image", alternate = { "Image" })
-  private ResourceUriElement image;
+  private ResourceUri image;
 
   @SerializedName(value = "base64Data", alternate = { "Base64Data" })
   private String base64Data;
@@ -217,7 +217,7 @@ public class PictureFill extends FillFormat {
     this.dpi = dpi;
   }
 
-  public PictureFill image(ResourceUriElement image) {
+  public PictureFill image(ResourceUri image) {
     this.image = image;
     return this;
   }
@@ -227,11 +227,11 @@ public class PictureFill extends FillFormat {
    * @return image
   **/
   @ApiModelProperty(value = "Internal image link.")
-  public ResourceUriElement getImage() {
+  public ResourceUri getImage() {
     return image;
   }
 
-  public void setImage(ResourceUriElement image) {
+  public void setImage(ResourceUri image) {
     this.image = image;
   }
 

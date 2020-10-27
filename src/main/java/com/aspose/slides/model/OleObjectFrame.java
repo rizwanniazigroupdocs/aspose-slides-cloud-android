@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -62,7 +61,6 @@ public class OleObjectFrame extends ShapeBase {
   public OleObjectFrame() {
     super();
     setType(TypeEnum.OLEOBJECTFRAME);
-    setShapeType(ShapeTypeEnum.OLEOBJECTFRAME);
   }
 
   public OleObjectFrame isObjectIcon(Boolean isObjectIcon) {
@@ -148,8 +146,5 @@ public class OleObjectFrame extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.OLEOBJECTFRAME);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.OLEOBJECTFRAME);
   }
 }

@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -56,7 +55,6 @@ public class GroupShape extends ShapeBase {
   public GroupShape() {
     super();
     setType(TypeEnum.GROUPSHAPE);
-    setShapeType(ShapeTypeEnum.GROUPSHAPE);
   }
 
 
@@ -104,8 +102,5 @@ public class GroupShape extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.GROUPSHAPE);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.GROUPSHAPE);
   }
 }

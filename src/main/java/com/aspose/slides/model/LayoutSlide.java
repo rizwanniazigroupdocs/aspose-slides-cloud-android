@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -172,10 +171,10 @@ public class LayoutSlide extends ResourceBase {
   private TypeEnum type;
 
   @SerializedName(value = "masterSlide", alternate = { "MasterSlide" })
-  private ResourceUriElement masterSlide;
+  private ResourceUri masterSlide;
 
   @SerializedName(value = "dependingSlides", alternate = { "DependingSlides" })
-  private List<ResourceUriElement> dependingSlides = null;
+  private List<ResourceUri> dependingSlides = null;
 
 
   public LayoutSlide() {
@@ -218,7 +217,7 @@ public class LayoutSlide extends ResourceBase {
     this.type = type;
   }
 
-  public LayoutSlide masterSlide(ResourceUriElement masterSlide) {
+  public LayoutSlide masterSlide(ResourceUri masterSlide) {
     this.masterSlide = masterSlide;
     return this;
   }
@@ -228,22 +227,22 @@ public class LayoutSlide extends ResourceBase {
    * @return masterSlide
   **/
   @ApiModelProperty(value = "Master slide link.")
-  public ResourceUriElement getMasterSlide() {
+  public ResourceUri getMasterSlide() {
     return masterSlide;
   }
 
-  public void setMasterSlide(ResourceUriElement masterSlide) {
+  public void setMasterSlide(ResourceUri masterSlide) {
     this.masterSlide = masterSlide;
   }
 
-  public LayoutSlide dependingSlides(List<ResourceUriElement> dependingSlides) {
+  public LayoutSlide dependingSlides(List<ResourceUri> dependingSlides) {
     this.dependingSlides = dependingSlides;
     return this;
   }
 
-  public LayoutSlide addDependingSlidesItem(ResourceUriElement dependingSlidesItem) {
+  public LayoutSlide addDependingSlidesItem(ResourceUri dependingSlidesItem) {
     if (this.dependingSlides == null) {
-      this.dependingSlides = new ArrayList<ResourceUriElement>();
+      this.dependingSlides = new ArrayList<ResourceUri>();
     }
     this.dependingSlides.add(dependingSlidesItem);
     return this;
@@ -254,11 +253,11 @@ public class LayoutSlide extends ResourceBase {
    * @return dependingSlides
   **/
   @ApiModelProperty(value = "List of depending slides.")
-  public List<ResourceUriElement> getDependingSlides() {
+  public List<ResourceUri> getDependingSlides() {
     return dependingSlides;
   }
 
-  public void setDependingSlides(List<ResourceUriElement> dependingSlides) {
+  public void setDependingSlides(List<ResourceUri> dependingSlides) {
     this.dependingSlides = dependingSlides;
   }
 

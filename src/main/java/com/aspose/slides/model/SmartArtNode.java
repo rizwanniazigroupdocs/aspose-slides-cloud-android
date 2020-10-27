@@ -28,7 +28,7 @@
 package com.aspose.slides.model;
 
 import java.util.Objects;
-import com.aspose.slides.model.ResourceUriElement;
+import com.aspose.slides.model.ResourceUri;
 import com.aspose.slides.model.SmartArtNode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -53,7 +53,7 @@ public class SmartArtNode {
   private List<SmartArtNode> nodes = null;
 
   @SerializedName(value = "shapes", alternate = { "Shapes" })
-  private ResourceUriElement shapes;
+  private ResourceUri shapes;
 
   @SerializedName(value = "isAssistant", alternate = { "IsAssistant" })
   private Boolean isAssistant;
@@ -148,7 +148,7 @@ public class SmartArtNode {
     this.nodes = nodes;
   }
 
-  public SmartArtNode shapes(ResourceUriElement shapes) {
+  public SmartArtNode shapes(ResourceUri shapes) {
     this.shapes = shapes;
     return this;
   }
@@ -158,11 +158,11 @@ public class SmartArtNode {
    * @return shapes
   **/
   @ApiModelProperty(value = "Gets or sets the link to shapes.")
-  public ResourceUriElement getShapes() {
+  public ResourceUri getShapes() {
     return shapes;
   }
 
-  public void setShapes(ResourceUriElement shapes) {
+  public void setShapes(ResourceUri shapes) {
     this.shapes = shapes;
   }
 

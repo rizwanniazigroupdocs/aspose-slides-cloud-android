@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.aspose.slides.model.TableColumn;
 import com.aspose.slides.model.TableRow;
@@ -284,7 +283,6 @@ public class Table extends ShapeBase {
   public Table() {
     super();
     setType(TypeEnum.TABLE);
-    setShapeType(ShapeTypeEnum.TABLE);
   }
 
   public Table style(StyleEnum style) {
@@ -538,8 +536,5 @@ public class Table extends ShapeBase {
 
   static {
       typeDeterminers.put("Type", TypeEnum.TABLE);
-  }
-  static {
-      typeDeterminers.put("ShapeType", ShapeTypeEnum.TABLE);
   }
 }

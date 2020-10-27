@@ -32,7 +32,6 @@ import com.aspose.slides.model.EffectFormat;
 import com.aspose.slides.model.FillFormat;
 import com.aspose.slides.model.LineFormat;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.ShapeBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -53,10 +52,10 @@ import java.util.Map;
 @ApiModel(description = "Represents GeometryShape resource.")
 public class GeometryShape extends ShapeBase {
   /**
-   * Geometry shape type.
+   * Combined shape type.
    */
-  @JsonAdapter(GeometryShapeTypeEnum.Adapter.class)
-  public enum GeometryShapeTypeEnum {
+  @JsonAdapter(ShapeTypeEnum.Adapter.class)
+  public enum ShapeTypeEnum {
     CUSTOM("Custom"),
     
     LINE("Line"),
@@ -437,7 +436,7 @@ public class GeometryShape extends ShapeBase {
 
     private String value;
 
-    GeometryShapeTypeEnum(String value) {
+    ShapeTypeEnum(String value) {
       this.value = value;
     }
 
@@ -450,8 +449,8 @@ public class GeometryShape extends ShapeBase {
       return String.valueOf(value);
     }
 
-    public static GeometryShapeTypeEnum fromValue(String text) {
-      for (GeometryShapeTypeEnum b : GeometryShapeTypeEnum.values()) {
+    public static ShapeTypeEnum fromValue(String text) {
+      for (ShapeTypeEnum b : ShapeTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -459,44 +458,44 @@ public class GeometryShape extends ShapeBase {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<GeometryShapeTypeEnum> {
+    public static class Adapter extends TypeAdapter<ShapeTypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final GeometryShapeTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final ShapeTypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public GeometryShapeTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public ShapeTypeEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return GeometryShapeTypeEnum.fromValue(String.valueOf(value));
+        return ShapeTypeEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName(value = "geometryShapeType", alternate = { "GeometryShapeType" })
-  private GeometryShapeTypeEnum geometryShapeType;
+  @SerializedName(value = "shapeType", alternate = { "ShapeType" })
+  private ShapeTypeEnum shapeType;
 
 
   public GeometryShape() {
     super();
   }
 
-  public GeometryShape geometryShapeType(GeometryShapeTypeEnum geometryShapeType) {
-    this.geometryShapeType = geometryShapeType;
+  public GeometryShape shapeType(ShapeTypeEnum shapeType) {
+    this.shapeType = shapeType;
     return this;
   }
 
    /**
-   * Geometry shape type.
-   * @return geometryShapeType
+   * Combined shape type.
+   * @return shapeType
   **/
-  @ApiModelProperty(required = true, value = "Geometry shape type.")
-  public GeometryShapeTypeEnum getGeometryShapeType() {
-    return geometryShapeType;
+  @ApiModelProperty(required = true, value = "Combined shape type.")
+  public ShapeTypeEnum getShapeType() {
+    return shapeType;
   }
 
-  public void setGeometryShapeType(GeometryShapeTypeEnum geometryShapeType) {
-    this.geometryShapeType = geometryShapeType;
+  public void setShapeType(ShapeTypeEnum shapeType) {
+    this.shapeType = shapeType;
   }
 
 
@@ -509,12 +508,12 @@ public class GeometryShape extends ShapeBase {
       return false;
     }
     GeometryShape geometryShape = (GeometryShape) o;
-    return true && Objects.equals(this.geometryShapeType, geometryShape.geometryShapeType) && super.equals(o);
+    return true && Objects.equals(this.shapeType, geometryShape.shapeType) && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(geometryShapeType, super.hashCode());
+    return Objects.hash(shapeType, super.hashCode());
   }
 
 
@@ -523,7 +522,7 @@ public class GeometryShape extends ShapeBase {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeometryShape {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    geometryShapeType: ").append(toIndentedString(geometryShapeType)).append("\n");
+    sb.append("    shapeType: ").append(toIndentedString(shapeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

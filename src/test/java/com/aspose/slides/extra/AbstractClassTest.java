@@ -27,7 +27,6 @@
 
 package com.aspose.slides.extra;
 
-import com.aspose.slides.api.SlidesApi;
 import com.aspose.slides.ApiException;
 import org.junit.Test;
 
@@ -71,6 +70,5 @@ public class AbstractClassTest extends ApiTest {
     public void chartTest() throws ApiException {
         Chart chart = new Chart();
         assertTrue(chart.getType().equals(Chart.TypeEnum.CHART));
-        assertTrue(chart.getShapeType().equals(Chart.ShapeTypeEnum.CHART));
     }
 }

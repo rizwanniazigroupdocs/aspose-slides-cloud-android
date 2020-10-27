@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,21 +50,21 @@ import java.util.Map;
 @ApiModel(description = "Master slide list.")
 public class MasterSlides extends ResourceBase {
   @SerializedName(value = "slideList", alternate = { "SlideList" })
-  private List<ResourceUriElement> slideList = null;
+  private List<ResourceUri> slideList = null;
 
 
   public MasterSlides() {
     super();
   }
 
-  public MasterSlides slideList(List<ResourceUriElement> slideList) {
+  public MasterSlides slideList(List<ResourceUri> slideList) {
     this.slideList = slideList;
     return this;
   }
 
-  public MasterSlides addSlideListItem(ResourceUriElement slideListItem) {
+  public MasterSlides addSlideListItem(ResourceUri slideListItem) {
     if (this.slideList == null) {
-      this.slideList = new ArrayList<ResourceUriElement>();
+      this.slideList = new ArrayList<ResourceUri>();
     }
     this.slideList.add(slideListItem);
     return this;
@@ -76,11 +75,11 @@ public class MasterSlides extends ResourceBase {
    * @return slideList
   **/
   @ApiModelProperty(value = "List of slide links.")
-  public List<ResourceUriElement> getSlideList() {
+  public List<ResourceUri> getSlideList() {
     return slideList;
   }
 
-  public void setSlideList(List<ResourceUriElement> slideList) {
+  public void setSlideList(List<ResourceUri> slideList) {
     this.slideList = slideList;
   }
 

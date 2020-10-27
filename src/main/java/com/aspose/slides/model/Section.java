@@ -30,7 +30,6 @@ package com.aspose.slides.model;
 import java.util.Objects;
 import com.aspose.slides.model.ResourceBase;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,7 +56,7 @@ public class Section extends ResourceBase {
   private Integer firstSlideIndex;
 
   @SerializedName(value = "slideList", alternate = { "SlideList" })
-  private List<ResourceUriElement> slideList = null;
+  private List<ResourceUri> slideList = null;
 
 
   public Section() {
@@ -100,14 +99,14 @@ public class Section extends ResourceBase {
     this.firstSlideIndex = firstSlideIndex;
   }
 
-  public Section slideList(List<ResourceUriElement> slideList) {
+  public Section slideList(List<ResourceUri> slideList) {
     this.slideList = slideList;
     return this;
   }
 
-  public Section addSlideListItem(ResourceUriElement slideListItem) {
+  public Section addSlideListItem(ResourceUri slideListItem) {
     if (this.slideList == null) {
-      this.slideList = new ArrayList<ResourceUriElement>();
+      this.slideList = new ArrayList<ResourceUri>();
     }
     this.slideList.add(slideListItem);
     return this;
@@ -118,11 +117,11 @@ public class Section extends ResourceBase {
    * @return slideList
   **/
   @ApiModelProperty(value = "Links to the shapes contained in the section.")
-  public List<ResourceUriElement> getSlideList() {
+  public List<ResourceUri> getSlideList() {
     return slideList;
   }
 
-  public void setSlideList(List<ResourceUriElement> slideList) {
+  public void setSlideList(List<ResourceUri> slideList) {
     this.slideList = slideList;
   }
 

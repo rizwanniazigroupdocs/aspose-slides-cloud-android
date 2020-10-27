@@ -29,7 +29,6 @@ package com.aspose.slides.model;
 
 import java.util.Objects;
 import com.aspose.slides.model.ResourceUri;
-import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.Slide;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
