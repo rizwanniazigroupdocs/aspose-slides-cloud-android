@@ -64,7 +64,7 @@ public class TimeoutTest extends ApiTest {
         config.setTimeout(1);
         initialize("postSlideSaveAs", null, null);
         PostSlideSaveAsRequest request = new PostSlideSaveAsRequest();
-        request.setName("test.ppt");
+        request.setName("test.pptx");
         request.setFolder("TempSlidesSDK");
         request.setPassword("password");
         request.setSlideIndex(1);

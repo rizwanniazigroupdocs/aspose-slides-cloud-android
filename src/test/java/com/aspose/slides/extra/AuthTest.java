@@ -84,7 +84,7 @@ public class AuthTest extends ApiTest {
         String configContents = new String(Files.readAllBytes(Paths.get("testConfig.json")), Charset.defaultCharset());
         Configuration config = new JSON().deserialize(configContents, new TypeToken<Configuration>(){}.getType());
         new SlidesApi(config).getSlidesApiInfo();
-        config.setAppKey("invalid");
+        config.setAppSid("invalid");
         new SlidesApi(config).getSlidesApiInfo();
     }
 

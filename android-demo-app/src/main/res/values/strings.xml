@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Aspose.Slides</string>
     <string name="api_url">https://api-qa.aspose.cloud</string>
-    <string name="app_sid">@my_app_sid@</string>
-    <string name="app_key">@my_app_key@</string>
+    <string name="client_id">@my_client_id@</string>
+    <string name="client_secret">@my_client_secret@</string>
     <string name="text_main_activity">Aspose.Slides Demo App</string>
     <string name="title_button_open_presentation">Open ...</string>
 </resources>

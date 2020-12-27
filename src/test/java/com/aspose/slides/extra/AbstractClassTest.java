@@ -52,7 +52,7 @@ public class AbstractClassTest extends ApiTest {
     public void shapeTest() throws ApiException, IOException {
         initialize("getSlideShape", null, null);
         GetSlideShapeRequest request = new GetSlideShapeRequest();
-        request.setName("test.ppt");
+        request.setName("test.pptx");
         request.setFolder("TempSlidesSDK");
         request.setPassword("password");
         request.setSlideIndex(1);

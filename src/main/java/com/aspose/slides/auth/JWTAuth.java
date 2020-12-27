@@ -53,10 +53,12 @@ public class JWTAuth extends Authentication {
 
     @Override
     public void updateHeaderParams(Map<String, String> headerParams) throws ApiException {
-        if (config.getAuthToken() == null) {
-            requestToken();
+        if (config.getAppSid()!= null || config.getAuthToken() != null) {
+            if (config.getAuthToken() == null) {
+                requestToken();
+            }
+            headerParams.put("Authorization", "Bearer " + config.getAuthToken());
         }
-        headerParams.put("Authorization", "Bearer " + config.getAuthToken());
     }
 
     @Override

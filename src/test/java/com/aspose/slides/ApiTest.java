@@ -77,13 +77,13 @@ public class ApiTest {
         return folderName;
     }
  
-    private final String fileName = "test.ppt";
+    private final String fileName = "test.pptx";
 
     public String getFileName() {
         return fileName;
     }
  
-    private final String changedFileName = "changedtest.ppt";
+    private final String changedFileName = "changedtest.pptx";
 
     public String getChangedFileName() {
         return changedFileName;

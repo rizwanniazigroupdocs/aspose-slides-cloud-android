@@ -40,5 +40,5 @@ allprojects {
 }
 
 jar {
-    baseName 'aspose-slides-cloud-android-20.10.0'
+    baseName 'aspose-slides-cloud-android-20.12.0'
 }

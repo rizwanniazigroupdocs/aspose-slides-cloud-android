@@ -98,8 +98,8 @@ public class SlidesApp extends Application {
             Configuration config = new Configuration();
             Resources resources = getResources();
             config.setBaseUrl(resources.getString(R.string.api_url));
-            config.setAppSid(resources.getString(R.string.app_sid));
-            config.setAppKey(resources.getString(R.string.app_key));
+            config.setAppSid(resources.getString(R.string.client_id));
+            config.setAppKey(resources.getString(R.string.client_secret));
             api = new SlidesApi(config);
         }
         return api;
