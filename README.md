@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aspose-slides-cloud/aspose-slides-cloud-android) [![GitHub license](https://img.shields.io/github/license/aspose-slides-cloud/aspose-slides-cloud-java)](https://github.com/aspose-slides-cloud/aspose-slides-cloud-java)
+![](https://img.shields.io/badge/api-v3.0-lightgrey)  [![GitHub license](https://img.shields.io/github/license/aspose-slides-cloud/aspose-slides-cloud-java)](https://github.com/aspose-slides-cloud/aspose-slides-cloud-java)
 
 # Aspose.Slides Cloud SDK for Android
 This repository contains Aspose.Slides Cloud SDK for Android source code. This SDK allows you to work with Aspose.Slides Cloud REST APIs in your Android applications.
